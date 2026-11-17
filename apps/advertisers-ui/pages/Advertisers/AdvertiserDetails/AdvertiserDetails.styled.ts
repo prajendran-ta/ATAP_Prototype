@@ -98,6 +98,7 @@ export const AdvertiserSectionLayout = styled.div`
   flex: 1;
   min-height: 0;
   gap: 24px;
+  padding-top: 20px;
 `
 
 export const AdvertiserSectionNavigation = styled.nav`
@@ -137,16 +138,20 @@ export const AdvertiserSectionContent = styled.div`
   min-width: 0;
   overflow-y: auto;
 
-  /* Add spacing below headings (first h5 or Text.H5) */
-  h5 {
+  /* Add spacing before the content */
+  > * {
     margin-top: 0;
+  }
+
+  /* Add spacing below headings */
+  h5 {
+    margin-top: 16px !important;
     margin-bottom: 16px;
   }
 
-  /* Adjust spacing for first heading to be more prominent */
-  h5:first-of-type {
+  /* Extra spacing for first heading */
+  h5:first-child {
     margin-top: 0;
-    padding-top: 0;
   }
 `
 
