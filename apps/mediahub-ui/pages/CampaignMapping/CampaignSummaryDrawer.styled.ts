@@ -1,5 +1,11 @@
 import styled from '@emotion/styled'
 import { colors } from '@amadeus/react-design-factory'
+import { AdvertiserSectionLayout } from '@mediahub/advertisers-ui/pages/Advertisers/AdvertiserDetails/AdvertiserDetails.styled'
+
+// Space between the drawer title and the tabs/content below it.
+export const SummaryLayout = styled(AdvertiserSectionLayout)`
+  padding-top: 24px;
+`
 
 export const Panel = styled.div`
   display: flex;

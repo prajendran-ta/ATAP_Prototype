@@ -18,22 +18,17 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Set up Yarn
-        run: npm install -g yarn
-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build application
-        run: yarn build
+        run: npm ci
 
       - name: Create deployment package
         run: |
           mkdir -p deploy
-          cp -r dist deploy/app || cp -r prebuilt/app deploy/app
-          cp serve.js deploy/
+          cp -r app deploy/
           cp package.json deploy/
-          cp prebuilt/README.txt deploy/ || true
+          cp package-lock.json deploy/
+          cp serve.js deploy/
+          cp web.config deploy/
           cd deploy
           zip -r ../app-deploy.zip .
 

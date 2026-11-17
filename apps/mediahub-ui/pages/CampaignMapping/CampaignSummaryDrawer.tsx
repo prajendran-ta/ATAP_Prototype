@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Drawer, Table, Tag, Text } from '@amadeus/react-design-factory'
 import {
   AdvertiserSectionContent,
-  AdvertiserSectionLayout,
   AdvertiserSectionNavigation,
   AdvertiserSectionTab,
 } from '@mediahub/advertisers-ui/pages/Advertisers/AdvertiserDetails/AdvertiserDetails.styled'
@@ -261,7 +260,7 @@ export const CampaignSummaryDrawer: React.FC<CampaignSummaryDrawerProps> = ({ ca
       onClose={onClose}
     >
       {campaign ? (
-        <AdvertiserSectionLayout data-testid='campaign-summary-drawer'>
+        <Styled.SummaryLayout data-testid='campaign-summary-drawer'>
           <AdvertiserSectionNavigation aria-label='Campaign summary sections'>
             {tabs.map(tab => (
               <AdvertiserSectionTab
@@ -282,7 +281,7 @@ export const CampaignSummaryDrawer: React.FC<CampaignSummaryDrawerProps> = ({ ca
             </Text.H5>
             {renderTab(campaign)}
           </AdvertiserSectionContent>
-        </AdvertiserSectionLayout>
+        </Styled.SummaryLayout>
       ) : null}
     </Drawer>
   )
