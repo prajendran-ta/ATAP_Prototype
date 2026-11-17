@@ -14,8 +14,8 @@ export const ConnectedAdvertiserChip = styled.div`
   gap: 6px;
   padding: 4px 12px;
   border-radius: 4px;
-  background-color: ${colors.leaf_10};
-  color: ${colors.leaf_80};
+  background-color: ${colors.sky_10};
+  color: ${colors.sky_80};
   font-size: 13px;
   font-weight: 500;
 `
@@ -137,9 +137,16 @@ export const AdvertiserSectionContent = styled.div`
   min-width: 0;
   overflow-y: auto;
 
-  /* Add spacing below the first heading in content */
-  > h5:first-of-type {
+  /* Add spacing below headings (first h5 or Text.H5) */
+  h5 {
+    margin-top: 0;
     margin-bottom: 16px;
+  }
+
+  /* Adjust spacing for first heading to be more prominent */
+  h5:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
   }
 `
 
@@ -149,8 +156,8 @@ export const AudienceEnabledTag = styled.span`
   gap: 4px;
   padding: 2px 8px;
   border-radius: 2px;
-  background-color: ${colors.leaf_10};
-  color: ${colors.leaf_80};
+  background-color: ${colors.sky_10};
+  color: ${colors.sky_80};
   font-size: 12px;
   font-weight: 500;
 `
