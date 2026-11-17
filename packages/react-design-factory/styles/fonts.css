@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-RegularItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amadeus Neue Web';
+  src: url('../assets/fonts/AmadeusNeueWeb/AmadeusNeueWeb-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

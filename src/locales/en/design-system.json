@@ -1,0 +1,26 @@
+{
+  "search": {
+    "label": "Search"
+  },
+  "sidebar": {
+    "searchPlaceholder": "Search...",
+    "noResults": "No results found"
+  },
+  "pagination": {
+    "total": "{{startItem}}–{{endItem}} of {{total}} items",
+    "itemsPerPage": "Items per page:"
+  },
+  "select": {
+    "placeholder": "Select",
+    "othersOverflow": "+{{count}} others..."
+  },
+  "carousel": {
+    "slideCaption": "Slide caption"
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  },
+  "table": {
+    "total": "{{end}} of {{total}} items"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "_comment": "Messages d'erreur, de succès et de validation destinés aux utilisateurs. Les clés sont utilisées par les appels t() du frontend et pour le mappage des chaînes d'erreur du BFF.",
+
+  "success": {
+    "notificationMarkedRead": "La notification a été marquée comme lue",
+    "notificationMarkedUnread": "La notification a été marquée comme non lue.",
+    "notificationSnoozed": "La notification a été mise en veille.",
+    "notificationUnsnoozed": "La notification a été réactivée",
+    "planSettingsSaved": "Les paramètres du plan ont été enregistrés.",
+    "obaPlanPaused": "Le plan OBA a été mis en pause.",
+    "obaPlanResumed": "Le plan OBA a été repris.",
+    "obaCampaignPaused": "Le plan OBA a été mis en pause.",
+    "obaCampaignResumed": "Le plan OBA a été repris.",
+    "groupPlanSaved": "Le plan de groupe a été enregistré avec succès",
+    "budgetDistributionSaved": "La répartition du budget a été enregistrée !",
+    "successfullyUpdated": "Mis à jour avec succès"
+  },
+
+  "error": {
+    "generic": "Une erreur s'est produite. Veuillez réessayer.",
+    "copilotConnect": "Impossible de se connecter à l'assistant. Veuillez réessayer plus tard.",
+    "copilotMessage": "Une erreur s'est produite. Veuillez réessayer.",
+    "planSettingsFailed": "L'enregistrement des paramètres du plan a échoué !",
+    "fetchDataFailed": "Erreur lors de la récupération des données",
+    "obaPlanPauseFailed": "Erreur lors de la mise en pause du plan OBA.",
+    "obaPlanResumeFailed": "Erreur lors de la reprise du plan OBA.",
+    "obaCampaignPauseFailed": "Erreur lors de la mise en pause du plan OBA.",
+    "obaCampaignResumeFailed": "Erreur lors de la reprise du plan OBA.",
+    "budgetLoadFailed": "Erreur lors du chargement des données du plan",
+    "budgetSaveFailed": "Erreur lors de l'enregistrement de la répartition du budget",
+    "groupPlanSaveFailed": "L'enregistrement du plan de groupe a échoué !",
+    "submissionFailed": "La soumission a échoué !",
+    "advertiserPlanDataMissing": "Les données du plan annonceur sont manquantes.",
+    "updateFailed": "La mise à jour a échoué"
+  },
+
+  "validation": {
+    "marginFormat": "La valeur de la marge doit être au format x,0 ou x,5",
+    "budgetLessThanSpent": "Le budget ne peut pas être inférieur aux dépenses",
+    "budgetExceedsTotal": "Le budget total alloué ne peut pas dépasser le budget total."
+  },
+
+  "permission": {
+    "readOnlyNotAllowed": "Les utilisateurs en lecture seule ne sont pas autorisés à effectuer cette action. Veuillez contacter un administrateur si vous avez besoin d'un accès.",
+    "permissionDenied": "Permission refusée",
+    "noPermissionsInContext": "Aucune permission disponible. Veuillez contacter un administrateur.",
+    "alertNotFound": "Alerte introuvable",
+    "alertNotOwned": "Vous n'êtes pas propriétaire de cette alerte",
+    "advertiserNotFollowed": "Vous ne suivez pas cet annonceur"
+  },
+
+  "auth": {
+    "unauthorized": "Non autorisé",
+    "invalidSession": "Session invalide",
+    "serviceUnavailable": "Service de gestion des utilisateurs indisponible"
+  }
+}

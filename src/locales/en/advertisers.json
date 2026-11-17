@@ -1,0 +1,33 @@
+{
+  "title": "Advertisers",
+  "tableTitle": "Advertisers Overview",
+  "columns": {
+    "following": "Following",
+    "advertiserName": "Advertiser",
+    "bpid": "BPID",
+    "advertiserType": "Advertiser Type",
+    "followedBy": "Followed By"
+  },
+  "filters": {
+    "advertiserBpid": "Advertiser",
+    "advertiserType": "Advertiser Type",
+    "followedBy": "Followed By",
+    "myAdvertisers": "My Advertisers ({{count}})",
+    "allAdvertisers": "All Advertisers ({{count}})"
+  },
+  "actions": {
+    "bulkActions": "Bulk Actions",
+    "followAll": "Follow all",
+    "unfollowAll": "Unfollow all"
+  },
+  "details": {
+    "title": "Advertiser Details",
+    "generalSettings": "General Settings",
+    "advertiserName": "Advertiser Name",
+    "bpid": "BPID",
+    "advertiserType": "Advertiser Type",
+    "configSettings": "Configuration Settings",
+    "platform": "Platform",
+    "close": "Close"
+  }
+}

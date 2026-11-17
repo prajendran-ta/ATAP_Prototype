@@ -1,0 +1,4556 @@
+{
+  "$comment": "Unified Campaign Setup Platform Field Matrix. Prototype/mock reference data: per-platform default selected value, rationale, all available values, and setup instructions for each campaign setup field. Source: 'Unified Campaign Setup Platform Field Matrix' CSV (4-column-per-platform version). supported:false means the field is not applicable on that platform (defaultValue is null).",
+  "platforms": [
+    {
+      "id": "googleAds",
+      "label": "Google Ads"
+    },
+    {
+      "id": "metaFacebook",
+      "label": "Meta/Facebook"
+    },
+    {
+      "id": "microsoftAds",
+      "label": "Microsoft Ads"
+    },
+    {
+      "id": "linkedInAds",
+      "label": "LinkedIn Ads"
+    },
+    {
+      "id": "tiktokAds",
+      "label": "TikTok Ads"
+    },
+    {
+      "id": "dv360",
+      "label": "DV360"
+    },
+    {
+      "id": "cm360",
+      "label": "CM360"
+    },
+    {
+      "id": "sa360",
+      "label": "SA360"
+    },
+    {
+      "id": "derbySoft",
+      "label": "DerbySoft"
+    },
+    {
+      "id": "wihp",
+      "label": "WIHP"
+    }
+  ],
+  "setupAreas": [
+    "Campaign",
+    "Targeting",
+    "Creative",
+    "Landing experience",
+    "Measurement",
+    "Naming"
+  ],
+  "fields": [
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Identity",
+      "field": "Campaign name",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Insertion Order / Campaign",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Insertion Order / Campaign"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Campaign name",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Campaign name"
+          ],
+          "instructions": "Enter a name using the agreed naming convention. Keep it consistent across platforms.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Objective",
+      "field": "Marketing objective",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Sales",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Sales",
+            "Leads",
+            "Website traffic",
+            "Product and brand consideration",
+            "Brand awareness and reach",
+            "App promotion",
+            "Create a campaign without guidance"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Sales",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Awareness",
+            "Traffic",
+            "Engagement",
+            "Leads",
+            "App promotion",
+            "Sales"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Sales / conversions",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Sales / conversions",
+            "Leads",
+            "Website visits",
+            "Search ads",
+            "Audience ads",
+            "App installs",
+            "Brand awareness"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Website conversions",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Brand awareness",
+            "Website visits",
+            "Engagement",
+            "Video views",
+            "Lead generation",
+            "Website conversions",
+            "Job applicants"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Awareness",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Awareness",
+            "Traffic",
+            "Video views",
+            "Community interaction",
+            "Lead generation",
+            "App promotion",
+            "Product sales"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Action / conversion",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Awareness",
+            "Consideration",
+            "Action / conversion",
+            "Custom objective"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Floodlight conversion objective",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Tracking / reporting objective",
+            "Floodlight conversion objective"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Conversion",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Conversion",
+            "Revenue",
+            "Traffic / click",
+            "Custom Floodlight objective"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Hotel booking / revenue objective",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Hotel booking / revenue objective",
+            "Visibility / traffic objective"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Hotel booking / revenue objective",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Hotel booking / revenue objective",
+            "Visibility / traffic objective"
+          ],
+          "instructions": "Choose the business outcome first. This choice controls the campaign types, optimization, and reporting options shown next.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Type",
+      "field": "Campaign type",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Search",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Search",
+            "Performance Max",
+            "Demand Gen",
+            "Display",
+            "Video",
+            "Shopping",
+            "App",
+            "Hotel",
+            "Smart",
+            "Local (legacy)",
+            "Discovery (legacy)"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Sales campaign",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Awareness",
+            "Traffic",
+            "Engagement",
+            "Leads",
+            "App promotion",
+            "Sales campaign"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Search",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Search",
+            "Performance Max",
+            "Audience",
+            "Shopping",
+            "Video",
+            "Multimedia",
+            "Hotel",
+            "App install",
+            "Dynamic Search Ads"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Single image",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Single image",
+            "Video",
+            "Carousel",
+            "Document",
+            "Conversation",
+            "Message",
+            "Text",
+            "Spotlight",
+            "Follower",
+            "Event",
+            "Lead Gen Form"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Web conversion",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Web conversion",
+            "Product sales",
+            "Lead generation",
+            "App promotion",
+            "Video views",
+            "Community interaction",
+            "Reach",
+            "Traffic"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Display",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Display",
+            "Video",
+            "YouTube & Partners",
+            "Audio",
+            "Connected TV",
+            "Native",
+            "In-app",
+            "Digital out-of-home"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Tracking / ad-serving campaign",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Standard display",
+            "Rich media",
+            "Video",
+            "Audio",
+            "Tracking / ad-serving campaign"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Search",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Search",
+            "Shopping",
+            "Hotel",
+            "Performance Max",
+            "Dynamic Search Ads"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Hotel booking campaign",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Metasearch",
+            "Display / retargeting",
+            "Hotel booking campaign"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Hotel booking campaign",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Metasearch",
+            "Display / retargeting",
+            "Hotel booking campaign"
+          ],
+          "instructions": "Select a type that supports the chosen objective, creative format, and destination. Show only compatible options in the UI.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Bidding",
+      "field": "Bid strategy",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Maximize conversions",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Maximize conversions",
+            "Target CPA",
+            "Maximize conversion value",
+            "Target ROAS",
+            "Maximize clicks",
+            "Target impression share",
+            "Viewable CPM",
+            "Manual CPC",
+            "Enhanced CPC (legacy / limited availability)",
+            "Commission (Hotel)"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Highest volume",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Highest volume",
+            "Cost per result goal",
+            "Cost cap",
+            "Bid cap",
+            "Minimum ROAS",
+            "Highest value"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Maximize conversions",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Maximize conversions",
+            "Target CPA",
+            "Maximize conversion value",
+            "Target ROAS",
+            "Maximize clicks",
+            "Target impression share",
+            "Manual CPC",
+            "Enhanced CPC"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Maximum delivery",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Maximum delivery",
+            "Cost cap",
+            "Bid cap",
+            "Manual bidding",
+            "Maximum reach / automated bidding"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Lowest cost",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Lowest cost",
+            "Cost cap",
+            "Bid cap",
+            "Minimum ROAS",
+            "Highest value"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Automated bidding",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Automated bidding",
+            "Custom bidding",
+            "Fixed bid",
+            "Maximize clicks",
+            "Maximize conversions",
+            "Viewable CPM",
+            "CPM",
+            "CPC",
+            "CPV"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable — trafficking and measurement platform"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "sa360": {
+          "defaultValue": "Maximize conversions",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Maximize conversions",
+            "Target CPA",
+            "Maximize conversion value",
+            "Target ROAS",
+            "Maximize clicks",
+            "Target impression share",
+            "Manual CPC"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Maximize conversions",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Target CPA",
+            "Target ROAS",
+            "CPC",
+            "Commission",
+            "Maximize conversions"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Maximize conversions",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Target CPA",
+            "Target ROAS",
+            "CPC",
+            "Commission",
+            "Maximize conversions"
+          ],
+          "instructions": "Use the default strategy first. Surface advanced bid controls only when the campaign has enough reliable conversion data.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Bidding",
+      "field": "Optimization event",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Purchase / booking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Purchase / booking",
+            "Lead",
+            "Submit lead form",
+            "Phone call",
+            "Page view",
+            "Add to cart",
+            "Begin checkout",
+            "App install",
+            "App in-app action",
+            "Store visit",
+            "Qualified lead"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Purchase",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Purchase",
+            "Initiate checkout",
+            "Add payment info",
+            "Add to cart",
+            "View content",
+            "Lead",
+            "Complete registration",
+            "Contact",
+            "Submit application",
+            "Subscribe",
+            "Search",
+            "Custom conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Purchase",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Purchase",
+            "Lead",
+            "Add to cart",
+            "Begin checkout",
+            "Page view",
+            "Phone call",
+            "Event",
+            "Offline conversion",
+            "Custom event"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Website conversion",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Website conversion",
+            "Lead Gen Form submit",
+            "Apply",
+            "Sign up",
+            "Download",
+            "Add to cart",
+            "Purchase",
+            "Key page view",
+            "Custom conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Complete payment",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Complete payment",
+            "Place order",
+            "Initiate checkout",
+            "Add payment info",
+            "Add to cart",
+            "View content",
+            "Submit form",
+            "Contact",
+            "Download",
+            "App install",
+            "App event"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Floodlight sales activity",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight counter activity",
+            "Floodlight sales activity",
+            "Custom bidding conversion",
+            "Google Analytics conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Floodlight sales activity",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight counter activity",
+            "Floodlight sales activity",
+            "Custom Floodlight activity"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Floodlight activity",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight activity",
+            "Google Ads conversion action",
+            "Microsoft Ads conversion goal",
+            "Analytics conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Booking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking",
+            "Revenue",
+            "Booking request",
+            "Qualified lead"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Booking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking",
+            "Revenue",
+            "Booking request",
+            "Qualified lead"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Bidding",
+      "field": "Target CPA / cost per result",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target CPA amount"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Cost per result goal"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target CPA amount"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Cost cap"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Cost cap"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target CPA / custom bidding target"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target CPA amount"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target CPA / target booking cost"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target CPA / target booking cost"
+          ],
+          "instructions": "Leave blank by default. Allow entry only after the user confirms a stable historical CPA or cost-per-result target.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Bidding",
+      "field": "Target ROAS / return goal",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target ROAS percentage"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Minimum ROAS / ROAS goal"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target ROAS percentage"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Minimum ROAS"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Custom bidding / ROAS target"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target ROAS percentage"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target ROAS / revenue goal"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Target ROAS / revenue goal"
+          ],
+          "instructions": "Leave blank by default. Allow entry only where revenue values are passed accurately and there's stable volume.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Bidding",
+      "field": "Max CPC / bid cap",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Manual CPC maximum bid"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Bid cap"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Manual CPC maximum bid"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Manual bid / bid cap"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Bid cap"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Fixed bid / line-item bid"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Manual CPC maximum bid"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "CPC bid / commission"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "CPC bid / commission"
+          ],
+          "instructions": "Leave blank for automated bidding. Show only for manual bidding or when a hard bid limit has been approved.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Bidding",
+      "field": "Value rules / conversion value",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Conversion value rules",
+            "value adjustments"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Value optimization",
+            "purchase value"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Revenue / conversion value"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Conversion value"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Value-based optimization"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Floodlight revenue / custom bidding signals"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Floodlight revenue"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Conversion value rules"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Booking value / revenue"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Booking value / revenue"
+          ],
+          "instructions": "Use only when booking or purchase values are validated. Apply value adjustments consistently across platforms.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Budget",
+      "field": "Budget and pacing",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Average daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Average daily budget",
+            "Shared budget",
+            "Total campaign budget (select campaign types)",
+            "Portfolio budget"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Daily budget",
+            "Lifetime budget",
+            "Campaign budget",
+            "Ad set budget",
+            "Advantage+ campaign budget"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Daily budget",
+            "Shared budget",
+            "Monthly budget (legacy / eligible accounts)"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Daily budget",
+            "Lifetime budget",
+            "Total budget",
+            "Campaign group budget"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Daily budget",
+            "Lifetime budget",
+            "Campaign budget optimization",
+            "Ad group budget"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Even pacing",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Budget segment",
+            "Insertion order budget",
+            "Line item budget",
+            "Flight budget",
+            "Daily pacing",
+            "Even pacing",
+            "Ahead pacing",
+            "ASAP pacing"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "No media budget — trafficking / reporting only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "No media budget — trafficking / reporting only"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Engine account budget",
+            "Campaign budget",
+            "Portfolio budget",
+            "Daily budget"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Daily budget",
+            "Monthly budget",
+            "Campaign budget",
+            "Commission budget"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Daily budget",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Daily budget",
+            "Monthly budget",
+            "Campaign budget",
+            "Commission budget"
+          ],
+          "instructions": "Enter the approved budget and flight. Default to even delivery; expose accelerated or ahead pacing only when explicitly required.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Campaign",
+      "subLevel": "Schedule",
+      "field": "Flight dates",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "No end date",
+            "Ad schedule / dayparting"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "Continuous run",
+            "Ad scheduling with lifetime budget"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "No end date",
+            "Ad schedule / dayparting"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "Continuous run",
+            "Dayparting"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "Continuous run",
+            "Dayparting"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Flight dates",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Flight dates",
+            "Budget segments",
+            "Dayparting",
+            "Frequency cap"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "Creative / placement flight dates"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "No end date",
+            "Ad schedule"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "Always-on",
+            "Dayparting where supported"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Start date; End date",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Start date",
+            "End date",
+            "Always-on",
+            "Dayparting where supported"
+          ],
+          "instructions": "Set start and end dates. Allow always-on only where the campaign brief states it.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Geography",
+      "field": "Location targeting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city",
+            "radius",
+            "location groups"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city",
+            "DMA",
+            "radius"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "state",
+            "city",
+            "radius"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city",
+            "metro area"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city",
+            "DMA"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city",
+            "DMA",
+            "geo fence"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city",
+            "DMA"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Country",
+            "region",
+            "city"
+          ],
+          "instructions": "Select markets from the campaign brief. Don't prefill a worldwide audience.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Audience",
+      "field": "Audience / user list",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Your data",
+            "interests",
+            "demographics",
+            "custom segments",
+            "in-market"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Custom audiences",
+            "lookalike audiences",
+            "demographics",
+            "Advantage+ audience"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Remarketing",
+            "customer match",
+            "in-market",
+            "LinkedIn profile targeting"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Matched audiences",
+            "company",
+            "job title",
+            "industry",
+            "skills",
+            "demographics"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Custom audience",
+            "lookalike",
+            "interest",
+            "behavior",
+            "demographics"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "First-party",
+            "affinity",
+            "in-market",
+            "custom intent",
+            "demo"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Audience segment",
+            "placement audience rules"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "RLSA",
+            "customer match",
+            "demographic targets"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Travel intent",
+            "device",
+            "geography"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Travel intent",
+            "device",
+            "geography"
+          ],
+          "instructions": "Leave optional. Add only consented first-party, remarketing, or approved prospecting audiences.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Demographic",
+      "field": "Demographic targeting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Age ranges",
+            "Gender",
+            "Parental status",
+            "Household income",
+            "Detailed demographics"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Age",
+            "Gender",
+            "Relationship status",
+            "Education",
+            "Parents",
+            "Life events"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Age",
+            "Gender",
+            "Household income",
+            "Company / profile demographics"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Age",
+            "Gender",
+            "Member traits where available"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Age",
+            "Gender",
+            "Household income where available"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Age",
+            "Gender",
+            "Household income",
+            "Demographic segments"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable — trafficking platform"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": false
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Age",
+            "Gender",
+            "Household income where supported"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable / provider-defined"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": false
+        },
+        "wihp": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable / provider-defined"
+          ],
+          "instructions": "Keep broad unless a documented audience insight or policy-approved targeting requirement exists. Apply exclusions carefully and confirm local availability.",
+          "supported": false
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Device",
+      "field": "Device targeting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile",
+            "Desktop",
+            "Tablet",
+            "Connected TV",
+            "Operating system",
+            "Device model",
+            "Carrier (limited)"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile",
+            "Desktop",
+            "Tablet",
+            "iOS",
+            "Android",
+            "Device model / OS where supported"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile",
+            "Desktop",
+            "Tablet",
+            "Operating system",
+            "Device model"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Desktop",
+            "Mobile",
+            "Tablet",
+            "Operating system"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile",
+            "Desktop",
+            "Tablet",
+            "iOS",
+            "Android",
+            "Device model"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile",
+            "Desktop",
+            "Tablet",
+            "Connected TV",
+            "Operating system",
+            "App / web environment"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Device / browser reporting and compatible creative delivery"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile",
+            "Desktop",
+            "Tablet",
+            "Operating system"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile / desktop where provider supports it"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "All eligible devices",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All eligible devices",
+            "Mobile / desktop where provider supports it"
+          ],
+          "instructions": "Start with all eligible devices. Restrict only when the landing page, booking flow, creative, or measured performance supports the decision.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Language",
+      "field": "Language targeting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Language",
+            "browser / user language settings"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Language",
+            "interface language",
+            "multilingual creative by ad set"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Language",
+            "market language",
+            "ad language"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Profile language",
+            "campaign language / creative language"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Language",
+            "app / interface language"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Language",
+            "browser language",
+            "content language"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Creative language",
+            "site / placement language"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Campaign language",
+            "engine-language settings"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Property / market language"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Landing-page language",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing-page language",
+            "Property / market language"
+          ],
+          "instructions": "Select the campaign and landing-page language. Add separate language variants where localized creative and landing pages are available.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Audience",
+      "field": "Audience exclusions",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Customer lists",
+            "remarketing lists",
+            "demographics",
+            "content labels",
+            "placement exclusions"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Custom audience exclusions",
+            "purchaser exclusions",
+            "engaged-user exclusions"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Remarketing exclusions",
+            "customer match exclusions",
+            "demographic exclusions"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Matched audience exclusions",
+            "company / profile exclusions"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Custom audience exclusions",
+            "purchaser / engager exclusions"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Audience list exclusions",
+            "custom segment exclusions",
+            "brand / content exclusions"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Placement / audience assignment exclusions where applicable"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Remarketing exclusions",
+            "customer match exclusions"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Existing bookers / customer suppression where supported"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Existing bookers / customer suppression where supported"
+          ],
+          "instructions": "Add exclusions only with a clear purpose, such as suppressing recent bookers, employees, or existing customers. Keep exclusion logic visible in the review step.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Content",
+      "field": "Content and brand-safety exclusions",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Content labels",
+            "sensitive content",
+            "topics",
+            "placements",
+            "apps",
+            "IP exclusions",
+            "brand exclusions"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Inventory filters",
+            "block lists",
+            "publisher / placement exclusions",
+            "content controls"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Website exclusions",
+            "brand safety lists",
+            "audience network exclusions"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Audience Network opt-out",
+            "publisher exclusions where available"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Placement exclusions",
+            "category controls",
+            "inventory filters"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Brand safety segments",
+            "sensitive categories",
+            "app / site lists",
+            "keyword exclusions",
+            "verification",
+            "fraud protection"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Site / placement exclusions",
+            "verification tags",
+            "creative approvals"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Search partner / network settings",
+            "negative keywords"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Provider / publisher exclusions",
+            "property-level safeguards"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Organization standard brand-safety baseline",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Organization standard brand-safety baseline",
+            "Provider / publisher exclusions",
+            "property-level safeguards"
+          ],
+          "instructions": "Apply the baseline exclusion list automatically. Allow users to add campaign-specific exclusions and show the resulting reach impact where available.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Frequency",
+      "field": "Frequency cap",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Display / video frequency cap by impressions and time period"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Frequency controls depend on campaign and placement",
+            "reach and frequency buying where eligible"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Audience campaign frequency controls where eligible"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Limited / format-dependent frequency controls"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Frequency controls depend on campaign and placement"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "User-level frequency cap",
+            "impressions per user per day / week / month"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Placement and creative delivery controls",
+            "reporting frequency"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Limited / engine-dependent controls"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Provider / publisher dependent"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Provider / publisher dependent"
+          ],
+          "instructions": "Expose only for supported campaign types. Set a cap only when avoiding ad fatigue or controlling reach is a stated requirement.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Dayparting",
+      "field": "Dayparting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Ad schedule by day and hour",
+            "bid adjustments where supported"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Ad scheduling with lifetime budgets",
+            "delivery schedule where eligible"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Ad schedule by day and hour",
+            "bid adjustments"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Dayparting by day and hour"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Dayparting by day and hour"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Dayparting by day and hour",
+            "time-zone selection"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Placement / creative flight and delivery schedule"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Ad schedule by day and hour"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Provider / publisher dependent"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "All hours",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "All hours",
+            "Provider / publisher dependent"
+          ],
+          "instructions": "Use the account time zone. Add dayparting only with approved trading rules or evidence from performance and operational availability.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Connection",
+      "field": "Connection and carrier targeting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Wi-Fi / carrier targeting limited by campaign and market"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Connection type / carrier options limited or unavailable by market"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Device and network controls limited by campaign"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable",
+            "Not typically available"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": false
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Wi-Fi / carrier / connection type where supported"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Connection type / carrier / device environment where supported"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": false
+        },
+        "sa360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable",
+            "Not typically available"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": false
+        },
+        "derbySoft": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": false
+        },
+        "wihp": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "Hide unless the selected platform and campaign type supports it. Use only where the experience requires a connection or carrier constraint.",
+          "supported": false
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Proximity",
+      "field": "Proximity and radius targeting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Radius around location",
+            "location groups",
+            "distance targeting"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Radius around address / pin",
+            "local business radius"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Radius around location",
+            "location intent"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Location / metro targeting",
+            "radius options limited"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Radius around pin / address where supported"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Geo-fence",
+            "radius",
+            "polygon",
+            "custom geo"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Placement-level geo set in buying platform"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Radius where engine supports it"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Property / destination catchment area"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Property / destination catchment area"
+          ],
+          "instructions": "Enter the property or event location and approved radius. Show estimated reach and avoid overlapping markets unless intentional.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Hotel-specific",
+      "field": "Hotel-specific targeting",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Hotel center",
+            "hotel group",
+            "itinerary / travel intent signals",
+            "hotel feed attributes"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Travel intent",
+            "destination / traveler interests",
+            "dynamic hotel catalog where available"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Hotel campaign destination / property data where eligible"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Travel / hospitality segments",
+            "company travel audiences"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Travel intent",
+            "destination / travel content",
+            "hotel catalog where available"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Travel intent",
+            "destination",
+            "hotel / travel data segments",
+            "custom audiences"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Hotel feed / booking data used for tracking and reporting"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Hotel feed",
+            "itinerary / travel intent through engine capabilities"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Property",
+            "destination",
+            "market",
+            "rate plan",
+            "availability",
+            "booking window"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Not set",
+          "defaultRationale": "No default selection; configure only when required.",
+          "values": [
+            "Not set",
+            "Property",
+            "destination",
+            "market",
+            "rate plan",
+            "availability",
+            "booking window"
+          ],
+          "instructions": "Show only after a hotel or property feed is connected. Validate property IDs, availability, booking dates, rate plan, and landing-page mapping before launch.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Keywords",
+      "field": "Keywords and match",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Broad match",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Broad match",
+            "Phrase match",
+            "Exact match",
+            "Negative broad",
+            "Negative phrase",
+            "Negative exact",
+            "Dynamic Search Ads targets",
+            "Search themes (Performance Max)"
+          ],
+          "instructions": "For search, add approved keywords and negatives, then select match types. Hide this field for platforms that don't support keywords.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "microsoftAds": {
+          "defaultValue": "Broad match",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Broad match",
+            "Phrase match",
+            "Exact match",
+            "Negative broad",
+            "Negative phrase",
+            "Negative exact",
+            "Dynamic Search Ads targets"
+          ],
+          "instructions": "For search, add approved keywords and negatives, then select match types. Hide this field for platforms that don't support keywords.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "tiktokAds": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "dv360": {
+          "defaultValue": "Contextual keywords",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Contextual keywords",
+            "Negative keywords",
+            "Custom intent keywords",
+            "Page category / content targeting"
+          ],
+          "instructions": "For search, add approved keywords and negatives, then select match types. Hide this field for platforms that don't support keywords.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": null,
+          "defaultRationale": "Not supported for this platform or workflow.",
+          "values": [
+            "Not applicable"
+          ],
+          "instructions": "No setup required — this setting isn't supported on this platform.",
+          "supported": false
+        },
+        "sa360": {
+          "defaultValue": "Phrase match; Exact match; Negative keywords",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Broad match",
+            "Phrase match",
+            "Exact match",
+            "Negative keywords",
+            "Dynamic Search Ads targets"
+          ],
+          "instructions": "For search, add approved keywords and negatives, then select match types. Hide this field for platforms that don't support keywords.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Hotel / destination / brand search terms",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Hotel / destination / brand search terms",
+            "negative terms where supported"
+          ],
+          "instructions": "For search, add approved keywords and negatives, then select match types. Hide this field for platforms that don't support keywords.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Hotel / destination / brand search terms",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Hotel / destination / brand search terms",
+            "negative terms where supported"
+          ],
+          "instructions": "For search, add approved keywords and negatives, then select match types. Hide this field for platforms that don't support keywords.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Targeting",
+      "subLevel": "Inventory",
+      "field": "Placements / inventory",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Google Search",
+            "Search partners",
+            "Display Network",
+            "YouTube",
+            "Discover",
+            "Gmail",
+            "Maps",
+            "Display placements",
+            "Topics",
+            "Content keywords",
+            "App categories",
+            "Brand exclusions"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Facebook Feed",
+            "Instagram Feed",
+            "Reels",
+            "Stories",
+            "Marketplace",
+            "Search results",
+            "Video feeds",
+            "Right column",
+            "Messenger",
+            "Audience Network",
+            "Threads (where available)"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Microsoft Search Network",
+            "Search partners",
+            "Microsoft Audience Network",
+            "LinkedIn profile targeting",
+            "Multimedia placements"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "LinkedIn feed",
+            "LinkedIn Audience Network",
+            "Messaging inbox",
+            "Connected TV (eligible campaigns)"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "TikTok",
+            "Pangle",
+            "Global App Bundle",
+            "Search Ads placement",
+            "TikTok Shop (eligible accounts)"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Exchanges",
+            "deals",
+            "publishers",
+            "sites/apps",
+            "YouTube",
+            "CTV",
+            "audio",
+            "native",
+            "DOOH",
+            "inventory packages",
+            "brand-safety controls"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Sites / apps",
+            "placements",
+            "ad tags",
+            "publishers",
+            "ad-serving assignments"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Google",
+            "Microsoft",
+            "Yahoo Japan",
+            "Baidu",
+            "other linked engine accounts / partner networks"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Metasearch publishers",
+            "hotel comparison sites",
+            "display / retargeting inventory"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Platform default inventory",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Platform default inventory",
+            "Metasearch publishers",
+            "hotel comparison sites",
+            "display / retargeting inventory"
+          ],
+          "instructions": "Keep platform-default inventory unless brand-safety, publisher, or channel requirements need exclusions or selections.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Creative",
+      "subLevel": "Format",
+      "field": "Ad format",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Responsive search ad",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Responsive search ad",
+            "Dynamic search ad",
+            "Call ad",
+            "Display responsive ad",
+            "Uploaded display ad",
+            "Video ad",
+            "Demand Gen ad",
+            "Performance Max asset group",
+            "Shopping product ad",
+            "Hotel ad",
+            "App ad"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Single image",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Single image",
+            "Single video",
+            "Carousel",
+            "Collection",
+            "Instant Experience",
+            "Stories",
+            "Reels",
+            "Click-to-message",
+            "Lead form",
+            "Catalog / dynamic ad"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Responsive search ad",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Responsive search ad",
+            "Dynamic search ad",
+            "Multimedia ad",
+            "Responsive display ad",
+            "Product ad",
+            "Hotel ad",
+            "Video ad",
+            "App install ad"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Single image",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Single image",
+            "Video",
+            "Carousel",
+            "Document",
+            "Conversation",
+            "Message",
+            "Text",
+            "Spotlight",
+            "Follower",
+            "Event",
+            "Thought Leader",
+            "Lead Gen Form"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "In-feed video",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "In-feed video",
+            "Spark ad",
+            "Image ad",
+            "Carousel ad",
+            "TopView",
+            "Top Feed",
+            "Search ad",
+            "Catalog / shopping ad",
+            "Lead Gen Form"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Display",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Display",
+            "HTML5 rich media",
+            "Native",
+            "Video",
+            "YouTube",
+            "Audio",
+            "CTV",
+            "Interstitial",
+            "App-install",
+            "DOOH"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Tracking ad / click tracker",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Display image",
+            "HTML5 rich media",
+            "Video",
+            "Audio",
+            "Native",
+            "Tracking ad / click tracker"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Responsive search ad",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Text search ad",
+            "Responsive search ad",
+            "Dynamic search ad",
+            "Shopping ad",
+            "Hotel ad",
+            "Performance Max"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Hotel metasearch listing",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Hotel metasearch listing",
+            "sponsored listing",
+            "display creative",
+            "retargeting creative"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Hotel metasearch listing",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Hotel metasearch listing",
+            "sponsored listing",
+            "display creative",
+            "retargeting creative"
+          ],
+          "instructions": "Select the format that matches the campaign type, available creative, and placement requirements.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Creative",
+      "subLevel": "Text",
+      "field": "Headline / primary text",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "RSA headlines: up to 15",
+            "30 characters each",
+            "long headline for display: 90 characters",
+            "business name: 25 characters"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "Primary text",
+            "headline",
+            "description",
+            "display link",
+            "call-to-action label"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "RSA headlines: up to 15",
+            "30 characters each",
+            "long headline for multimedia",
+            "business name"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "Intro / primary text",
+            "headline",
+            "description",
+            "CTA",
+            "document title",
+            "conversation message text"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "Ad text",
+            "display name",
+            "CTA",
+            "video caption",
+            "carousel card text",
+            "instant form copy"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "Creative messaging in display / video / native asset",
+            "headline",
+            "long headline",
+            "description",
+            "CTA where format supports it"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "Creative name",
+            "click tracker",
+            "assigned creative asset",
+            "creative-level messaging"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "RSA headlines",
+            "expanded text ad assets where supported",
+            "dynamic ad text",
+            "shopping feed title"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "Property / hotel title",
+            "offer / rate message",
+            "booking CTA"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Approved property value proposition + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved property value proposition + CTA",
+            "Property / hotel title",
+            "offer / rate message",
+            "booking CTA"
+          ],
+          "instructions": "Provide approved copy variants. Validate character limits, required fields, and CTA before publishing.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Creative",
+      "subLevel": "Text",
+      "field": "Description",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "RSA descriptions: up to 4",
+            "90 characters each",
+            "display description: 90 characters"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "Primary text",
+            "headline",
+            "description",
+            "instant experience copy",
+            "form intro and questions"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "RSA descriptions: up to 4",
+            "90 characters each",
+            "multimedia description",
+            "display description"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "Intro text",
+            "headline",
+            "description",
+            "lead form privacy text",
+            "thank-you message"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "Ad text",
+            "video caption",
+            "instant form intro",
+            "form questions",
+            "thank-you message"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "Native / display / video copy fields supported by assigned creative",
+            "CTA text"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "Creative-level copy",
+            "click tracker",
+            "third-party creative tags"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "RSA descriptions",
+            "dynamic ad text",
+            "shopping feed description"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "Property description",
+            "offer details",
+            "booking message"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Approved benefit-led copy + CTA",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved benefit-led copy + CTA",
+            "Property description",
+            "offer details",
+            "booking message"
+          ],
+          "instructions": "Provide benefit-led descriptions or supporting copy. Validate character limits and the destination alignment.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Creative",
+      "subLevel": "Assets",
+      "field": "Media assets",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Images",
+            "logos",
+            "landscape / square / portrait images",
+            "YouTube videos",
+            "HTML5",
+            "business name",
+            "business logo",
+            "product feed",
+            "location assets"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Images",
+            "videos",
+            "Reels assets",
+            "carousel cards",
+            "catalog",
+            "product set",
+            "instant experience",
+            "branded content authorization"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Images",
+            "logo",
+            "video",
+            "product feed",
+            "business name",
+            "multimedia assets"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Images",
+            "video",
+            "PDF / document",
+            "carousel cards",
+            "company page identity",
+            "lead form"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Video",
+            "image",
+            "carousel cards",
+            "Spark authorization",
+            "catalog",
+            "product set",
+            "instant form",
+            "music / sound where permitted"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Display images",
+            "HTML5",
+            "video",
+            "audio",
+            "CTV creative",
+            "native assets",
+            "companion banners",
+            "third-party tags"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Creative asset",
+            "HTML5",
+            "image",
+            "video",
+            "audio",
+            "third-party tag",
+            "click tracker",
+            "impression tracker"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Search assets",
+            "product feed",
+            "hotel feed",
+            "business data",
+            "ad copy"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Hotel feed",
+            "property image",
+            "logo",
+            "rate / availability feed",
+            "display creative"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Approved brand assets",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Approved brand assets",
+            "Hotel feed",
+            "property image",
+            "logo",
+            "rate / availability feed",
+            "display creative"
+          ],
+          "instructions": "Upload or select approved assets. Validate dimensions, aspect ratios, file rules, and brand permissions.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Creative",
+      "subLevel": "Extensions",
+      "field": "Additional assets",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "Sitelinks",
+            "callouts",
+            "structured snippets",
+            "images",
+            "price",
+            "promotion",
+            "lead form",
+            "call",
+            "location",
+            "affiliate location",
+            "app",
+            "business name",
+            "logo"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "CTA",
+            "lead form",
+            "instant experience",
+            "catalog",
+            "product set",
+            "click-to-message destination",
+            "event response",
+            "app deep link"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "Sitelinks",
+            "callouts",
+            "structured snippets",
+            "images",
+            "price",
+            "promotion",
+            "action link",
+            "call",
+            "location",
+            "app",
+            "business name"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "CTA",
+            "Lead Gen Form",
+            "conversation starter",
+            "document",
+            "event",
+            "company page",
+            "website retargeting"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "CTA",
+            "Instant Form",
+            "landing page",
+            "deep link",
+            "catalog / product card",
+            "TikTok Shop",
+            "add-on / interactive asset"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "Companion banner",
+            "tracking pixels",
+            "verification",
+            "third-party measurement",
+            "frequency cap",
+            "brand safety settings"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "Click tracker",
+            "impression tracker",
+            "placement tag",
+            "verification tag",
+            "third-party creative / tracking tag"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "Sitelinks",
+            "callouts",
+            "structured snippets",
+            "promotion",
+            "price",
+            "image",
+            "product / hotel feed assets"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "Booking link",
+            "property link",
+            "rate / availability feed",
+            "hotel / room details"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Relevant assets only",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Relevant assets only",
+            "Booking link",
+            "property link",
+            "rate / availability feed",
+            "hotel / room details"
+          ],
+          "instructions": "Add only relevant extensions or add-ons. Validate that each asset points to an applicable destination.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Landing experience",
+      "subLevel": "URL",
+      "field": "Destination / landing page",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Final URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Final URL",
+            "Mobile URL",
+            "Final URL suffix",
+            "Tracking template",
+            "URL parameter",
+            "URL expansion control"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Website URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Website URL",
+            "deep link",
+            "app link",
+            "URL parameters",
+            "instant experience",
+            "click-to-message destination"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Final URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Final URL",
+            "Mobile URL",
+            "Tracking template",
+            "Final URL suffix",
+            "custom parameters"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Landing page URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing page URL",
+            "destination URL",
+            "Lead Gen Form",
+            "event URL",
+            "document download destination"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Landing page URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing page URL",
+            "deep link",
+            "Instant Form",
+            "TikTok Shop",
+            "app store destination"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Landing page URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Landing page URL",
+            "click tracker",
+            "landing page override",
+            "custom URL parameter",
+            "deep link"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Click-through URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Click-through URL",
+            "click tracker",
+            "landing page URL",
+            "third-party click macro"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Final URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Final URL",
+            "mobile URL",
+            "tracking template",
+            "Final URL suffix",
+            "custom parameters"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Booking engine URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking engine URL",
+            "property landing page",
+            "room / offer landing page",
+            "tracking parameters"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Booking engine URL",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking engine URL",
+            "property landing page",
+            "room / offer landing page",
+            "tracking parameters"
+          ],
+          "instructions": "Select the most relevant landing or booking page. Append approved tracking parameters and validate the URL.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Measurement",
+      "subLevel": "Tracking",
+      "field": "Tracking parameters",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Google tag",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Google tag",
+            "enhanced conversions",
+            "consent mode",
+            "auto-tagging (gclid)",
+            "UTMs",
+            "final URL suffix",
+            "tracking template",
+            "offline conversion import"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Meta Pixel",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Meta Pixel",
+            "Conversions API",
+            "app events",
+            "offline events",
+            "URL parameters / UTMs",
+            "Aggregated Event Measurement"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "UET tag",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "UET tag",
+            "offline conversions",
+            "auto-tagging (msclkid)",
+            "UTMs",
+            "tracking template",
+            "custom events"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Insight Tag",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Insight Tag",
+            "conversion events",
+            "Conversions API",
+            "offline conversions",
+            "URL parameters / UTMs",
+            "Matched Audiences"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "TikTok Pixel",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "TikTok Pixel",
+            "Events API",
+            "app events / SDK",
+            "offline events",
+            "URL parameters / UTMs",
+            "advanced matching"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Floodlight",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight",
+            "CM360 tracking",
+            "viewability verification",
+            "third-party measurement",
+            "UTMs",
+            "custom variables"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Floodlight",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight",
+            "impression tracker",
+            "click tracker",
+            "verification tags",
+            "third-party tracking",
+            "custom variables"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Floodlight",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight",
+            "engine tracking",
+            "auto-tagging",
+            "UTMs",
+            "conversion API / offline upload",
+            "custom parameters"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Booking tracking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking tracking",
+            "revenue tracking",
+            "UTMs",
+            "click ID / publisher tracking",
+            "feed / booking engine integration"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Booking tracking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking tracking",
+            "revenue tracking",
+            "UTMs",
+            "click ID / publisher tracking",
+            "feed / booking engine integration"
+          ],
+          "instructions": "Apply the standard UTM pattern and verify the platform tag, pixel, Floodlight, or booking tracker is active.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Measurement",
+      "subLevel": "Conversion",
+      "field": "Optimization event",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Purchase / booking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Purchase / booking",
+            "Lead",
+            "Submit lead form",
+            "Phone call",
+            "Page view",
+            "Add to cart",
+            "Begin checkout",
+            "App install",
+            "App in-app action",
+            "Store visit",
+            "Qualified lead"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Purchase",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Purchase",
+            "Initiate checkout",
+            "Add payment info",
+            "Add to cart",
+            "View content",
+            "Lead",
+            "Complete registration",
+            "Contact",
+            "Submit application",
+            "Subscribe",
+            "Search",
+            "Custom conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Purchase",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Purchase",
+            "Lead",
+            "Add to cart",
+            "Begin checkout",
+            "Page view",
+            "Phone call",
+            "Event",
+            "Offline conversion",
+            "Custom event"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Website conversion",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Website conversion",
+            "Lead Gen Form submit",
+            "Apply",
+            "Sign up",
+            "Download",
+            "Add to cart",
+            "Purchase",
+            "Key page view",
+            "Custom conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Complete payment",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Complete payment",
+            "Place order",
+            "Initiate checkout",
+            "Add payment info",
+            "Add to cart",
+            "View content",
+            "Submit form",
+            "Contact",
+            "Download",
+            "App install",
+            "App event"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Floodlight sales activity",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight counter activity",
+            "Floodlight sales activity",
+            "Custom bidding conversion",
+            "Google Analytics conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Floodlight sales activity",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight counter activity",
+            "Floodlight sales activity",
+            "Custom Floodlight activity"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Floodlight activity",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Floodlight activity",
+            "Google Ads conversion action",
+            "Microsoft Ads conversion goal",
+            "Analytics conversion"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Booking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking",
+            "Revenue",
+            "Booking request",
+            "Qualified lead"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Booking",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Booking",
+            "Revenue",
+            "Booking request",
+            "Qualified lead"
+          ],
+          "instructions": "Map one primary measurable event to the campaign. Ensure the platform tag or server-side event is active before launch.",
+          "supported": true
+        }
+      }
+    },
+    {
+      "setupArea": "Naming",
+      "subLevel": "Naming",
+      "field": "Naming convention",
+      "platforms": {
+        "googleAds": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Campaign",
+            "ad group",
+            "ad / asset group",
+            "keyword",
+            "asset",
+            "conversion action names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "metaFacebook": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Campaign",
+            "ad set",
+            "ad",
+            "audience",
+            "pixel / event",
+            "catalog names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "microsoftAds": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Campaign",
+            "ad group",
+            "ad",
+            "keyword",
+            "asset",
+            "conversion goal names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "linkedInAds": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Campaign group",
+            "campaign",
+            "ad",
+            "audience",
+            "Lead Gen Form names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "tiktokAds": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Campaign",
+            "ad group",
+            "ad",
+            "audience",
+            "pixel / event names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "dv360": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Partner",
+            "advertiser",
+            "campaign",
+            "insertion order",
+            "line item",
+            "ad group",
+            "creative names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "cm360": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Advertiser",
+            "campaign",
+            "placement",
+            "ad",
+            "creative",
+            "site",
+            "tracker names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary. CM360 is used for trafficking, ad serving, and measurement rather than media buying.",
+          "supported": true
+        },
+        "sa360": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Engine account",
+            "campaign",
+            "ad group",
+            "keyword",
+            "portfolio bid strategy names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "derbySoft": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Client",
+            "property",
+            "market",
+            "campaign",
+            "publisher",
+            "rate plan names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        },
+        "wihp": {
+          "defaultValue": "Agreed naming standard",
+          "defaultRationale": "Recommended baseline; change only when the campaign brief or performance evidence requires it.",
+          "values": [
+            "Agreed naming standard",
+            "Client",
+            "property",
+            "market",
+            "campaign",
+            "publisher",
+            "rate plan names"
+          ],
+          "instructions": "Generate the name from the agreed components and allow an approved override only when necessary.",
+          "supported": true
+        }
+      }
+    }
+  ]
+}

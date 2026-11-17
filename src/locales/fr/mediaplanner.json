@@ -1,0 +1,146 @@
+{
+  "title": "Plans média",
+  "tableTitle": "Vue d'ensemble des plans média",
+  "newPlan": "Nouveau plan média",
+  "newPlanTooltip": "Créer un nouveau plan média",
+  "myPlans": "Mes plans ({{count}})",
+  "allPlans": "Tous les plans ({{count}})",
+  "columns": {
+    "status": "Statut",
+    "planName": "Nom du plan",
+    "advertiserBpid": "Annonceur (BPID)",
+    "contractBudget": "Budget contractuel",
+    "startDate": "Date de début",
+    "endDate": "Date de fin",
+    "planType": "Type de plan",
+    "opportunityId": "ID d'opportunité",
+    "proposalId": "ID de proposition"
+  },
+  "settings": {
+    "heading": "Nouveau plan média",
+    "advertiserInfo": "Informations sur l'annonceur",
+    "planInfo": "Informations sur le plan",
+    "priceSettings": "Paramètres de prix",
+    "advertiserBpid": "Annonceur (BPID)",
+    "region": "Région",
+    "sfOpportunityId": "ID d'opportunité Salesforce",
+    "proposalId": "ID de proposition",
+    "currency": "Devise",
+    "breakdown": "Ventilation",
+    "planType": "Type de plan",
+    "status": "Statut",
+    "contractBudget": "Budget contractuel cible",
+    "contractProfit": "Objectif de profit contractuel",
+    "planName": "Nom du plan",
+    "managementFee": "Frais de gestion en %",
+    "setupFee": "Frais d'installation",
+    "metasearchSetupFee": "Frais d'installation Métarecherche",
+    "creativeFee": "Frais créatifs",
+    "videoCreativeFee": "Frais créatifs vidéo",
+    "prefillToggle": "Pré-remplir les plans média avec les données de consommation de campagnes passées."
+  },
+  "planType": {
+    "renewal": "Renouvellement",
+    "new": "Nouveau"
+  },
+  "status": {
+    "draft": "Brouillon",
+    "inProgress": "En cours"
+  },
+  "breakdown": {
+    "singleProperty": "Mono-établissement"
+  },
+  "validation": {
+    "selectAdvertiser": "Veuillez sélectionner un annonceur",
+    "selectRegion": "Veuillez sélectionner une région",
+    "enterSfId": "Veuillez saisir l'ID d'opportunité Salesforce",
+    "enterProposalId": "Veuillez saisir l'ID de proposition",
+    "selectCurrency": "Veuillez sélectionner une devise",
+    "selectBreakdown": "Veuillez sélectionner une ventilation",
+    "selectPlanType": "Veuillez sélectionner un type de plan",
+    "enterBudget": "Veuillez saisir le budget contractuel cible",
+    "enterProfit": "Veuillez saisir l'objectif de profit contractuel",
+    "selectStartDate": "Veuillez sélectionner une date de début",
+    "selectEndDate": "Veuillez sélectionner une date de fin",
+    "enterPlanName": "Veuillez saisir le nom du plan",
+    "selectStatus": "Veuillez sélectionner un statut"
+  },
+  "budget": {
+    "heading": "Distribution du budget",
+    "spendBudgetDist": "Distribution du budget de dépenses",
+    "channelBreakdown": "Ventilation par canal",
+    "feeBreakdown": "Ventilation des frais",
+    "budgetSummary": "Résumé du budget",
+    "pastConsumption": "Données de consommation passées",
+    "mediaSettings": "Paramètres média",
+    "pastSeasonality": "Saisonnalité passée (%)",
+    "totalSpend": "Dépense totale"
+  },
+  "channel": {
+    "paidSearch": "Recherche payante",
+    "display": "Display",
+    "social": "Social",
+    "video": "Vidéo",
+    "metasearch": "Métarecherche"
+  },
+  "platform": {
+    "googleAds": "Google Ads",
+    "bing": "Bing",
+    "dv360": "DV360",
+    "amadeusDsp": "Amadeus DSP",
+    "facebookIg": "Facebook/IG",
+    "tiktok": "TikTok",
+    "linkedin": "LinkedIn",
+    "pinterest": "Pinterest",
+    "youtubeP": "YouTube",
+    "googleHotel": "Google Hotel",
+    "trivago": "Trivago",
+    "kayak": "Kayak",
+    "tripadvisor": "Tripadvisor"
+  },
+  "table": {
+    "platform": "Plateforme",
+    "tactic": "Tactique",
+    "spendDollar": "Dépense ($)",
+    "spendPercent": "Dépense (%)",
+    "percentExpected": "% de l'attendu",
+    "channel": "Canal",
+    "connectivityFee": "Frais de connectivité ($)",
+    "setupFee": "Frais d'installation ($)",
+    "marginDollar": "Marge ($)",
+    "fee": "Frais",
+    "percentage": "Pourcentage",
+    "total": "Total",
+    "metrics": "Métriques",
+    "expected": "Attendu",
+    "spend": "Dépense"
+  },
+  "fees": {
+    "management": "Gestion",
+    "setup": "Installation",
+    "metasearchSetup": "Installation Métarecherche",
+    "creative": "Créatif",
+    "videoCreative": "Créatif vidéo"
+  },
+  "summary": {
+    "spend": "Dépense",
+    "margin": "Marge",
+    "marginPercent": "Marge (%)",
+    "contractMargin": "Marge contractuelle",
+    "contractMarginPercent": "Marge contractuelle (%)",
+    "contractBudget": "Budget contractuel"
+  },
+  "download": {
+    "overview": "Vue d'ensemble du plan média",
+    "mediaplanName": "Nom du plan média",
+    "hotelName": "Nom de l'hôtel",
+    "globalFeePercent": "Frais globaux %",
+    "globalFeeAmount": "Montant des frais globaux",
+    "totalContractBudget": "Budget contractuel total"
+  },
+  "stepper": {
+    "generalSettings": "Paramètres généraux",
+    "budgetDistribution": "Distribution du budget",
+    "mediaPlan": "Plan média"
+  }
+}

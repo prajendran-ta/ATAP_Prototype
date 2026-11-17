@@ -1,0 +1,45 @@
+{
+  "title": "Amadeus Travel Advertising Platform",
+  "performanceMetrics": "Indicateurs de performance annonceur",
+  "modules": "Modules Travel Advertising Platform",
+  "notifications": "Notifications",
+  "slides": {
+    "slide1": "Diapositive 1",
+    "slide2": "Diapositive 2",
+    "slide3": "Diapositive 3"
+  },
+  "moduleCards": {
+    "advertisers": {
+      "desc": "Contient les détails des annonceurs actuels et leurs paramètres de configuration.",
+      "link": "Mes annonceurs"
+    },
+    "mediaPlanning": {
+      "desc": "Contient le module de planification média, les distributions mensuelles et le calculateur de marge.",
+      "link": "Calculateur de plan média"
+    },
+    "campaignMgmt": {
+      "desc": "Configuration et gestion de campagnes sur différentes plateformes."
+    },
+    "campaignOpt": {
+      "desc": "Contient l'allocation budgétaire omnicanale sur plusieurs canaux basée sur des algorithmes.",
+      "link": "Allocateur de budget omnicanal"
+    },
+    "reports": {
+      "desc": "Couvre divers rapports de campagne, internes et destinés aux clients."
+    },
+    "marketInsights": {
+      "desc": "Liens vers différents outils TI fournissant des aperçus clés du marché.",
+      "tiPortal": "Portail TI"
+    },
+    "dataManagement": {
+      "desc": "Inclut les configurations de données génériques à travers les modules et les annonceurs."
+    },
+    "pricingBilling": {
+      "desc": "Inclut les liens vers les outils de facturation."
+    },
+    "userMgmt": {
+      "desc": "Couvre les permissions pour les utilisateurs et groupes dans les différents modules.",
+      "link": "Utilisateurs"
+    }
+  }
+}

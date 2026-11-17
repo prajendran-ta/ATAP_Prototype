@@ -1,0 +1,47 @@
+{
+  "title": "User Management",
+  "tableTitle": "Users Overview",
+  "summary": "User Summary",
+  "columns": {
+    "name": "Name",
+    "email": "Email",
+    "role": "User Role",
+    "status": "Status",
+    "lastLogin": "Last login"
+  },
+  "roles": {
+    "admin": "Administrator",
+    "standard": "Standard User",
+    "readOnly": "Read Only"
+  },
+  "filters": {
+    "allUsers": "All Users ({{count}})",
+    "activeUsers": "Active Users ({{count}})",
+    "inactiveUsers": "Inactive Users ({{count}})"
+  },
+  "details": {
+    "title": "User Details",
+    "userName": "User Name",
+    "selectRole": "Select role",
+    "moduleAccess": "Module Access",
+    "access": "Access",
+    "module": "Module",
+    "noChanges": "No changes to save.",
+    "updateFailed": "Update failed",
+    "errorMsg": "Error: {{error}}"
+  },
+  "rolesPerms": {
+    "title": "Roles & Permissions"
+  },
+  "modules": {
+    "advertisers": "Advertisers",
+    "mediaPlanning": "Media Planning & Request",
+    "campaignMgmt": "Campaign Management & Setup",
+    "campaignOpt": "Campaign Optimization & Pacing",
+    "reports": "Reports",
+    "marketInsights": "Market Insights",
+    "dataManagement": "Data Management",
+    "pricingBilling": "Pricing & Billing",
+    "userManagement": "User Management"
+  }
+}

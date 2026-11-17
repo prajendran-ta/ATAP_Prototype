@@ -1,0 +1,604 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+directive @hasPermission(perm: String!) on FIELD_DEFINITION | MUTATION
+
+type AdvertiserIdAndName {
+  bid: Int53
+  bpid: String
+  id: ID!
+  name: String!
+}
+
+enum AlertCategoryEnum {
+  Contract
+  Management
+  Others
+  Performance
+  Unknown
+}
+
+"""
+Enum
+"""
+enum AlertLevelEnum {
+  Error
+  Info
+  Unknown
+  Warning
+}
+
+enum AlertModuleEnum {
+  OBA
+  Unknown
+}
+
+enum AlertReadStatusEnum {
+  Read
+  Unknown
+  Unread
+}
+
+enum AlertSnoozeStatusEnum {
+  Snoozed
+  Unknown
+  Unsnoozed
+}
+
+enum AlertStatusEnum {
+  Read
+  Snoozed
+  Unknown
+  Unread
+}
+
+type Currency {
+  code: String!
+  name: String!
+  symbol: String
+}
+
+type GetWelcomeModalResponse {
+  status: Boolean!
+}
+
+type GroupedNotification {
+  advertiser: AdvertiserIdAndName!
+  advertiserId: Int53!
+  category: AlertCategoryEnum!
+  code: Int!
+  createdAt: TimeAgo!
+  """
+  id & created_at of the latest alert
+  """
+  id: ID!
+  level: AlertLevelEnum!
+  link: Link
+  message: String!
+  module: AlertModuleEnum!
+  """
+  Number of similar alerts ( same category, code & advertiser id / 1 = single notification )
+  """
+  nb: Int!
+  new: Boolean!
+}
+
+type IdAndName {
+  id: ID!
+  name: String!
+}
+
+"""
+Response Model
+"""
+type IgnoreWelcomeModalResponse {
+  success: Boolean!
+}
+
+scalar Int53
+
+type Link {
+  parameters: Map!
+  type: LinkTypeEnum!
+}
+
+enum LinkTypeEnum {
+  AdvertiserPlan
+  Unknown
+}
+
+"""
+Scalar
+"""
+scalar Map
+
+"""
+MediaPlanReportFilter contains the filters for the reportMediaPlan query.
+advertiserId is required. dates and currency filters are optional.
+"""
+input MediaPlanReportFilter {
+  advertiserId: Int53!
+  currency: String
+  endDate: String
+  startDate: String
+}
+
+"""
+Mutation root type
+"""
+type Mutation {
+  """
+  Welcome Modal
+  """
+  ignoreWelcomeModal: IgnoreWelcomeModalResponse!
+  markAllAsRead: Boolean!
+  """
+  Notifications
+  """
+  markAsRead(id: ID!): Boolean!
+  markAsUnread(id: ID!): Boolean!
+  snooze(id: ID!): Boolean!
+  unSnooze(id: ID!): Boolean!
+  """
+  Update a user's role and/or status
+
+  Example mutation:
+  mutation {
+    updateUser(userId: "123", role: "mh-admin", isActive: true) {
+      user {
+        id
+        name
+        email
+        role
+        location
+        status
+        permissions
+        lastLogin
+      }
+      success
+      message
+    }
+  }
+
+  Note: Both role and isActive are optional, but at least one must be provided.
+  """
+  updateUser(isActive: Boolean, role: String, userId: ID!): UpdateUserResponse! @hasPermission(perm: "mh-user-write")
+}
+
+type Notification {
+  advertiser: AdvertiserIdAndName!
+  advertiserId: Int53!
+  category: AlertCategoryEnum!
+  code: Int!
+  createdAt: TimeAgo!
+  id: ID!
+  level: AlertLevelEnum!
+  link: Link
+  message: String!
+  module: AlertModuleEnum!
+  new: Boolean!
+  readStatus: AlertReadStatusEnum!
+  snoozeStatus: AlertSnoozeStatusEnum!
+}
+
+"""
+List notifications
+"""
+input NotificationFilter {
+  advertiserIds: [ID!]
+  categories: [AlertCategoryEnum!]
+  codes: [Int!]
+  levels: [AlertLevelEnum!]
+  modules: [AlertModuleEnum!]
+  myAdvertisers: Boolean
+  status: AlertStatusEnum
+  timePeriod: TimePeriodEnum
+}
+
+"""
+List user notifications ( grouped by category & keep only one by code )
+"""
+type NotificationsByCategory {
+  category: AlertCategoryEnum!
+  notifications: [GroupedNotification!]!
+}
+
+"""
+OperatorOptions defines a filter operation on a specific field
+"""
+input OperatorOptions {
+  """
+  Field name to filter: 'id', 'role', or 'status'
+  """
+  field: String!
+  """
+  Operator type: 'in' (in list)
+  """
+  operator: String!
+  """
+  Values to filter by (for role field: use 'mh-standard', 'mh-administrator', or 'mh-read-only')
+  """
+  values: [String!]!
+}
+
+"""
+PageQueryOptions provides pagination, filtering and search capabilities
+"""
+input PageQueryOptions {
+  """
+  Filter operators for specific fields
+  """
+  operators: [OperatorOptions!]
+  """
+  Pagination options
+  """
+  paginate: PaginateOptions
+  """
+  Search options for text-based queries
+  """
+  search: SearchOptions
+}
+
+"""
+PaginateOptions defines pagination parameters
+"""
+input PaginateOptions {
+  """
+  Maximum number of items to return (max 100)
+  """
+  limit: Int
+  """
+  Number of items to skip
+  """
+  offset: Int
+}
+
+type PowerbiFilter {
+  ids: [Int53!]
+  name: String!
+  operators: String
+  value: String
+}
+
+"""
+Powerbi report contains all needed informations to embed a powerbi report in the UI.
+- pageName is the key to select the report page.
+- embedURL is the URL to the report that can be used in an iframe.
+- token is an access token to allow refresh of the embed report.
+- pageId is the id of the page to be enforced within the embed report.
+- filters are the filters to be applied to the report.
+"""
+type PowerbiReport {
+  embedURL: String!
+  filters: [PowerbiFilter!]
+  pageId: String!
+  pageName: String!
+  token: PowerbiToken!
+}
+
+type PowerbiToken {
+  expiration: Int53!
+  value: String!
+}
+
+"""
+Query root type
+"""
+type Query {
+  """
+  helpers
+  """
+  advertiserIdNames: [AdvertiserIdAndName!]!
+  """
+  List currencies
+  """
+  currencies: [Currency!]!
+  """
+  Welcome Modal
+  """
+  getWelcomeModal: GetWelcomeModalResponse!
+    """
+    Retrieve main powerbi reports
+    """
+    reports: [PowerbiReport!]!
+  groupedNotifications: [NotificationsByCategory!]!
+  """
+  Notifications
+  """
+  notifications(filter: NotificationFilter!): [Notification!]!
+  """
+  Retrieve the media plan report (atap_past_consumption_data) for a given set of filters.
+  The report name is configured per environment via MEDIA_PLAN_REPORT_NAME.
+
+  Example query:
+  {
+    reportMediaPlan(filter: {
+      advertiserId: 30146835
+      startDate: "01-Jun-2026"
+      endDate: "30-Nov-2026"
+      currency: "EUR"
+    }) {
+      pageName
+      embedURL
+      pageId
+      token { value expiration }
+      filters { name value ids }
+    }
+  }
+  """
+  reportMediaPlan(filter: MediaPlanReportFilter!): PowerbiReport!
+  """
+  Retrieve main powerbi reports
+  """
+  reports: [PowerbiReport!]!
+  """
+  Retrieve detailed information about a specific user by ID
+
+  Example query:
+  {
+    user(userId: "123") {
+      id
+      name
+      email
+      role
+      location
+      status
+      permissions
+      lastLogin
+    }
+  }
+  """
+  user(userId: ID!): UserDetail!
+  """
+  Retrieve a list of user IDs and names, optionally filtered by name
+
+  Useful for autocomplete or dropdown selections
+
+  Example query:
+  {
+    userIdNames(nameFilter: "john") {
+      id
+      name
+    }
+  }
+  """
+  userIdNames(nameFilter: String): [UserIdName!]!
+  """
+  Retrieve a list of users with optional filtering, pagination and search
+
+  Example query:
+  {
+    users(options: {
+      paginate: { limit: 20, offset: 0 }
+      search: { query: "john", fields: ["name", "email"] }
+      operators: [
+        { field: "status", operator: "in", values: ["active"] }
+        { field: "role", operator: "in", values: ["mh-standard", "mh-administrator"] }
+        { field: "id", operator: "in", values: ["187", "186"] }
+      ]
+    }) {
+      users {
+        id
+        name
+        email
+        role
+        location
+        status
+        lastLogin
+      }
+      totalCount
+      hasNextPage
+    }
+  }
+  """
+  users(options: PageQueryOptions): UsersResponse!
+}
+
+"""
+SearchOptions provides text search capabilities across multiple fields
+"""
+input SearchOptions {
+  """
+  Fields to search in (e.g., ['name', 'email'])
+  """
+  fields: [String!]
+  """
+  Search query string
+  """
+  query: String
+}
+
+type TimeAgo {
+  ago: String!
+  at: Int53!
+}
+
+enum TimePeriodEnum {
+  Last_3_days
+  Last_7_days
+  Last_24_hours
+  Last_30_days
+  Unknown
+}
+
+"""
+UpdateUserResponse contains the result of updating a user
+"""
+type UpdateUserResponse {
+  """
+  Message describing the result of the operation
+  """
+  message: String!
+  """
+  Indicates if the update was successful
+  """
+  success: Boolean!
+  """
+  The updated user details
+  """
+  user: UserDetail
+}
+
+"""
+User represents a user in the system
+"""
+type User {
+  """
+  Email address of the user
+  """
+  email: String!
+  """
+  Unique identifier for the user
+  """
+  id: ID!
+  """
+  User's last login in format: DD-MMM-YYYY HH.mm (e.g., 23-Jan-2025 18.09)
+  """
+  lastLogin: String
+  """
+  User's location
+  """
+  location: String
+  """
+  Full name of the user
+  """
+  name: String!
+  """
+  List of roles assigned to the user
+  """
+  role: [String!]!
+  """
+  Current status of the user (active/inactive)
+  """
+  status: String!
+}
+
+"""
+UserDetail represents detailed information about a user
+"""
+type UserDetail {
+  """
+  Email address of the user
+  """
+  email: String!
+  """
+  Unique identifier for the user
+  """
+  id: ID!
+  """
+  User's last login in format: DD-MMM-YYYY HH.mm (e.g., 23-Jan-2025 18.09)
+  """
+  lastLogin: String
+  """
+  User's location
+  """
+  location: String
+  """
+  Full name of the user
+  """
+  name: String!
+  """
+  List of MediaHub permissions (prefix "mh")
+  """
+  permissions: [String!]!
+  """
+  Single MediaHub role (prefix "mh")
+  """
+  role: String!
+  """
+  Current status of the user (active/inactive)
+  """
+  status: String!
+}
+
+"""
+UserIdName represents a minimal user record with just ID and name
+"""
+type UserIdName {
+  """
+  Unique identifier for the user
+  """
+  id: ID!
+  """
+  Full name of the user
+  """
+  name: String!
+}
+
+type UserToggle {
+  """
+  Total number of active users
+  """
+  totalActive: Int!
+  """
+  Total number of inactive users
+  """
+  totalInactive: Int!
+  """
+  Total number of users
+  """
+  totalUsers: Int!
+}
+
+"""
+UsersResponse contains the list of users with pagination information
+"""
+type UsersResponse {
+  """
+  Indicates if there are more pages available
+  """
+  hasNextPage: Boolean!
+  """
+  Total number of users in toggle labels
+  """
+  toggle: UserToggle!
+  """
+  Total number of administrator users (role: mh-admin)
+  """
+  totalAdministrators: Int!
+  """
+  Total number of users matching the query
+  """
+  totalCount: Int!
+  """
+  Total number of read-only users (no mh role assigned)
+  """
+  totalReadOnly: Int!
+  """
+  Total number of standard users (role: mh-standard)
+  """
+  totalStandard: Int!
+  """
+  List of users
+  """
+  users: [User!]!
+}
+"""
+Powerbi report contains all needed informations to embed a powerbi report in the UI.
+- pageName is the key to select the report page.
+- embedURL is the URL to the report that can be used in an iframe.
+- token is an access token to allow refresh of the embed report.
+- pageId is the id of the page to be enforced within the embed report.
+- filters are the filters to be applied to the report.
+"""
+
+type PowerbiReport {
+    pageName: String!
+    embedURL: String!
+    token: PowerbiToken!
+    pageId: String!
+    filters: [PowerbiFilter!]
+}
+
+type PowerbiToken {
+    value: String!
+    expiration: Int53!
+}
+
+type PowerbiFilter {
+    name: String!
+    value: String!
+    ids: String!
+}

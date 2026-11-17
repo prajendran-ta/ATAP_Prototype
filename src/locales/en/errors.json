@@ -1,0 +1,57 @@
+{
+  "_comment": "User-facing error, success, and validation messages. Keys are used by both frontend t() calls and for mapping BFF error strings.",
+
+  "success": {
+    "notificationMarkedRead": "Notification has been marked as read",
+    "notificationMarkedUnread": "Notification has been marked as unread.",
+    "notificationSnoozed": "Notification has been snoozed.",
+    "notificationUnsnoozed": "Notification has been unsnoozed",
+    "planSettingsSaved": "Plan Settings have been Saved.",
+    "obaPlanPaused": "OBA Plan has been Paused.",
+    "obaPlanResumed": "OBA Plan has been Resumed.",
+    "obaCampaignPaused": "OBA Plan has been Paused.",
+    "obaCampaignResumed": "OBA Plan has been Resumed.",
+    "groupPlanSaved": "Group Plan has been saved successfully",
+    "budgetDistributionSaved": "Budget Distribution has been saved!",
+    "successfullyUpdated": "Successfully updated"
+  },
+
+  "error": {
+    "generic": "Something went wrong. Please try again.",
+    "copilotConnect": "Could not connect to the assistant. Please try again later.",
+    "copilotMessage": "Something went wrong. Please try again.",
+    "planSettingsFailed": "Saving Plan Settings has been Failed!",
+    "fetchDataFailed": "Error in fetching data",
+    "obaPlanPauseFailed": "Error while pausing OBA Plan.",
+    "obaPlanResumeFailed": "Error while resuming OBA Plan.",
+    "obaCampaignPauseFailed": "Error while pausing OBA Plan.",
+    "obaCampaignResumeFailed": "Error while resuming OBA Plan.",
+    "budgetLoadFailed": "Error loading plan data",
+    "budgetSaveFailed": "Error saving plan budget distribution",
+    "groupPlanSaveFailed": "Saving Group Plan has been Failed!",
+    "submissionFailed": "Submission Failed!",
+    "advertiserPlanDataMissing": "Advertiser plan data is missed.",
+    "updateFailed": "Update failed"
+  },
+
+  "validation": {
+    "marginFormat": "Margin value must be in the format x.0 or x.5",
+    "budgetLessThanSpent": "Budget can't be less than spent",
+    "budgetExceedsTotal": "Total allocated budget cannot exceed total budget."
+  },
+
+  "permission": {
+    "readOnlyNotAllowed": "Read-only users are not allowed to perform this action. Please contact an administrator if you need access.",
+    "permissionDenied": "Permission denied",
+    "noPermissionsInContext": "No permissions available. Please contact an administrator.",
+    "alertNotFound": "Alert not found",
+    "alertNotOwned": "You do not own this alert",
+    "advertiserNotFollowed": "You do not follow this advertiser"
+  },
+
+  "auth": {
+    "unauthorized": "Unauthorized",
+    "invalidSession": "Invalid session",
+    "serviceUnavailable": "User management service unavailable"
+  }
+}

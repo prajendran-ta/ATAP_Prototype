@@ -1,0 +1,26 @@
+{
+  "search": {
+    "label": "Rechercher"
+  },
+  "sidebar": {
+    "searchPlaceholder": "Rechercher...",
+    "noResults": "Aucun résultat trouvé"
+  },
+  "pagination": {
+    "total": "{{startItem}}–{{endItem}} sur {{total}} éléments",
+    "itemsPerPage": "Éléments par page :"
+  },
+  "select": {
+    "placeholder": "Sélectionner",
+    "othersOverflow": "+{{count}} autres..."
+  },
+  "carousel": {
+    "slideCaption": "Légende de diapositive"
+  },
+  "breadcrumbs": {
+    "home": "Accueil"
+  },
+  "table": {
+    "total": "{{end}} sur {{total}} éléments"
+  }
+}

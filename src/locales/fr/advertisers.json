@@ -1,0 +1,33 @@
+{
+  "title": "Annonceurs",
+  "tableTitle": "Vue d'ensemble des annonceurs",
+  "columns": {
+    "following": "Suivi",
+    "advertiserName": "Annonceur",
+    "bpid": "BPID",
+    "advertiserType": "Type d'annonceur",
+    "followedBy": "Suivi par"
+  },
+  "filters": {
+    "advertiserBpid": "Annonceur",
+    "advertiserType": "Type d'annonceur",
+    "followedBy": "Suivi par",
+    "myAdvertisers": "Mes annonceurs ({{count}})",
+    "allAdvertisers": "Tous les annonceurs ({{count}})"
+  },
+  "actions": {
+    "bulkActions": "Action groupée",
+    "followAll": "Tout suivre",
+    "unfollowAll": "Ne plus rien suivre"
+  },
+  "details": {
+    "title": "Détails de l'annonceur",
+    "generalSettings": "Paramètres généraux",
+    "advertiserName": "Nom de l'annonceur",
+    "bpid": "BPID",
+    "advertiserType": "Type d'annonceur",
+    "configSettings": "Paramètres de configuration",
+    "platform": "Plateforme",
+    "close": "Fermer"
+  }
+}

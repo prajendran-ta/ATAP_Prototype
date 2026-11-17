@@ -1,0 +1,21 @@
+{
+  "_comment": "Backend notification templates. Placeholders use {single_brace} format as consumed by Go string formatting. Do NOT change placeholder names.",
+  "1001": "BID {advertiser_bid} - {advertiser_name} - Budget épuisé pour ce mois pour {group_name} : aucune recommandation n'a été produite.",
+  "1001_grouped": "BID {advertiser_bid} - {advertiser_name} - Budget épuisé pour ce mois pour plusieurs groupes.",
+  "1002": "BID {advertiser_bid} - {advertiser_name} - Recommandations ignorées car les données sont obsolètes, manquantes ou une campagne est en pause.",
+  "1003": "BID {advertiser_bid} - {advertiser_name} - Marge minimale atteinte sans atteindre le KPI cible - maintien des recommandations précédentes.",
+  "1004": "BID {advertiser_bid} - {advertiser_name} - La marge est inférieure à 30% ou à la cible, car le KPI cible n'a pas été atteint. Elle peut être réduite jusqu'à 20% tant que le KPI cible n'est toujours pas atteint.",
+  "1005": "BID {advertiser_bid} - {advertiser_name} - Impossible d'appliquer la recommandation budgétaire pour la campagne {campaign_id} {campaign_name} sur la plateforme publicitaire {platform_name}.",
+  "1005_grouped": "BID {advertiser_bid} - {advertiser_name} - Impossible d'appliquer la recommandation budgétaire pour plusieurs campagnes sur la ou les plateformes publicitaires.",
+  "1006": "BID {advertiser_bid} - {advertiser_name} - Le budget OBA alloué dépasse le budget total - plan mis en pause, action requise.",
+  "1007": "BID {advertiser_bid} - {advertiser_name} - Le contrat commence dans {nb_days} jour(s).",
+  "1008": "BID {advertiser_bid} - {advertiser_name} - Le contrat se termine dans {nb_days} jour(s).",
+  "1009": "BID {advertiser_bid} - {advertiser_name} - La date de début de l'ordre d'insertion DV360 ne correspond pas à la date de début du contrat pour la campagne {campaign_id} {campaign_name}. Veuillez mettre à jour l'OI.",
+  "1009_grouped": "BID {advertiser_bid} - {advertiser_name} - La date de début de l'ordre d'insertion DV360 ne correspond pas à la date de début du contrat pour plusieurs campagnes. Veuillez mettre à jour le(s) OI.",
+  "1010": "BID {advertiser_bid} - {advertiser_name} - La date de fin de l'ordre d'insertion DV360 ne correspond pas à la date de fin du contrat pour la campagne {campaign_id} {campaign_name}. Veuillez mettre à jour l'OI.",
+  "1010_grouped": "BID {advertiser_bid} - {advertiser_name} - La date de fin de l'ordre d'insertion DV360 ne correspond pas à la date de fin du contrat pour plusieurs campagnes. Veuillez mettre à jour le(s) OI.",
+  "1011": "BID/BPID {advertiser_bid} - {advertiser_name} - Données manquantes pour la campagne {campaign_id} {campaign_name}. Le budget du jour précédent s'applique toujours.",
+  "1011_grouped": "BID/BPID {advertiser_bid} - {advertiser_name} - Données manquantes pour plusieurs campagnes. Le budget du jour précédent s'applique toujours.",
+  "1012": "BID/BPID {advertiser_bid} - {advertiser_name} - Recommandations ignorées car les données sont manquantes pour la campagne {campaign_id} {campaign_name}.",
+  "1012_grouped": "BID/BPID {advertiser_bid} - {advertiser_name} - Recommandations ignorées car les données sont manquantes pour plusieurs campagnes."
+}

@@ -1,0 +1,6 @@
+{
+  "title": "AskMia",
+  "placeholder": "Posez une question...",
+  "connectionError": "Impossible de se connecter à l'assistant. Veuillez réessayer plus tard.",
+  "genericError": "Une erreur s'est produite. Veuillez réessayer."
+}

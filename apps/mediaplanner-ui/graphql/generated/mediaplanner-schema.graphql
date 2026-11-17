@@ -1,0 +1,934 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+directive @hasPermission(perm: String!) on FIELD_DEFINITION | MUTATION
+
+"""
+Advertiser information (output type)
+"""
+type AdvertiserInformation {
+  """
+  Advertiser Business Partner ID (BPID)
+  """
+  advertiserBpid: String!
+  """
+  Advertiser identifier
+  """
+  advertiserId: String!
+  """
+  Breakdown descriptor
+  """
+  breakdown: BreakdownEnum!
+  """
+  Currency for the media plan
+  """
+  currency: String!
+  """
+  Type of plan
+  """
+  planType: PlanTypeEnum!
+  """
+  Indicates whether prefill is enabled for the media plan
+  """
+  prefillEnabled: Boolean!
+  """
+  Proposal identifier
+  """
+  proposalId: String!
+  """
+  Region of the advertiser
+  """
+  region: RegionEnum!
+  """
+  Salesforce opportunity identifier
+  """
+  salesforceOpportunityId: String!
+}
+
+"""
+Advertiser information for the media plan
+"""
+input AdvertiserInformationInput {
+  """
+  Advertiser Business Partner ID (BPID) - unique identifier for the advertiser in the system
+  """
+  advertiserBpid: String!
+  """
+  Advertiser identifier
+  """
+  advertiserId: String!
+  """
+  Breakdown descriptor
+  """
+  breakdown: BreakdownEnum!
+  """
+  Currency for the media plan
+  """
+  currency: String!
+  """
+  Type of plan
+  """
+  planType: PlanTypeEnum!
+  """
+  Indicates whether prefill is enabled for the media plan
+  """
+  prefillEnabled: Boolean!
+  """
+  Proposal identifier
+  """
+  proposalId: String!
+  """
+  Region of the advertiser
+  """
+  region: RegionEnum!
+  """
+  Salesforce opportunity identifier
+  """
+  salesforceOpportunityId: String!
+}
+
+"""
+Breakdown descriptor for the media plan
+"""
+enum BreakdownEnum {
+  MULTI_PROPERTY
+  SINGLE_PROPERTY
+}
+
+"""
+Calculation mode for the channel allocation - only applicable for display channel
+"""
+enum CalculationModeEnum {
+  CPM
+  MARGIN
+}
+
+"""
+Channel allocation for the last distribution response (output type)
+"""
+type ChannelAllocation {
+  """
+  Budget amount for this channel
+  """
+  budgetAmount: Float!
+  """
+  Budget percentage for this channel
+  """
+  budgetPct: Float!
+  """
+  Media channel
+  """
+  channel: MediaChannelEnum!
+  """
+  Unique identifier of the channel allocation
+  """
+  id: String!
+  """
+  Media plan identifier
+  """
+  mediaPlanId: String!
+  """
+  Tactic allocations within this channel
+  """
+  tactics: [TacticAllocation!]!
+}
+
+"""
+Input for creating a media plan - General Settings (Step 1)
+"""
+input CreateMediaPlanInput1 {
+  """
+  Advertiser information
+  """
+  advertiserInformation: AdvertiserInformationInput!
+  """
+  Plan information
+  """
+  planInformation: PlanInformationInput!
+  """
+  Price settings
+  """
+  priceSettings: PriceSettingsInput!
+}
+
+"""
+Input for creating a media plan - Budget Distribution (Step 2)
+"""
+input CreateMediaPlanInput2 {
+  """
+  Actual margin percentage for the media plan
+  """
+  actualMarginPct: Float!
+  """
+  List of media allocations by channel, platform and tactic
+  """
+  allocations: [MediaAllocationInput!]!
+  """
+  Contract margin amount for the media plan
+  """
+  contractMarginAmt: Float!
+  """
+  Contract margin percentage for the media plan
+  """
+  contractMarginPct: Float!
+  """
+  Media plan identifier
+  """
+  mediaPlanId: String!
+  """
+  Total spend budget for the media plan
+  """
+  spendBudget: Float!
+  """
+  Monthly spend budget distribution percentages
+  """
+  spendBudgetDistribution: [SpendBudgetDistributionInput!]!
+}
+
+"""
+Response type for last closed won distribution
+"""
+type LastDistributionResponse {
+  """
+  List of channel allocations for the media plan used as source for the distribution
+  """
+  channelAllocations: [ChannelAllocation!]!
+  """
+  Monthly distributions for the media plan used as source for the distribution
+  """
+  monthlyDistributions: [MonthlyDistribution!]!
+  """
+  sourcePlanId: Identifier of the media plan used as source for the distribution
+  """
+  sourcePlanId: String!
+  """
+  Name of the media plan used as source for the distribution
+  """
+  sourcePlanName: String!
+}
+
+"""
+Media allocation (output type)
+"""
+type MediaAllocation {
+  """
+  Budget amount for this channel
+  """
+  budgetAmount: Float!
+  """
+  Budget percentage for this channel
+  """
+  budgetPct: Float!
+  """
+  Media channel
+  """
+  channel: MediaChannelEnum!
+  """
+  Tactic allocations within this channel
+  """
+  tactics: [TacticAllocation!]!
+}
+
+"""
+Media allocation entry grouped by channel for the budget distribution
+"""
+input MediaAllocationInput {
+  """
+  Budget amount for this channel
+  """
+  budgetAmount: Float!
+  """
+  Budget percentage for this channel
+  """
+  budgetPct: Float!
+  """
+  Media channel (e.g. paid search, display, social)
+  """
+  channel: MediaChannelEnum!
+  """
+  Tactic allocations within this channel
+  """
+  tactics: [TacticAllocationInput!]!
+}
+
+"""
+Media channel for the allocation
+"""
+enum MediaChannelEnum {
+  DISPLAY
+  METASEARCH
+  PAID_SEARCH
+  SOCIAL
+  VIDEO
+}
+
+"""
+Media Plan entity
+"""
+type MediaPlan {
+  """
+  Business Partner ID of the advertiser
+  """
+  advertiserBpid: String!
+  """
+  Name of the advertiser
+  """
+  advertiserName: String!
+  """
+  Contract budget allocated (may be null if not set)
+  """
+  contractBudget: String
+  """
+  Currency for the media plan
+  """
+  currency: String!
+  """
+  End date of the plan
+  """
+  endDate: String!
+  """
+  Unique identifier
+  """
+  id: ID!
+  """
+  Opportunity ID associated with the plan
+  """
+  opportunityId: String!
+  """
+  Name of the media plan
+  """
+  planName: String!
+  """
+  Type of the plan (New or Renewal)
+  """
+  planType: PlanTypeEnum!
+  """
+  Proposal ID associated with the plan
+  """
+  proposalId: String!
+  """
+  Start date of the plan
+  """
+  startDate: String!
+  """
+  Current status of the plan
+  """
+  status: StatusEnum!
+}
+
+"""
+Response type for media plan budget distribution
+"""
+type MediaPlanBdSectionResponse {
+  """
+  Actual margin percentage for the media plan
+  """
+  actualMarginPct: Float!
+  """
+  List of media allocations by channel, platform and tactic
+  """
+  allocations: [MediaAllocation!]!
+  """
+  Contract margin amount for the media plan
+  """
+  contractMarginAmt: Float!
+  """
+  Contract margin percentage for the media plan
+  """
+  contractMarginPct: Float!
+  """
+  Media plan identifier
+  """
+  mediaPlanId: String!
+  """
+  Total spend budget for the media plan
+  """
+  spendBudget: Float!
+  """
+  Monthly spend budget distribution percentages
+  """
+  spendBudgetDistribution: [SpendBudgetDistribution!]!
+}
+
+"""
+Input type for filtering media plans
+"""
+input MediaPlanFilter {
+  """
+  Filter by advertiserID
+  """
+  advertiserId: [String]
+  """
+  Filter to show only plans owned by the current user
+  """
+  myPlansOnly: Boolean
+  """
+  Pagination input - reserved for future implementation
+  """
+  paging: PagingInput
+  """
+  Filter by plan name
+  """
+  planName: [String]
+  """
+  Filter by plan type
+  """
+  planType: [PlanTypeEnum!]
+  """
+  Search text across multiple fields
+  """
+  search: String
+  """
+  Filter by status
+  """
+  status: [StatusEnum!]
+}
+
+"""
+Response type for media plan general settings
+"""
+type MediaPlanGsSectionResponse {
+  """
+  Advertiser information
+  """
+  advertiserInformation: AdvertiserInformation!
+  """
+  Plan information
+  """
+  planInformation: PlanInformation!
+  """
+  Price settings
+  """
+  priceSettings: PriceSettings!
+}
+
+type MediaPlanResponse {
+  """
+  Budget distribution details of the media plan
+  """
+  budgetDistribution: MediaPlanBdSectionResponse!
+  """
+  General settings of the media plan
+  """
+  generalSettings: MediaPlanGsSectionResponse!
+  """
+  Unique identifier
+  """
+  mediaPlanId: String!
+}
+
+"""
+Response wrapper for media plans list
+"""
+type MediaPlansResponse {
+  """
+  Count of all plans
+  """
+  allPlansCount: Int!
+  """
+  Count of plans owned by the current user
+  """
+  myPlansCount: Int!
+  """
+  List of media plans
+  """
+  plans: [MediaPlan!]!
+  """
+  Total number of plans matching the filter
+  """
+  totalCount: Int!
+}
+
+"""
+Media platform for the allocation
+"""
+enum MediaPlatformEnum {
+  AMADEUS_DSP
+  BING
+  DV360
+  FACEBOOK_IG
+  GOOGLE_ADS
+  KAYAK
+  LINKEDIN
+  PINTEREST
+  TIKTOK
+  TRIPADVISOR
+  TRIVAGO
+  YOUTUBE
+}
+
+"""
+Media tactic for the allocation
+"""
+enum MediaTacticEnum {
+  ADVANTAGE_PLUS
+  BRAND
+  DEMAND_GEN
+  GENERIC
+  PMAX
+  PROSPECTING
+  REMARKETING
+}
+
+"""
+Monthly distribution for the last distribution response (output type)
+"""
+type MonthlyDistribution {
+  """
+  Calculated monetary amount for this month's distribution
+  """
+  calculatedAmount: Float!
+  """
+  Unique identifier of the channel allocation
+  """
+  id: String!
+  """
+  Media plan identifier
+  """
+  mediaPlanId: String!
+  """
+  Month period in DD-MMM-YYYY format
+  """
+  month: String!
+  """
+  Spend percentage for this month
+  """
+  spendPct: Int!
+  """
+  Distribution value type: PERCENTAGE or FIXED
+  """
+  valueType: String!
+}
+
+type Mutation {
+  """
+  Create a new media plan for General Settings
+  """
+  createMediaPlanGs(input: CreateMediaPlanInput1!): ResponseMediaPlanInput! @hasPermission(perm: "mh-mediaplan-write")
+  """
+  Update a media plan for Budget Distribution
+  """
+  updateMediaPlanBd(input: CreateMediaPlanInput2!): ResponseMediaPlanInput! @hasPermission(perm: "mh-mediaplan-write")
+  """
+  Update a media plan for General Settings
+  """
+  updateMediaPlanGs(input: UpdateMediaPlanInput3!): ResponseMediaPlanInput! @hasPermission(perm: "mh-mediaplan-write")
+}
+
+"""
+Input for pagination (reserved for future implementation)
+"""
+input PagingInput {
+  """
+  Maximum number of items to return (max 100)
+  """
+  limit: Int
+  """
+  Number of items to skip
+  """
+  offset: Int
+}
+
+"""
+Plan information (output type)
+"""
+type PlanInformation {
+  """
+  Contract budget target
+  """
+  contractBudgetTarget: String!
+  """
+  Contract profit target
+  """
+  contractProfitTarget: String!
+  """
+  End date in DD-MMM-YYYY format
+  """
+  endDate: String!
+  """
+  Name of the plan
+  """
+  planName: String!
+  """
+  Start date in DD-MMM-YYYY format
+  """
+  startDate: String!
+  """
+  Status of the plan
+  """
+  status: StatusEnum!
+}
+
+"""
+Plan information for the media plan
+"""
+input PlanInformationInput {
+  """
+  Contract budget target
+  """
+  contractBudgetTarget: String
+  """
+  Contract profit target
+  """
+  contractProfitTarget: String
+  """
+  End date in DD-MMM-YYYY format
+  """
+  endDate: String!
+  """
+  Name of the plan
+  """
+  planName: String!
+  """
+  Start date in DD-MMM-YYYY format
+  """
+  startDate: String!
+  """
+  Status of the plan
+  """
+  status: StatusEnum!
+}
+
+"""
+Type of plan
+"""
+enum PlanTypeEnum {
+  NEW
+  RENEWAL
+}
+
+"""
+Price settings (output type)
+"""
+type PriceSettings {
+  """
+  Creative fee
+  """
+  creativeFee: String!
+  """
+  Management fee percentage
+  """
+  managementFeePct: String!
+  """
+  Metasearch connectivity fee
+  """
+  metasearchConnectivityFee: String!
+  """
+  Metasearch setup fee
+  """
+  metasearchSetupFee: String!
+  """
+  Setup fee
+  """
+  setupFee: String!
+  """
+  Video creative fee
+  """
+  videoCreativeFee: String!
+}
+
+"""
+Price settings for the media plan
+"""
+input PriceSettingsInput {
+  """
+  Creative fee - optional, must be numeric when provided
+  """
+  creativeFee: String
+  """
+  Management fee percentage - required, must be numeric
+  """
+  managementFeePct: String!
+  """
+  Metasearch connectivity fee - optional, must be numeric when provided
+  """
+  metasearchConnectivityFee: String
+  """
+  Metasearch setup fee - optional, must be numeric when provided
+  """
+  metasearchSetupFee: String
+  """
+  Setup fee - optional, must be numeric when provided
+  """
+  setupFee: String
+  """
+  Video creative fee - optional, must be numeric when provided
+  """
+  videoCreativeFee: String
+}
+
+"""
+Root Query Type
+"""
+type Query {
+  """
+  Returns the last closed won distribution for an advertiser by ID
+  """
+  GetLastDistribution(advertiserId: String!): LastDistributionResponse!
+  """
+  Returns general settings and budget distribution details for a media plan by ID
+    - mediaPlanId: ID of the media plan to retrieve
+  """
+  GetMediaPlan(mediaPlanId: String!): MediaPlanResponse!
+  """
+  Returns a list of media plans with optional filtering
+  """
+  GetMediaPlans(filter: MediaPlanFilter): MediaPlansResponse!
+  """
+  Returns spend budget recommendation for a media plan by ID
+    - mediaPlanId: ID of the media plan to retrieve
+  """
+  GetSpendBudgetRecommendation(input: SpendBudgetRecommendationInput!): SpendBudgetRecommendationResponse!
+}
+
+"""
+Region associated with an advertiser
+"""
+enum RegionEnum {
+  ASPAC
+  EMEA
+  LATAM
+  NORAM
+}
+
+"""
+Response returned after creating a media plan
+"""
+type ResponseMediaPlanInput {
+  """
+  Date and time when the media plan was created, in ISO 8601 format
+  """
+  dateCreated: String!
+  """
+  Unique identifier assigned to the created media plan
+  """
+  mediaPlanId: String!
+  """
+  Human-readable message describing the result
+  """
+  message: String!
+  """
+  Indicates whether the operation was successful
+  """
+  success: Boolean!
+}
+
+"""
+Monthly spend budget distribution (output type)
+"""
+type SpendBudgetDistribution {
+  """
+  Month period in DD-MMM-YYYY format
+  """
+  month: String!
+  """
+  Spend percentage for this month
+  """
+  spendPct: Int!
+}
+
+"""
+Monthly spend budget distribution entry
+"""
+input SpendBudgetDistributionInput {
+  """
+  Month period in DD-MMM-YYYY format (e.g. 01-Jan-2026)
+  """
+  month: String!
+  """
+  Spend percentage for this month
+  """
+  spendPct: Int!
+}
+
+"""
+Single period budget allocation returned by the spend budget recommendation
+"""
+type SpendBudgetItem {
+  """
+  Budget amount allocated for this period
+  """
+  budget: Int!
+  """
+  End date of the period in DD-MMM-YYYY format
+  """
+  endDate: String!
+  """
+  Indicates whether this period covers a partial month
+  """
+  partialMonth: Boolean!
+  """
+  Start date of the period in DD-MMM-YYYY format
+  """
+  startDate: String!
+}
+
+input SpendBudgetRecommendationInput {
+  """
+  Advertiser Business Partner ID (BPID)
+  """
+  advertiserBpid: String!
+  """
+  Advertiser identifier
+  """
+  advertiserId: String!
+  """
+  Date range for the recommendation in DD-MMM-YYYY format
+  """
+  endDate: String!
+  """
+  Optional group identifier for OBA budget allocation
+  """
+  groupId: Int
+  """
+  Date range for the recommendation in DD-MMM-YYYY format
+  """
+  startDate: String!
+  """
+  Total budget to distribute across the date range
+  """
+  totalBudget: Int!
+}
+
+type SpendBudgetRecommendationResponse {
+  items: [SpendBudgetItem!]!
+  """
+  Status code returned by the media plans API service
+  """
+  status: String!
+}
+
+"""
+Status of a media plan creation
+"""
+enum StatusEnum {
+  ARCHIVED
+  CLOSED_LOST
+  CLOSED_WON
+  DRAFT
+  SUBMITTED
+}
+
+"""
+Tactic allocation (output type)
+"""
+type TacticAllocation {
+  """
+  Calculation mode for this channel (e.g. use margin or use CPM) - applicable only for display
+  """
+  calculationMode: String
+  """
+  Cost per thousand impressions (CPM)
+  """
+  cpmAmount: Float
+  """
+  Margin amount
+  """
+  marginAmount: Float
+  """
+  Margin percentage
+  """
+  marginPct: Float
+  """
+  Percentage of expected for this tactic allocation
+  """
+  pctOfExpected: Float!
+  """
+  Ad platform - single value
+  """
+  platform: MediaPlatformEnum
+  """
+  Platform cost
+  """
+  platformCost: Float
+  """
+  Ad platforms - array (for metasearch)
+  """
+  platforms: [MediaPlatformEnum!]
+  """
+  Spend amount for this tactic allocation
+  """
+  spendAmount: Float!
+  """
+  Spend percentage for this tactic allocation
+  """
+  spendPct: Float!
+  """
+  Media tactic
+  """
+  tactic: MediaTacticEnum
+}
+
+"""
+Tactic allocation entry within a channel
+"""
+input TacticAllocationInput {
+  """
+  Calculation mode for this channel (e.g. use margin or use CPM) - applicable only for display
+  """
+  calculationMode: CalculationModeEnum
+  """
+  Cost per thousand impressions (CPM) - applicable for display
+  """
+  cpmAmount: Float
+  """
+  Margin amount - applicable for display, social, video, metasearch
+  """
+  marginAmount: Float
+  """
+  Margin percentage - applicable for social, video
+  """
+  marginPct: Float
+  """
+  Percentage of expected for this tactic allocation
+  """
+  pctOfExpected: Float!
+  """
+  Ad platform - single value (for paid search, display, social, video)
+  """
+  platform: MediaPlatformEnum
+  """
+  Platform cost - applicable for display
+  """
+  platformCost: Float
+  """
+  Ad platforms - array (for metasearch)
+  """
+  platforms: [MediaPlatformEnum!]
+  """
+  Spend amount for this tactic allocation
+  """
+  spendAmount: Float!
+  """
+  Spend percentage for this tactic allocation
+  """
+  spendPct: Float!
+  """
+  Media tactic (e.g. brand, generic, prospecting) - not applicable for metasearch
+  """
+  tactic: MediaTacticEnum
+}
+
+"""
+Input for updating a media plan - General Settings (Step 3)
+"""
+input UpdateMediaPlanInput3 {
+  """
+  Advertiser information
+  """
+  advertiserInformation: AdvertiserInformationInput!
+  """
+  Unique identifier assigned to the created media plan
+  """
+  mediaPlanId: String!
+  """
+  Plan information
+  """
+  planInformation: PlanInformationInput!
+  """
+  Price settings
+  """
+  priceSettings: PriceSettingsInput!
+}

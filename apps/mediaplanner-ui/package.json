@@ -1,0 +1,37 @@
+{
+  "name": "@mediahub/mediaplanner-ui",
+  "version": "0.0.1",
+  "description": "Media Planner UI Application",
+  "private": true,
+  "author": "TTT Team",
+  "repository": "git@github.com:travelaudience/mediahub-fe.git",
+  "main": "index.tsx",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack",
+    "type-check": "tsc --noEmit",
+    "gql-codegen": "graphql-codegen --config graphql/mediaplanner-codegen-config.ts"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.13.9",
+    "exceljs": "^4.4.0",
+    "graphql": "^16.11.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.7",
+    "@graphql-codegen/schema-ast": "^4.1.0",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-operations": "^4.6.1",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.3",
+    "@types/react": "^19.2.3",
+    "@types/react-dom": "^19.2.3",
+    "html-webpack-plugin": "^5.6.3",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.100.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}

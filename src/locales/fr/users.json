@@ -1,0 +1,47 @@
+{
+  "title": "Gestion des utilisateurs",
+  "tableTitle": "Vue d'ensemble des utilisateurs",
+  "summary": "Résumé des utilisateurs",
+  "columns": {
+    "name": "Nom",
+    "email": "E-mail",
+    "role": "Rôle utilisateur",
+    "status": "Statut",
+    "lastLogin": "Dernière connexion"
+  },
+  "roles": {
+    "admin": "Administrateur",
+    "standard": "Utilisateur standard",
+    "readOnly": "Lecture seule"
+  },
+  "filters": {
+    "allUsers": "Tous les utilisateurs ({{count}})",
+    "activeUsers": "Utilisateurs actifs ({{count}})",
+    "inactiveUsers": "Utilisateurs inactifs ({{count}})"
+  },
+  "details": {
+    "title": "Détails de l'utilisateur",
+    "userName": "Nom d'utilisateur",
+    "selectRole": "Sélectionner un rôle",
+    "moduleAccess": "Accès aux modules",
+    "access": "Accès",
+    "module": "Module",
+    "noChanges": "Aucune modification à enregistrer.",
+    "updateFailed": "Échec de la mise à jour",
+    "errorMsg": "Erreur : {{error}}"
+  },
+  "rolesPerms": {
+    "title": "Rôles et permissions"
+  },
+  "modules": {
+    "advertisers": "Annonceurs",
+    "mediaPlanning": "Planification média et demandes",
+    "campaignMgmt": "Gestion et configuration de campagnes",
+    "campaignOpt": "Optimisation et rythme de campagne",
+    "reports": "Rapports",
+    "marketInsights": "Aperçus du marché",
+    "dataManagement": "Gestion des données",
+    "pricingBilling": "Tarification et facturation",
+    "userManagement": "Gestion des utilisateurs"
+  }
+}

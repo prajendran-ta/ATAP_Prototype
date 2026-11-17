@@ -1,0 +1,6 @@
+{
+  "title": "AskMia",
+  "placeholder": "Ask something...",
+  "connectionError": "Could not connect to the assistant. Please try again later.",
+  "genericError": "Something went wrong. Please try again."
+}

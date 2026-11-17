@@ -1,0 +1,70 @@
+{
+  "title": "Notifications Center",
+  "tableTitle": "Notifications Overview",
+  "drawerTitle": "Notifications",
+  "tabs": {
+    "performance": "Performance",
+    "management": "Management",
+    "contracts": "Contracts",
+    "others": "Others"
+  },
+  "columns": {
+    "alertType": "Alert Type",
+    "advertiserBpid": "Advertiser Name",
+    "advertiserBpidInternal": "Advertiser Name (BPID)",
+    "module": "Module",
+    "category": "Category",
+    "time": "Time",
+    "message": "Message"
+  },
+  "filters": {
+    "advertiserBpid": "Advertiser",
+    "advertiserBpidInternal": "Advertiser (BPID)",
+    "modules": "Modules",
+    "category": "Category",
+    "timePeriod": "Time Period",
+    "status": "Status",
+    "myNotifications": "My Notifications",
+    "allNotifications": "All Notifications"
+  },
+  "searchPlaceholder": "Message",
+  "categories": {
+    "contract": "Contract",
+    "management": "Management",
+    "performance": "Performance",
+    "others": "Others"
+  },
+  "status": {
+    "read": "Read",
+    "snoozed": "Snoozed",
+    "unread": "Unread"
+  },
+  "module": {
+    "oba": "OBA"
+  },
+  "timePeriod": {
+    "24h": "Last 24 hours",
+    "3d": "Last 3 Days",
+    "7d": "Last 7 Days",
+    "30d": "Last 30 Days"
+  },
+  "alertLevel": {
+    "error": "Error",
+    "info": "Info/Advisory",
+    "warning": "Warning"
+  },
+  "actions": {
+    "markAsRead": "Mark as read",
+    "markAsUnread": "Mark as unread",
+    "snooze": "Snooze",
+    "unsnooze": "Dismiss snooze",
+    "moreDetails": "More details"
+  },
+  "toast": {
+    "markedRead": "Notification has been marked as read",
+    "markedUnread": "Notification has been marked as unread.",
+    "snoozed": "Notification has been snoozed.",
+    "unsnoozed": "Notification has been unsnoozed"
+  },
+  "broadFilter": "Please narrow your filter selection by choosing Advertiser/s or reduced Time period to view notifications. Displaying notifications for all advertisers exceeds the table's capacity."
+}

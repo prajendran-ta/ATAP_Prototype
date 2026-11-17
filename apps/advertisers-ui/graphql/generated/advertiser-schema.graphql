@@ -1,0 +1,127 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+directive @hasPermission(perm: String!) on FIELD_DEFINITION | MUTATION
+
+"""
+Advertiser entity
+"""
+type Advertiser {
+  advertiserId: ID!
+  advertiserName: String!
+  advertiserTypes: AdvertiserTypesEnum!
+  bpid: String!
+  followedBy: String!
+  isFollowing: Boolean!
+  status: AdvertiserStatusEnum!
+}
+
+"""
+Details of external advertisers linked to an advertiser
+"""
+type AdvertiserDetails {
+  advertiserId: ID!
+  externalAdvertiser: [ExternalAdvertiser!]!
+}
+
+"""
+Input type for filtering advertisers
+"""
+input AdvertiserFilter {
+  advertiserTypes: AdvertiserTypesEnum!
+  followedBy: [Int!]
+  ids: [Int!]
+  isFollowingOnly: Boolean!
+  name: String
+  paging: PagingInput
+  status: [AdvertiserStatusEnum!]
+}
+
+"""
+ENUMS
+"""
+enum AdvertiserStatusEnum {
+  ACTIVE
+  ARCHIVED
+  EXPIRED
+  EXTERNAL
+  PAUSED
+  PENDING
+  UNSET
+}
+
+enum AdvertiserTypesEnum {
+  HOTEL
+}
+
+"""
+Wrapper for advertiser list with total count
+"""
+type Advertisers {
+  advertisers: [Advertiser!]!
+  toggle: TotalToggle!
+  totalCount: Int!
+}
+
+input EntityInput {
+  advertiserId: [String!]!
+}
+
+type EntityResponse {
+  message: String
+  success: Boolean!
+}
+
+"""
+External advertiser representation
+"""
+type ExternalAdvertiser {
+  name: String!
+  platform: String!
+}
+
+type Mutation {
+  """
+  Follow advertiser method
+  """
+  followAdvertiser(input: EntityInput!): EntityResponse!
+  """
+  Unfollow advertiser method
+  """
+  unfollowAdvertiser(input: EntityInput!): EntityResponse!
+}
+
+"""
+Input for pagination
+"""
+input PagingInput {
+  """
+  Maximum number of items to return (max 100)
+  """
+  limit: Int
+  """
+  Number of items to skip
+  """
+  offset: Int
+}
+
+"""
+Root Query Type
+"""
+type Query {
+  """
+  Returns external advertiser details for a given advertiser ID
+  """
+  advertiserDetails(advertiserId: ID!): AdvertiserDetails
+  """
+  Returns a list of all advertisers based on filter criteria
+  """
+  advertisers(filter: AdvertiserFilter!): Advertisers!
+}
+
+type TotalToggle {
+  totalAdvertisers: Int!
+  totalFollowing: Int!
+}

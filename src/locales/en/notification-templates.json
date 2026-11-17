@@ -1,0 +1,21 @@
+{
+  "_comment": "Backend notification templates. Placeholders use {single_brace} format as consumed by Go string formatting. Do NOT change placeholder names.",
+  "1001": "BID {advertiser_bid} - {advertiser_name} - Budget Exhausted for this month for {group_name}: No recommendations were produced.",
+  "1001_grouped": "BID {advertiser_bid} - {advertiser_name} - Budget Exhausted for this month for multiple groups.",
+  "1002": "BID {advertiser_bid} - {advertiser_name} - Recommendations skipped because data is outdated, missing or a campaign is paused.",
+  "1003": "BID {advertiser_bid} - {advertiser_name} - Margin minimum reached without reaching target KPI - maintaining previous recommendations.",
+  "1004": "BID {advertiser_bid} - {advertiser_name} - Margin is below 30% or the target, as target KPI not reached. It can be reduced to as low as 20% as long as target KPI is still not reached.",
+  "1005": "BID {advertiser_bid} - {advertiser_name} - Could not apply budget recommendation for campaign {campaign_id} {campaign_name} to ad platform {platform_name}.",
+  "1005_grouped": "BID {advertiser_bid} - {advertiser_name} - Could not apply budget recommendation for multiple campaigns to ad platform(s).",
+  "1006": "BID {advertiser_bid} - {advertiser_name} - Alloted OBA budget surpasses the total budget - plan is paused, action needed.",
+  "1007": "BID {advertiser_bid} - {advertiser_name} - Contract starts in {nb_days} day(s).",
+  "1008": "BID {advertiser_bid} - {advertiser_name} - Contract ends in {nb_days} day(s).",
+  "1009": "BID {advertiser_bid} - {advertiser_name} - DV360 Insertion Order Start Date does not match the contract start date for campaign {campaign_id} {campaign_name}. Please update IO.",
+  "1009_grouped": "BID {advertiser_bid} - {advertiser_name} - DV360 Insertion Order Start Date does not match the contract start date for multiple campaigns. Please update IO(s).",
+  "1010": "BID {advertiser_bid} - {advertiser_name} - DV360 Insertion Order End Date does not match the contract end date for campaign {campaign_id} {campaign_name}. Please update IO.",
+  "1010_grouped": "BID {advertiser_bid} - {advertiser_name} - DV360 Insertion Order End Date does not match the contract end date for multiple campaigns. Please update IO(s).",
+  "1011": "BID/BPID {advertiser_bid} - {advertiser_name} - Data is missing for campaign {campaign_id} {campaign_name}. Previous day's budget still applies.",
+  "1011_grouped": "BID/BPID {advertiser_bid} - {advertiser_name} - Data is missing for multiple campaigns. Previous day's budget still applies.",
+  "1012": "BID/BPID {advertiser_bid} - {advertiser_name} - Recommendations skipped because data is missing for campaign {campaign_id} {campaign_name}.",
+  "1012_grouped": "BID/BPID {advertiser_bid} - {advertiser_name} - Recommendations skipped because data is missing for multiple campaigns."
+}

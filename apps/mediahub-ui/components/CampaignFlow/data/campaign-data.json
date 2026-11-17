@@ -1,0 +1,1624 @@
+{
+  "$comment": "Machine-readable seed data for the Create Campaign with Amadeus Max flow. All values are mock/prototype data. See DATA.md for the TypeScript types and field-by-field explanations, and REQUIREMENTS.md for behavior.",
+  "basicInfo": {
+    "advertiser": "Amadeus Hotels",
+    "campaignName": "Amadeus Hotels 2027 Always-On Campaign",
+    "campaignId": "CMP-AH-2027",
+    "mediaPlanName": "Amadeus Hotels 2027 Always-On Media Plan",
+    "objective": "Website conversions",
+    "campaignType": "Multi-channel (Performance)",
+    "startDate": "2027-01-01",
+    "endDate": "2027-12-31",
+    "namingConvention": "HOS_2027_{platform}_{market}",
+    "totalBudget": 200000,
+    "manageBudgetByOba": true
+  },
+  "objectiveOptions": [
+    "Website conversions",
+    "Awareness",
+    "Traffic",
+    "Engagement",
+    "Leads"
+  ],
+  "campaignTypeOptions": [
+    "Multi-channel (Performance)",
+    "Search",
+    "Display",
+    "Video",
+    "Social"
+  ],
+  "properties": [
+    "Starry Night Hotel — Paris",
+    "Grand Hotel — Nice",
+    "Grand Hotel — Paris",
+    "Riviera Suites — Cannes",
+    "Le Marais Boutique — Paris",
+    "Alpine Lodge — Chamonix",
+    "Harbour View — Marseille",
+    "Château Loire — Tours",
+    "Coastal Retreat — Biarritz",
+    "City Central — Lyon"
+  ],
+  "channelOrder": [
+    "Paid search",
+    "Display Advertising",
+    "Social",
+    "Metasearch",
+    "Other"
+  ],
+  "channelTactics": {
+    "Paid search": [
+      "Brand",
+      "Generic",
+      "Pmax"
+    ],
+    "Display Advertising": [
+      "Prospecting",
+      "Remarketing"
+    ],
+    "Social": [
+      "Prospecting",
+      "Remarketing"
+    ]
+  },
+  "splitOptions": [
+    "None (By Tactic)",
+    "Property",
+    "Market",
+    "Package",
+    "Audience",
+    "Device"
+  ],
+  "staticSplitValues": {
+    "Package": [
+      "Amadeus Hotels 2027 Always-On"
+    ],
+    "Audience": [
+      "Destination Paris",
+      "Leisure Traveler",
+      "Luxury Traveler"
+    ],
+    "Device": [
+      "Desktop",
+      "Mobile",
+      "Tablet"
+    ]
+  },
+  "pmaxRestrictedToPlatformId": "google-ads",
+  "locationOptions": [
+    "United Kingdom",
+    "United States",
+    "Germany",
+    "Spain",
+    "Italy",
+    "Netherlands",
+    "Belgium",
+    "Switzerland",
+    "United Arab Emirates",
+    "Canada",
+    "France",
+    "Ireland",
+    "Sweden",
+    "Norway",
+    "Denmark",
+    "Austria",
+    "Portugal",
+    "Australia",
+    "Japan",
+    "Singapore"
+  ],
+  "audienceOptions": [
+    "Destination Paris intenders",
+    "Leisure travelers",
+    "Luxury travelers",
+    "Frequent travelers",
+    "Business travelers",
+    "Long-stay travelers",
+    "Custom audience (first-party)",
+    "Lookalike audience",
+    "Remarketing — site visitors",
+    "Remarketing — cart abandoners",
+    "In-market: Hotels",
+    "In-market: Travel",
+    "Affinity: Luxury travel",
+    "Demographics: 25–54"
+  ],
+  "matchTypes": [
+    "Broad",
+    "Phrase",
+    "Exact"
+  ],
+  "defaultBrandMatchType": "Exact",
+  "defaultGenericMatchType": "Phrase",
+  "defaultNegativeMatchType": "Exact",
+  "keywords": {
+    "brand": [
+      "Starry Night Hotel",
+      "Starry Night Hotel Paris",
+      "Starry Night Paris",
+      "Starry Night Hotel booking",
+      "Starry Night Hotel rooms",
+      "Starry Night Hotel deals",
+      "Starry Night Hotel offers",
+      "Starry Night Hotel rates",
+      "Starry Night Hotel availability",
+      "book Starry Night Hotel",
+      "Starry Night Hotel official",
+      "Starry Night Hotel reservations",
+      "Starry Night Hotel Paris rooms",
+      "Starry Night Hotel suite",
+      "Starry Night Hotel amenities",
+      "Starry Night Hotel location",
+      "Starry Night Hotel weekend",
+      "Starry Night Hotel city break",
+      "Starry Night Hotel promo",
+      "Starry Night Hotel direct"
+    ],
+    "generic": [
+      "Paris hotel",
+      "hotels in Paris",
+      "long stay hotel Paris",
+      "extended stay Paris",
+      "luxury hotel Paris",
+      "boutique hotel Paris",
+      "city break Paris",
+      "weekend in Paris",
+      "business hotel Paris",
+      "family hotel Paris",
+      "spa hotel Paris",
+      "hotel near Eiffel Tower",
+      "best hotels Paris",
+      "Paris hotel deals",
+      "Paris hotel packages",
+      "serviced hotel Paris",
+      "Paris short break",
+      "Paris hotel offers",
+      "hotel accommodation Paris",
+      "Paris hotel booking"
+    ],
+    "negative": [
+      "cheap",
+      "free",
+      "hostel",
+      "motel",
+      "jobs",
+      "careers",
+      "hiring",
+      "reviews complaints",
+      "closed",
+      "bankruptcy",
+      "refund",
+      "cancellation policy",
+      "map directions",
+      "parking only",
+      "restaurant only",
+      "wedding venue",
+      "conference",
+      "meeting room",
+      "timeshare",
+      "apartment rental"
+    ]
+  },
+  "platforms": [
+    {
+      "id": "google-ads",
+      "name": "Google Ads",
+      "group": "Paid search",
+      "enabled": true,
+      "recommended": true,
+      "splitBy": "None (By Tactic)",
+      "tactics": [
+        "Brand",
+        "Generic",
+        "Pmax"
+      ],
+      "bidding": {
+        "bidStrategy": "Maximize conversions",
+        "optimizationEvent": "Booking / purchase (primary)",
+        "targetCpa": "48.00",
+        "targetRoas": "5.0",
+        "maxCpc": "2.50",
+        "valueRules": "Booking revenue × 1.0; +15% value adjustment for stays of 3+ nights",
+        "budgetPacing": "Daily budget, even pacing"
+      },
+      "targeting": {
+        "location": "United Kingdom; United States; Germany; Spain; Italy; Netherlands; Belgium; Switzerland; United Arab Emirates; Canada",
+        "audience": "Destination Paris intenders; In-market: Hotels; Custom audience (first-party)",
+        "keywords": "Broad; Phrase; Exact; negative keyword",
+        "placements": "Display placements; topics; content keywords"
+      },
+      "creative": {
+        "adFormat": "Responsive search ad",
+        "headline": "Discover Paris · Stay at Amadeus Hotels",
+        "description": "Comfortable rooms, thoughtful amenities and convenient locations. Book direct for great rates all year.",
+        "assets": "Images; logos; videos; HTML5; business name",
+        "assetImages": [
+          "assets/creatives/HotelCity.svg",
+          "assets/creatives/HotelCoast.svg",
+          "assets/creatives/HotelLobby.svg"
+        ],
+        "extensions": "Sitelinks; callouts; structured snippets; price; promotion; image",
+        "destination": "https://booking.amadeushotels.example/paris-opera?utm_source=google&utm_medium=cpc&utm_campaign=hos_2027_google",
+        "tracking": "UTM parameters; Google tag"
+      }
+    },
+    {
+      "id": "bing",
+      "name": "Bing Ads",
+      "group": "Paid search",
+      "enabled": true,
+      "recommended": true,
+      "splitBy": "None (By Tactic)",
+      "tactics": [
+        "Brand",
+        "Generic"
+      ],
+      "bidding": {
+        "bidStrategy": "Maximize conversions",
+        "optimizationEvent": "UET conversion goal (booking)",
+        "targetCpa": "42.00",
+        "targetRoas": "4.5",
+        "maxCpc": "2.25",
+        "valueRules": "Pass booking revenue as conversion value; use 1.0x value adjustment",
+        "budgetPacing": "Daily budget, even pacing"
+      },
+      "targeting": {
+        "location": "United Kingdom; United States; Germany; Spain; Italy; Netherlands; Belgium; Switzerland; United Arab Emirates; Canada",
+        "audience": "Destination Paris intenders; In-market: Travel; Remarketing — site visitors",
+        "keywords": "Broad; Phrase; Exact; negative keyword",
+        "placements": "Microsoft Audience Network placements"
+      },
+      "creative": {
+        "adFormat": "Responsive search ad",
+        "headline": "Make More of Paris · Amadeus Hotels",
+        "description": "Settle into a comfortable stay with great city access, flexible dates and direct-booking benefits.",
+        "assets": "Images; logo; video",
+        "assetImages": [
+          "assets/creatives/HotelCoast.svg",
+          "assets/creatives/HotelLobby.svg",
+          "assets/creatives/HotelCity.svg"
+        ],
+        "extensions": "Sitelinks; callouts; structured snippets; image",
+        "destination": "https://booking.amadeushotels.example/paris-opera?utm_source=microsoft&utm_medium=cpc&utm_campaign=hos_2027_microsoft",
+        "tracking": "UTM parameters; UET tag"
+      }
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "group": "Social",
+      "enabled": true,
+      "recommended": true,
+      "splitBy": "None (By Tactic)",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "bidding": {
+        "bidStrategy": "Highest volume",
+        "optimizationEvent": "Purchase (Conversions API)",
+        "targetCpa": "38.00",
+        "targetRoas": "4.0",
+        "maxCpc": "1.80",
+        "valueRules": "Optimize for purchase value; booking revenue sent through Conversions API",
+        "budgetPacing": "Daily budget, even pacing"
+      },
+      "targeting": {
+        "location": "United Kingdom; United States; Germany; Spain; Italy; Netherlands; Belgium; Switzerland; United Arab Emirates; Canada",
+        "audience": "Leisure travelers; Lookalike audience; Business travelers",
+        "keywords": "Not applicable",
+        "placements": "Advantage+ placements"
+      },
+      "creative": {
+        "adFormat": "Single image",
+        "headline": "Your Paris Stay, Made Easy",
+        "description": "Find your place in the city with comfortable rooms, local highlights and direct rates throughout 2027.",
+        "assets": "Image; video; carousel cards; catalog; instant experience",
+        "assetImages": [
+          "assets/creatives/HotelLobby.svg",
+          "assets/creatives/HotelCity.svg"
+        ],
+        "extensions": "CTA; instant form; catalog; destination",
+        "destination": "https://booking.amadeushotels.example/paris-opera?utm_source=meta&utm_medium=paid_social&utm_campaign=hos_2027_meta",
+        "tracking": "UTM parameters; Meta Pixel; Conversions API"
+      }
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "group": "Social",
+      "enabled": true,
+      "recommended": true,
+      "splitBy": "None (By Tactic)",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "bidding": {
+        "bidStrategy": "Lowest cost",
+        "optimizationEvent": "CompletePayment (Pixel)",
+        "targetCpa": "32.00",
+        "targetRoas": "3.5",
+        "maxCpc": "1.50",
+        "valueRules": "Optimize toward completed-payment value; pass booking revenue via Events API",
+        "budgetPacing": "Daily budget, even pacing"
+      },
+      "targeting": {
+        "location": "United Kingdom; United States; Germany; Spain; Italy; Netherlands; Belgium; Switzerland; United Arab Emirates; Canada",
+        "audience": "Leisure travelers; Luxury travelers; Lookalike audience",
+        "keywords": "Not applicable",
+        "placements": "TikTok placement control"
+      },
+      "creative": {
+        "adFormat": "In-feed video",
+        "headline": "Find Your Place in Paris",
+        "description": "Explore the city, settle into a welcoming stay and book directly with Amadeus Hotels.",
+        "assets": "Video; image; carousel cards; Spark authorization",
+        "assetImages": [
+          "assets/creatives/HotelCity.svg",
+          "assets/creatives/HotelCoast.svg"
+        ],
+        "extensions": "Instant form; CTA; landing page",
+        "destination": "https://booking.amadeushotels.example/paris-opera?utm_source=tiktok&utm_medium=paid_social&utm_campaign=hos_2027_tiktok",
+        "tracking": "UTM parameters; TikTok Pixel; Events API"
+      }
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "group": "Social",
+      "enabled": false,
+      "splitBy": "Property",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "bidding": {
+        "bidStrategy": "Maximum delivery",
+        "optimizationEvent": "Insight Tag conversion; lead form completion",
+        "targetCpa": "65.00",
+        "targetRoas": "",
+        "maxCpc": "4.50",
+        "valueRules": "Assign $65 value to qualified booking leads; update with confirmed booking revenue",
+        "budgetPacing": "Daily budget; lifetime budget"
+      },
+      "targeting": {
+        "location": "Country; region; city; metro area",
+        "audience": "Matched audiences; company; job title; industry; skills; demographics",
+        "keywords": "Not applicable",
+        "placements": "LinkedIn Audience Network on/off"
+      },
+      "creative": {
+        "adFormat": "Single image; video; carousel; document; conversation",
+        "headline": "Intro text; headline; description",
+        "description": "Description",
+        "assets": "Image; video; document; carousel cards",
+        "extensions": "Lead gen form; CTA; document; conversation starter",
+        "destination": "https://www.amadeushotels.example/corporate-travel?utm_source=linkedin&utm_medium=paid_social&utm_campaign=hos_2027_linkedin",
+        "tracking": "UTM parameters; Insight Tag"
+      }
+    },
+    {
+      "id": "dv360",
+      "name": "Google",
+      "group": "Display Advertising",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "bidding": {
+        "bidStrategy": "Automated bidding; custom bidding; fixed bid",
+        "optimizationEvent": "Floodlight activity / custom bidding algorithm",
+        "targetCpa": "55.00",
+        "targetRoas": "4.0",
+        "maxCpc": "3.00",
+        "valueRules": "Optimize to Floodlight sales revenue; assign booking value from transaction data",
+        "budgetPacing": "Budget; pacing; flight dates"
+      },
+      "targeting": {
+        "location": "Country; region; city; DMA; geo fence",
+        "audience": "First-party; affinity; in-market; custom intent; demo",
+        "keywords": "Keyword / contextual targeting where applicable",
+        "placements": "Exchange; deal; site/app; environment; brand safety"
+      },
+      "creative": {
+        "adFormat": "Display; video; native; audio; CTV",
+        "headline": "Creative messaging is defined in the assigned creative",
+        "description": "Creative messaging is defined in the assigned creative",
+        "assets": "Display image; video; audio; CTV creative",
+        "extensions": "Companion creative; tracking pixels; verification",
+        "destination": "https://www.amadeushotels.example/destinations/paris?utm_source=dv360&utm_medium=display&utm_campaign=hos_2027_dv360",
+        "tracking": "Floodlight activity; CM360 tracking; UTM parameters"
+      }
+    },
+    {
+      "id": "amadeus-dsp",
+      "name": "Amadeus DSP",
+      "group": "Display Advertising",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "bidding": {
+        "bidStrategy": "Automated bidding; custom bidding; fixed bid",
+        "optimizationEvent": "Floodlight activity / custom bidding algorithm",
+        "targetCpa": "55.00",
+        "targetRoas": "4.0",
+        "maxCpc": "3.00",
+        "valueRules": "Optimize to Floodlight sales revenue; assign booking value from transaction data",
+        "budgetPacing": "Budget; pacing; flight dates"
+      },
+      "targeting": {
+        "location": "Country; region; city; DMA; geo fence",
+        "audience": "First-party; affinity; in-market; custom intent; demo",
+        "keywords": "Keyword / contextual targeting where applicable",
+        "placements": "Exchange; deal; site/app; environment; brand safety"
+      },
+      "creative": {
+        "adFormat": "Display; video; native; audio; CTV",
+        "headline": "Creative messaging is defined in the assigned creative",
+        "description": "Creative messaging is defined in the assigned creative",
+        "assets": "Display image; video; audio; CTV creative",
+        "extensions": "Companion creative; tracking pixels; verification",
+        "destination": "https://www.amadeushotels.example/destinations/paris?utm_source=amadeus_dsp&utm_medium=display&utm_campaign=hos_2027_dsp",
+        "tracking": "Floodlight activity; CM360 tracking; UTM parameters"
+      }
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "group": "Social",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "bidding": {
+        "bidStrategy": "Automated bidding; custom bidding; fixed bid",
+        "optimizationEvent": "Floodlight activity / custom bidding algorithm",
+        "targetCpa": "45.00",
+        "targetRoas": "3.8",
+        "maxCpc": "2.00",
+        "valueRules": "Optimize to Floodlight sales activity; use confirmed booking revenue",
+        "budgetPacing": "Budget; pacing; flight dates"
+      },
+      "targeting": {
+        "location": "Country; region; city; DMA; geo fence",
+        "audience": "First-party; affinity; in-market; custom intent; demo",
+        "keywords": "Keyword / contextual targeting where applicable",
+        "placements": "YouTube & Partners; video inventory; brand safety"
+      },
+      "creative": {
+        "adFormat": "Video (skippable / non-skippable); bumper; in-stream",
+        "headline": "Creative messaging is defined in the assigned creative",
+        "description": "Creative messaging is defined in the assigned creative",
+        "assets": "Video creative; companion banner",
+        "extensions": "Companion creative; tracking pixels; verification",
+        "destination": "https://www.amadeushotels.example/destinations/paris?utm_source=youtube&utm_medium=video&utm_campaign=hos_2027_youtube",
+        "tracking": "Floodlight activity; CM360 tracking; UTM parameters"
+      }
+    },
+    {
+      "id": "yandex",
+      "name": "Yandex",
+      "group": "Paid search",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Brand",
+        "Generic"
+      ],
+      "generic": true
+    },
+    {
+      "id": "baidu",
+      "name": "Baidu",
+      "group": "Paid search",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Brand",
+        "Generic"
+      ],
+      "generic": true
+    },
+    {
+      "id": "demandgen",
+      "name": "DemandGen",
+      "group": "Social",
+      "enabled": false,
+      "splitBy": "Property",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "tencent",
+      "name": "Tencent",
+      "group": "Social",
+      "enabled": false,
+      "splitBy": "Property",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "wechat",
+      "name": "WeChat",
+      "group": "Social",
+      "enabled": false,
+      "splitBy": "Property",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "pinterest",
+      "name": "Pinterest",
+      "group": "Social",
+      "enabled": false,
+      "splitBy": "Property",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "snapchat",
+      "name": "Snapchat",
+      "group": "Social",
+      "enabled": false,
+      "splitBy": "Property",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "group": "Display Advertising",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "tripadvisor-display",
+      "name": "Tripadvisor",
+      "group": "Display Advertising",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "quantcast",
+      "name": "Quantcast",
+      "group": "Display Advertising",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "group": "Display Advertising",
+      "enabled": false,
+      "splitBy": "Market",
+      "tactics": [
+        "Prospecting",
+        "Remarketing"
+      ],
+      "generic": true
+    },
+    {
+      "id": "wego",
+      "name": "Wego",
+      "group": "Metasearch",
+      "enabled": false,
+      "splitBy": "Market",
+      "generic": true
+    },
+    {
+      "id": "skyscanner",
+      "name": "Skyscanner",
+      "group": "Metasearch",
+      "enabled": false,
+      "splitBy": "Market",
+      "generic": true
+    },
+    {
+      "id": "trivago",
+      "name": "Trivago",
+      "group": "Metasearch",
+      "enabled": false,
+      "splitBy": "Market",
+      "generic": true
+    },
+    {
+      "id": "kayak",
+      "name": "Kayak",
+      "group": "Metasearch",
+      "enabled": false,
+      "splitBy": "Market",
+      "generic": true
+    },
+    {
+      "id": "tripadvisor-meta",
+      "name": "Tripadvisor",
+      "group": "Metasearch",
+      "enabled": false,
+      "splitBy": "Market",
+      "generic": true
+    },
+    {
+      "id": "google-hotel-meta",
+      "name": "Google Hotel Metasearch",
+      "group": "Metasearch",
+      "enabled": false,
+      "splitBy": "Market",
+      "generic": true
+    },
+    {
+      "id": "bing-meta",
+      "name": "Bing",
+      "group": "Metasearch",
+      "enabled": false,
+      "splitBy": "Market",
+      "generic": true
+    },
+    {
+      "id": "expedia",
+      "name": "Expedia",
+      "group": "Other",
+      "enabled": false,
+      "splitBy": "None (By Tactic)",
+      "generic": true
+    }
+  ],
+  "genericPlatformDefaults": {
+    "$comment": "Applied to any platform marked \"generic\": true (those without full field data).",
+    "splitBy": "Market",
+    "bidding": {
+      "bidStrategy": "Automated (conversion-optimized)",
+      "optimizationEvent": "Booking / purchase (primary)",
+      "targetCpa": "48.00",
+      "targetRoas": "5.0",
+      "maxCpc": "2.50",
+      "valueRules": "Booking revenue × 1.0; +15% value adjustment for stays of 3+ nights",
+      "budgetPacing": "Daily budget, even pacing"
+    },
+    "targeting": {
+      "location": "United Kingdom; United States; Germany; Spain; Italy; Netherlands; Belgium; Switzerland; United Arab Emirates; Canada",
+      "audience": "Destination Paris intenders; In-market: Hotels; Custom audience (first-party)",
+      "keywords": "Not applicable",
+      "placements": "Platform-managed inventory"
+    },
+    "creative": {
+      "adFormat": "Platform standard formats",
+      "headline": "Discover Paris · Stay at Amadeus Hotels",
+      "description": "Comfortable rooms, thoughtful amenities and convenient locations. Book direct for great rates all year.",
+      "assets": "Images; logos; videos; HTML5; business name",
+      "assetImages": [
+        "assets/creatives/HotelCity.svg",
+        "assets/creatives/HotelCoast.svg",
+        "assets/creatives/HotelLobby.svg"
+      ],
+      "extensions": "CTA; landing page",
+      "destination": "https://www.amadeushotels.example/destinations/paris?utm_source={platform}&utm_medium=paid_media&utm_campaign=hos_2027",
+      "tracking": "UTM parameters; platform pixel"
+    }
+  },
+  "platformChipKeys": {
+    "google-ads": "google",
+    "bing": "bing",
+    "meta": "meta",
+    "tiktok": "tiktok"
+  },
+  "platformChipColors": {
+    "google": "#1a73e8",
+    "bing": "#00897b",
+    "meta": "#0866ff",
+    "tiktok": "#000000"
+  },
+  "localeByLocation": {
+    "United Kingdom": {
+      "lang": "en",
+      "label": "English"
+    },
+    "United States": {
+      "lang": "en",
+      "label": "English"
+    },
+    "Canada": {
+      "lang": "en",
+      "label": "English"
+    },
+    "Australia": {
+      "lang": "en",
+      "label": "English"
+    },
+    "Ireland": {
+      "lang": "en",
+      "label": "English"
+    },
+    "Singapore": {
+      "lang": "en",
+      "label": "English"
+    },
+    "United Arab Emirates": {
+      "lang": "ar",
+      "label": "Arabic"
+    },
+    "Germany": {
+      "lang": "de",
+      "label": "German"
+    },
+    "Austria": {
+      "lang": "de",
+      "label": "German"
+    },
+    "Switzerland": {
+      "lang": "de",
+      "label": "German"
+    },
+    "Spain": {
+      "lang": "es",
+      "label": "Spanish"
+    },
+    "Italy": {
+      "lang": "it",
+      "label": "Italian"
+    },
+    "Netherlands": {
+      "lang": "nl",
+      "label": "Dutch"
+    },
+    "Belgium": {
+      "lang": "nl",
+      "label": "Dutch"
+    },
+    "France": {
+      "lang": "fr",
+      "label": "French"
+    },
+    "Portugal": {
+      "lang": "pt",
+      "label": "Portuguese"
+    },
+    "Sweden": {
+      "lang": "sv",
+      "label": "Swedish"
+    },
+    "Norway": {
+      "lang": "nb",
+      "label": "Norwegian"
+    },
+    "Denmark": {
+      "lang": "da",
+      "label": "Danish"
+    },
+    "Japan": {
+      "lang": "ja",
+      "label": "Japanese"
+    }
+  },
+  "creativeLanguageCatalog": [
+    {
+      "lang": "en",
+      "label": "English"
+    },
+    {
+      "lang": "fr",
+      "label": "French"
+    },
+    {
+      "lang": "de",
+      "label": "German"
+    },
+    {
+      "lang": "es",
+      "label": "Spanish"
+    },
+    {
+      "lang": "it",
+      "label": "Italian"
+    },
+    {
+      "lang": "nl",
+      "label": "Dutch"
+    },
+    {
+      "lang": "pt",
+      "label": "Portuguese"
+    },
+    {
+      "lang": "ar",
+      "label": "Arabic"
+    },
+    {
+      "lang": "sv",
+      "label": "Swedish"
+    },
+    {
+      "lang": "nb",
+      "label": "Norwegian"
+    },
+    {
+      "lang": "da",
+      "label": "Danish"
+    },
+    {
+      "lang": "ja",
+      "label": "Japanese"
+    }
+  ],
+  "localizedCreative": {
+    "google-ads": {
+      "fr": {
+        "headline": "Découvrez Paris · Séjournez chez Amadeus Hotels",
+        "description": "Des chambres confortables, des équipements attentionnés et des emplacements pratiques. Réservez en direct toute l'année."
+      },
+      "pt": {
+        "headline": "Descubra Paris · Fique nos Amadeus Hotels",
+        "description": "Quartos confortáveis, comodidades atenciosas e localizações convenientes. Reserve diretamente durante todo o ano."
+      },
+      "sv": {
+        "headline": "Upptäck Paris · Bo på Amadeus Hotels",
+        "description": "Bekväma rum, omtänksamma bekvämligheter och praktiska lägen. Boka direkt året runt."
+      },
+      "nb": {
+        "headline": "Oppdag Paris · Bo på Amadeus Hotels",
+        "description": "Komfortable rom, gjennomtenkte fasiliteter og praktiske beliggenheter. Bestill direkte hele året."
+      },
+      "da": {
+        "headline": "Oplev Paris · Bo hos Amadeus Hotels",
+        "description": "Komfortable værelser, gennemtænkte faciliteter og praktiske beliggenheder. Book direkte hele året."
+      },
+      "ja": {
+        "headline": "パリを発見 · Amadeus Hotelsに滞在",
+        "description": "快適な客室、心配りの行き届いた設備、便利なロケーション。年間を通じて直接ご予約いただけます。"
+      },
+      "de": {
+        "headline": "Paris entdecken · Amadeus Hotels erleben",
+        "description": "Komfortable Zimmer, durchdachte Annehmlichkeiten und gute Lagen. Buchen Sie das ganze Jahr direkt bei uns."
+      },
+      "es": {
+        "headline": "Descubre París · Alójate en Amadeus Hotels",
+        "description": "Habitaciones cómodas, servicios cuidados y ubicaciones prácticas. Reserva directamente durante todo el año."
+      },
+      "it": {
+        "headline": "Scopri Parigi · Soggiorna con Amadeus Hotels",
+        "description": "Camere confortevoli, servizi curati e posizioni comode. Prenota direttamente tutto l'anno."
+      },
+      "nl": {
+        "headline": "Ontdek Parijs · Verblijf bij Amadeus Hotels",
+        "description": "Comfortabele kamers, fijne voorzieningen en gunstige locaties. Boek het hele jaar rechtstreeks."
+      },
+      "ar": {
+        "headline": "اكتشف باريس · أقم في فنادق أماديوس",
+        "description": "غرف مريحة ومرافق مدروسة ومواقع مناسبة. احجز مباشرة على مدار العام."
+      }
+    },
+    "bing": {
+      "fr": {
+        "headline": "Paris à votre rythme · Amadeus Hotels",
+        "description": "Profitez d'un séjour confortable, d'un accès facile à la ville et d'avantages en réservant directement."
+      },
+      "de": {
+        "headline": "Paris in Ihrem Tempo · Amadeus Hotels",
+        "description": "Freuen Sie sich auf komfortable Aufenthalte, gute Anbindung und Vorteile bei Direktbuchung."
+      },
+      "es": {
+        "headline": "París a tu ritmo · Amadeus Hotels",
+        "description": "Disfruta de una estancia cómoda, fácil acceso a la ciudad y ventajas al reservar directamente."
+      },
+      "it": {
+        "headline": "Parigi al tuo ritmo · Amadeus Hotels",
+        "description": "Scegli un soggiorno confortevole, raggiungi facilmente la città e approfitta della prenotazione diretta."
+      },
+      "nl": {
+        "headline": "Parijs op jouw tempo · Amadeus Hotels",
+        "description": "Geniet van een comfortabel verblijf, goede toegang tot de stad en voordelen bij rechtstreeks boeken."
+      },
+      "ar": {
+        "headline": "اكتشف باريس على طريقتك · فنادق أماديوس",
+        "description": "استمتع بإقامة مريحة ووصول سهل إلى المدينة ومزايا الحجز المباشر."
+      }
+    },
+    "meta": {
+      "fr": {
+        "headline": "Votre séjour à Paris commence ici",
+        "description": "Découvrez la ville, profitez d'un hébergement accueillant et réservez directement chez Amadeus Hotels."
+      },
+      "de": {
+        "headline": "Ihr Aufenthalt in Paris beginnt hier",
+        "description": "Entdecken Sie die Stadt, genießen Sie ein einladendes Hotel und buchen Sie direkt bei Amadeus Hotels."
+      },
+      "es": {
+        "headline": "Tu estancia en París empieza aquí",
+        "description": "Descubre la ciudad, disfruta de un alojamiento acogedor y reserva directamente con Amadeus Hotels."
+      },
+      "it": {
+        "headline": "Il tuo soggiorno a Parigi inizia qui",
+        "description": "Scopri la città, scegli un soggiorno accogliente e prenota direttamente con Amadeus Hotels."
+      },
+      "nl": {
+        "headline": "Je verblijf in Parijs begint hier",
+        "description": "Ontdek de stad, geniet van een gastvrij verblijf en boek rechtstreeks bij Amadeus Hotels."
+      },
+      "ar": {
+        "headline": "تبدأ إقامتك في باريس من هنا",
+        "description": "اكتشف المدينة واستمتع بإقامة مريحة واحجز مباشرة مع فنادق أماديوس."
+      }
+    },
+    "tiktok": {
+      "fr": {
+        "headline": "Trouvez votre adresse à Paris",
+        "description": "Explorez la ville, profitez d'un séjour accueillant et réservez directement avec Amadeus Hotels."
+      },
+      "de": {
+        "headline": "Finden Sie Ihr Zuhause in Paris",
+        "description": "Erkunden Sie die Stadt, genießen Sie einen angenehmen Aufenthalt und buchen Sie direkt bei Amadeus Hotels."
+      },
+      "es": {
+        "headline": "Encuentra tu lugar en París",
+        "description": "Explora la ciudad, disfruta de una estancia acogedora y reserva directamente con Amadeus Hotels."
+      },
+      "it": {
+        "headline": "Trova il tuo posto a Parigi",
+        "description": "Esplora la città, scegli un soggiorno accogliente e prenota direttamente con Amadeus Hotels."
+      },
+      "nl": {
+        "headline": "Vind jouw plek in Parijs",
+        "description": "Verken de stad, geniet van een gastvrij verblijf en boek rechtstreeks bij Amadeus Hotels."
+      },
+      "ar": {
+        "headline": "اعثر على مكانك في باريس",
+        "description": "استكشف المدينة واستمتع بإقامة مريحة واحجز مباشرة مع فنادق أماديوس."
+      }
+    }
+  },
+  "sponsoredHotels": [
+    {
+      "name": "Amadeus Hotels — Paris Opéra",
+      "price": "€210",
+      "source": "Brand.com",
+      "rating": "4.6",
+      "reviews": "(2.4K)",
+      "deal": true,
+      "image": "assets/creatives/HotelCity.svg"
+    },
+    {
+      "name": "Amadeus Hotels — Le Marais",
+      "price": "€245",
+      "source": "Brand.com",
+      "rating": "4.7",
+      "reviews": "(1.8K)",
+      "deal": false,
+      "image": "assets/creatives/HotelLobby.svg"
+    },
+    {
+      "name": "Amadeus Hotels — Montmartre",
+      "price": "€189",
+      "source": "Brand.com",
+      "rating": "4.5",
+      "reviews": "(3.1K)",
+      "deal": true,
+      "image": "assets/creatives/HotelCoast.svg"
+    }
+  ],
+  "previewSitelinks": [
+    "Explore Paris",
+    "Best Direct Rates",
+    "Hotel Amenities",
+    "Plan Your Stay"
+  ],
+  "mediaPlan2026": {
+    "$comment": "2026 media plan variant for Amadeus Hotels. Same $200,000 total / $20,000 fees as 2027, redistributed because the platform/campaign mix differs (no Amazon, no LinkedIn, no Google Generic, no Amadeus DSP Remarketing; Yandex and Baidu added).",
+    "mediaPlanName": "Amadeus Hotels All year 2026 Rooms",
+    "year": "2026",
+    "startDate": "2026-01-01",
+    "endDate": "2026-12-31",
+    "mediaPlanIntro": "Based on Salesforce campaign objectives, Demand360 data for comparable properties and campaign performance across the destination, this is the recommended year-round plan to drive bookings throughout 2026.",
+    "mediaPlanTable": {
+      "total": "$200,000",
+      "fees": "$20,000",
+      "groups": [
+        {
+          "channel": "Paid Search",
+          "subtotal": "$78,000",
+          "items": [
+            {
+              "tactic": "Brand",
+              "platforms": [
+                "google-ads",
+                "bing",
+                "yandex",
+                "baidu"
+              ],
+              "budget": "$40,000"
+            },
+            {
+              "tactic": "Generic",
+              "platforms": [
+                "bing",
+                "yandex",
+                "baidu"
+              ],
+              "budget": "$30,000"
+            },
+            {
+              "tactic": "Pmax",
+              "platforms": [
+                "google-ads"
+              ],
+              "budget": "$8,000"
+            }
+          ]
+        },
+        {
+          "channel": "Display Advertising",
+          "subtotal": "$30,000",
+          "items": [
+            {
+              "tactic": "Prospecting",
+              "platforms": [
+                "dv360",
+                "amadeus-dsp"
+              ],
+              "budget": "$18,000"
+            },
+            {
+              "tactic": "Remarketing",
+              "platforms": [
+                "dv360"
+              ],
+              "budget": "$12,000"
+            }
+          ]
+        },
+        {
+          "channel": "Social",
+          "subtotal": "$45,000",
+          "items": [
+            {
+              "tactic": "Prospecting",
+              "platforms": [
+                "meta",
+                "tiktok",
+                "youtube"
+              ],
+              "budget": "$22,500"
+            },
+            {
+              "tactic": "Remarketing",
+              "platforms": [
+                "meta",
+                "tiktok",
+                "youtube"
+              ],
+              "budget": "$22,500"
+            }
+          ]
+        },
+        {
+          "channel": "Metasearch",
+          "subtotal": "$14,000",
+          "items": [
+            {
+              "tactic": "No tactic configured",
+              "platforms": [
+                "wego",
+                "skyscanner",
+                "trivago",
+                "kayak",
+                "google-hotel-meta",
+                "bing-meta"
+              ],
+              "budget": "$14,000"
+            }
+          ]
+        },
+        {
+          "channel": "Other",
+          "subtotal": "$13,000",
+          "items": [
+            {
+              "tactic": "No tactic configured",
+              "platforms": [
+                "expedia"
+              ],
+              "budget": "$13,000"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "conversation": {
+    "assistantName": "Amadeus Max",
+    "triggerContextMessage": "Please propose a year-round ATAP campaign for Amadeus Hotels for 2027",
+    "stepAnimationDelayMs": 800,
+    "stepFinishDelayMs": 600,
+    "initialAnalysisSteps": [
+      "Checking Salesforce campaign configuration",
+      "Analyzing Travel Intelligence",
+      "Analyzing ATAP Campaign settings",
+      "Preparing Campaign recommendations"
+    ],
+    "mediaPlanIntro": "Based on Salesforce campaign objectives, Demand360 data for comparable properties and campaign performance across the destination, this is the recommended year-round plan to drive bookings throughout 2027.",
+    "campaignStructure": {
+      "analysisSteps": [
+        "Looking at the campaign database",
+        "Analyzing campaign structure",
+        "Fetching the details"
+      ],
+      "intro": "Amadeus Hotels has one active media plan (2026) and one closed-won media plan (2027). Here is the campaign structure for both.",
+      "exceptions": {
+        "$comment": "Per-row overrides for the campaign-structure comparison, used when a campaign's history predates the plans we model (e.g. a 2025 plan we haven't defined). Keyed by 'channel|platformId|tactic'. If these grow, define a real earlier media plan instead.",
+        "rows": [
+          {
+            "key": "Social|linkedin|Prospecting",
+            "status2026": "paused",
+            "status2027": "unpaused"
+          },
+          {
+            "key": "Social|linkedin|Remarketing",
+            "status2026": "paused",
+            "status2027": "unpaused"
+          }
+        ]
+      }
+    },
+    "mediaPlanTable": {
+      "total": "$200,000",
+      "fees": "$20,000",
+      "groups": [
+        {
+          "channel": "Paid Search",
+          "subtotal": "$72,000",
+          "items": [
+            {
+              "tactic": "Brand",
+              "platforms": [
+                "google-ads",
+                "bing"
+              ],
+              "budget": "$32,000"
+            },
+            {
+              "tactic": "Generic",
+              "platforms": [
+                "google-ads",
+                "bing"
+              ],
+              "budget": "$32,000"
+            },
+            {
+              "tactic": "Pmax",
+              "platforms": [
+                "google-ads"
+              ],
+              "budget": "$8,000"
+            }
+          ]
+        },
+        {
+          "channel": "Display Advertising",
+          "subtotal": "$36,000",
+          "items": [
+            {
+              "tactic": "Prospecting",
+              "platforms": [
+                "dv360",
+                "amadeus-dsp",
+                "amazon"
+              ],
+              "budget": "$18,000"
+            },
+            {
+              "tactic": "Remarketing",
+              "platforms": [
+                "dv360",
+                "amadeus-dsp",
+                "amazon"
+              ],
+              "budget": "$18,000"
+            }
+          ]
+        },
+        {
+          "channel": "Social",
+          "subtotal": "$45,000",
+          "items": [
+            {
+              "tactic": "Prospecting",
+              "platforms": [
+                "meta",
+                "tiktok",
+                "linkedin",
+                "youtube"
+              ],
+              "budget": "$22,500"
+            },
+            {
+              "tactic": "Remarketing",
+              "platforms": [
+                "meta",
+                "tiktok",
+                "linkedin",
+                "youtube"
+              ],
+              "budget": "$22,500"
+            }
+          ]
+        },
+        {
+          "channel": "Metasearch",
+          "subtotal": "$14,000",
+          "items": [
+            {
+              "tactic": "No tactic configured",
+              "platforms": [
+                "wego",
+                "skyscanner",
+                "trivago",
+                "kayak",
+                "google-hotel-meta",
+                "bing-meta"
+              ],
+              "budget": "$14,000"
+            }
+          ]
+        },
+        {
+          "channel": "Other",
+          "subtotal": "$13,000",
+          "items": [
+            {
+              "tactic": "No tactic configured",
+              "platforms": [
+                "expedia"
+              ],
+              "budget": "$13,000"
+            }
+          ]
+        }
+      ]
+    },
+    "primaryActions": [
+      "Create Media plan",
+      "Market focus Media Plan"
+    ],
+    "marketFocus": {
+      "analysisSteps": [
+        "Connecting to ATI",
+        "Analysing comp set",
+        "Getting top destination markets",
+        "Budget allocation based on campaign performance data"
+      ],
+      "intro": "I've reallocated the $200,000 annual budget across your top 10 feeder markets, ranked by demand and conversion potential. All platforms (Google Ads, Bing Ads, Meta, TikTok) run across every market throughout 2027.",
+      "allPlatformsPerMarket": [
+        "Google Ads",
+        "Bing Ads",
+        "Meta",
+        "TikTok"
+      ],
+      "marketPlan": [
+        {
+          "rank": 1,
+          "market": "United Kingdom",
+          "budget": "$45,000"
+        },
+        {
+          "rank": 2,
+          "market": "United States",
+          "budget": "$36,000"
+        },
+        {
+          "rank": 3,
+          "market": "Germany",
+          "budget": "$28,000"
+        },
+        {
+          "rank": 4,
+          "market": "Spain",
+          "budget": "$20,000"
+        },
+        {
+          "rank": 5,
+          "market": "Italy",
+          "budget": "$17,000"
+        },
+        {
+          "rank": 6,
+          "market": "Netherlands",
+          "budget": "$14,000"
+        },
+        {
+          "rank": 7,
+          "market": "Belgium",
+          "budget": "$12,000"
+        },
+        {
+          "rank": 8,
+          "market": "Switzerland",
+          "budget": "$10,000"
+        },
+        {
+          "rank": 9,
+          "market": "United Arab Emirates",
+          "budget": "$9,000"
+        },
+        {
+          "rank": 10,
+          "market": "Canada",
+          "budget": "$9,000"
+        }
+      ],
+      "total": "$200,000",
+      "closing": "This annual market-focused plan concentrates spend on the highest-converting source markets across 2027. Ready to launch it as campaigns?"
+    },
+    "createMediaPlan": {
+      "intro": "Creating your 2027 year-round media plan in ATAP for <strong>Amadeus Hotels</strong> with an annual budget of <strong>$200,000</strong>.",
+      "reasoningSteps": [
+        "Connecting to ATAP",
+        "Creating the Media plan"
+      ],
+      "successTitle": "Media plan \"Amadeus Hotels 2027 Always-On\" created in ATAP.",
+      "successSubtitle": "Advertiser: Amadeus Hotels · Total budget: $200,000",
+      "closing": "Your media plan is ready. Next, I can build the campaign for it.",
+      "nextAction": "Create Campaign"
+    },
+    "createCampaign": {
+      "reasoningSteps": [
+        "Analyzing advertiser & budget",
+        "Checking available Media Plan",
+        "Optimizing targeting settings",
+        "Optimizing keyword settings",
+        "Customizing audience segments",
+        "Fixing platform strategy",
+        "Sourcing creatives from CMS"
+      ],
+      "detailSteps": [
+        "Analyzing the Advertiser for the new campaign with a recommended budget.",
+        "Checking for available Media Plan.",
+        "Targeting settings are optimized based on the goal.",
+        "Keyword settings are optimized using the keyword database for maximum reach.",
+        "Audience segments have been customized for specific recommended markets.",
+        "Platform strategy is fixed based on previous campaign performance.",
+        "Creatives are sourced from the Content Management System to align with the platforms included in the campaign."
+      ],
+      "response": [
+        "No external action will be taken until you approve. Opening workspace for your review...",
+        "I've prepared the full campaign in your workspace. Review each section and make any changes you'd like.",
+        "When you're ready, click \"Launch campaign\" on the Summary step."
+      ],
+      "workspaceTitle": "Create campaign with Amadeus Max"
+    },
+    "afterLaunch": {
+      "perPlatformProgressTemplate": "Creating {count} campaign(s) in {platform}",
+      "successTitleTemplate": "Campaign \"Amadeus Hotels 2027 Always-On\" launched — {total} campaigns across {platforms} platforms.",
+      "changelogTitleTemplate": "Campaigns created ({total})",
+      "actions": [
+        "Undo",
+        "Pause",
+        "Edit campaign"
+      ],
+      "nextStepSuggestion": "Monitor campaign performance",
+      "editWorkspaceTitle": "Edit campaign — Amadeus Max"
+    },
+    "sideBranchFollowUps": {
+      "$comment": "Optional Q&A chips carried over from the rate-parity context. Keep only if the host wants them; not core to the campaign happy path.",
+      "rootCause": "<strong>Root cause identified: OTA is undercutting.</strong><br><br>The discrepancy originates from OTA-side pricing. Booking.com and Expedia are applying promotions not aligned with your configured rates. Brand.com rates are correctly configured in Salesforce.",
+      "affectedReservations": "<strong>12 reservations affected</strong><br><br>Guests who booked via OTA channels in the affected date ranges paid between 10-16% less than direct bookers. This represents approximately $2,380 in potential revenue leakage.",
+      "priceCorrections": "<strong>Recommended corrections:</strong><br><br>1. Contact Booking.com to disable unauthorized promotions on Jun 15-20<br>2. Update Expedia extranet to enforce rate parity clause<br>3. Set up automated rate parity monitoring alerts<br><br>Shall I draft the communication to the OTA account managers?"
+    },
+    "atiInsight": {
+      "analysisSteps": [
+        "Collect data from Amadeus Travel Intelligence to assess overall Market performance and demand trends for the United States Market",
+        "Analyze demand data from Demand 360, focusing on origin market and comparable properties from this destination, to identify key source destinations and competitive positioning",
+        "Based on data from +200m pax searches daily for insight into worldwide travel demand across 20,000 travel agents and 300 OTAs"
+      ],
+      "intro": "Based on insights from Amadeus Travel Intelligence for the US market, the recommendation is to increase advertising investment in properties located in these high-demand destinations:",
+      "chartTitle": "Top Destination",
+      "demandAxisMax": 300,
+      "growthAxisMaxPercent": 45,
+      "destinations": [
+        {
+          "destination": "London",
+          "ly": "205M",
+          "cy": "180M",
+          "cyVsLy": "25%",
+          "property": "Amadeus Stay Mayfair, London"
+        },
+        {
+          "destination": "Lisbon",
+          "ly": "58M",
+          "cy": "45M",
+          "cyVsLy": "14%",
+          "property": null
+        },
+        {
+          "destination": "Madrid",
+          "ly": "55M",
+          "cy": "48M",
+          "cyVsLy": "35%",
+          "property": "Amadeus Stay Gran Via, Madrid"
+        },
+        {
+          "destination": "Frankfurt",
+          "ly": "48M",
+          "cy": "38M",
+          "cyVsLy": "40%",
+          "property": null
+        },
+        {
+          "destination": "Vienna",
+          "ly": "42M",
+          "cy": "32M",
+          "cyVsLy": "41%",
+          "property": null
+        },
+        {
+          "destination": "Barcelona",
+          "ly": "40M",
+          "cy": "35M",
+          "cyVsLy": "29%",
+          "property": "Amadeus Stay Las Ramblas, Barcelona"
+        },
+        {
+          "destination": "Brussels",
+          "ly": "36M",
+          "cy": "28M",
+          "cyVsLy": "11%",
+          "property": null
+        },
+        {
+          "destination": "Paris",
+          "ly": "35M",
+          "cy": "30M",
+          "cyVsLy": "26%",
+          "property": "Amadeus Stay Saint-Germain, Paris"
+        },
+        {
+          "destination": "Copenhagen",
+          "ly": "33M",
+          "cy": "24M",
+          "cyVsLy": "31%",
+          "property": null
+        },
+        {
+          "destination": "Rome",
+          "ly": "30M",
+          "cy": "27M",
+          "cyVsLy": "8%",
+          "property": "Amadeus Stay Trastevere, Rome"
+        },
+        {
+          "destination": "Milan",
+          "ly": "30M",
+          "cy": "27M",
+          "cyVsLy": "29%",
+          "property": "Amadeus Stay Brera, Milan"
+        },
+        {
+          "destination": "Dublin",
+          "ly": "25M",
+          "cy": "22M",
+          "cyVsLy": "7%",
+          "property": "Amadeus Stay Temple Bar, Dublin"
+        },
+        {
+          "destination": "Zurich",
+          "ly": "25M",
+          "cy": "22M",
+          "cyVsLy": "38%",
+          "property": "Amadeus Stay Altstadt, Zurich"
+        },
+        {
+          "destination": "Amsterdam",
+          "ly": "20M",
+          "cy": "18M",
+          "cyVsLy": "16%",
+          "property": "Amadeus Stay Jordaan, Amsterdam"
+        },
+        {
+          "destination": "Athens",
+          "ly": "20M",
+          "cy": "18M",
+          "cyVsLy": "16%",
+          "property": "Amadeus Stay Acropolis, Athens"
+        }
+      ],
+      "propertiesTableTitle": "Available Properties",
+      "sourceLabel": "Amadeus Travel Intelligence",
+      "primaryActions": [
+        "Show Top Destination Countries",
+        "Show Campaign Setup"
+      ],
+      "suggestedPrompts": [
+        "Show more traveller specific information",
+        "Show more in-depth demand data from ATI for the Routes"
+      ],
+      "propertiesIntro": "These are properties available in these high-demand destinations that should invest in the US feeder market."
+    }
+  },
+  "wizardSteps": [
+    {
+      "id": "basic",
+      "label": "Basic info"
+    },
+    {
+      "id": "channels",
+      "label": "Channels"
+    },
+    {
+      "id": "budget",
+      "label": "Budget strategy",
+      "perPlatform": true
+    },
+    {
+      "id": "targeting",
+      "label": "Targeting",
+      "perPlatform": true
+    },
+    {
+      "id": "keywords",
+      "label": "Keywords",
+      "perPlatform": true,
+      "conditional": "shown only when at least one enabled Paid search platform exists"
+    },
+    {
+      "id": "creatives",
+      "label": "Creatives",
+      "perPlatform": true
+    },
+    {
+      "id": "summary",
+      "label": "Summary"
+    }
+  ],
+  "propertyMediaPlans": [
+    {
+      "mediaPlanName": "Amadeus Hotels 2027 Always-On Media Plan",
+      "properties": [
+        "Starry Night Hotel — Paris",
+        "Grand Hotel — Nice",
+        "Grand Hotel — Paris",
+        "Riviera Suites — Cannes",
+        "Le Marais Boutique — Paris",
+        "Alpine Lodge — Chamonix",
+        "Harbour View — Marseille",
+        "Château Loire — Tours",
+        "Coastal Retreat — Biarritz",
+        "City Central — Lyon"
+      ]
+    }
+  ]
+}

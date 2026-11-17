@@ -1,0 +1,146 @@
+{
+  "title": "Media Plans",
+  "tableTitle": "Media Plans Overview",
+  "newPlan": "New Media Plan",
+  "newPlanTooltip": "Create a New Media Plan",
+  "myPlans": "My Plans ({{count}})",
+  "allPlans": "All Plans ({{count}})",
+  "columns": {
+    "status": "Status",
+    "planName": "Plan Name",
+    "advertiserBpid": "Advertiser (BPID)",
+    "contractBudget": "Contract Budget",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "planType": "Plan Type",
+    "opportunityId": "Opportunity ID",
+    "proposalId": "Proposal ID"
+  },
+  "settings": {
+    "heading": "New Media Plan",
+    "advertiserInfo": "Advertiser Information",
+    "planInfo": "Plan Information",
+    "priceSettings": "Price Settings",
+    "advertiserBpid": "Advertiser (BPID)",
+    "region": "Region",
+    "sfOpportunityId": "Salesforce Opportunity ID",
+    "proposalId": "Proposal ID",
+    "currency": "Currency",
+    "breakdown": "Breakdown",
+    "planType": "Plan Type",
+    "status": "Status",
+    "contractBudget": "Contract Budget Target",
+    "contractProfit": "Contract Profit Target",
+    "planName": "Plan Name",
+    "managementFee": "Management Fee in %",
+    "setupFee": "Setup Fee",
+    "metasearchSetupFee": "Metasearch Setup Fee",
+    "creativeFee": "Creative Fee",
+    "videoCreativeFee": "Video Creative Fee",
+    "prefillToggle": "Pre-fill Media plans with past campaign consumption data."
+  },
+  "planType": {
+    "renewal": "Renewal",
+    "new": "New"
+  },
+  "status": {
+    "draft": "Draft",
+    "inProgress": "In Progress"
+  },
+  "breakdown": {
+    "singleProperty": "Single Property"
+  },
+  "validation": {
+    "selectAdvertiser": "Please select an advertiser",
+    "selectRegion": "Please select a region",
+    "enterSfId": "Please enter the Salesforce Opportunity ID",
+    "enterProposalId": "Please enter the Proposal ID",
+    "selectCurrency": "Please select a currency",
+    "selectBreakdown": "Please select a breakdown",
+    "selectPlanType": "Please select a plan type",
+    "enterBudget": "Please enter the Contract Budget Target",
+    "enterProfit": "Please enter the Contract Profit Target",
+    "selectStartDate": "Please select a start date",
+    "selectEndDate": "Please select an end date",
+    "enterPlanName": "Please enter the Plan Name",
+    "selectStatus": "Please select a status"
+  },
+  "budget": {
+    "heading": "Budget Distribution",
+    "spendBudgetDist": "Spend Budget Distribution",
+    "channelBreakdown": "Channel Breakdown",
+    "feeBreakdown": "Fee Breakdown",
+    "budgetSummary": "Budget Summary",
+    "pastConsumption": "Past Consumption Data",
+    "mediaSettings": "Media Settings",
+    "pastSeasonality": "Past Seasonality (%)",
+    "totalSpend": "Total Spend"
+  },
+  "channel": {
+    "paidSearch": "Paid Search",
+    "display": "Display",
+    "social": "Social",
+    "video": "Video",
+    "metasearch": "Metasearch"
+  },
+  "platform": {
+    "googleAds": "Google Ads",
+    "bing": "Bing",
+    "dv360": "DV360",
+    "amadeusDsp": "Amadeus DSP",
+    "facebookIg": "Facebook/IG",
+    "tiktok": "TikTok",
+    "linkedin": "LinkedIn",
+    "pinterest": "Pinterest",
+    "youtubeP": "YouTube",
+    "googleHotel": "Google Hotel",
+    "trivago": "Trivago",
+    "kayak": "Kayak",
+    "tripadvisor": "Tripadvisor"
+  },
+  "table": {
+    "platform": "Platform",
+    "tactic": "Tactic",
+    "spendDollar": "Spend ($)",
+    "spendPercent": "Spend (%)",
+    "percentExpected": "% of Expected",
+    "channel": "Channel",
+    "connectivityFee": "Connectivity Fee ($)",
+    "setupFee": "Setup Fee ($)",
+    "marginDollar": "Margin ($)",
+    "fee": "Fee",
+    "percentage": "Percentage",
+    "total": "Total",
+    "metrics": "Metrics",
+    "expected": "Expected",
+    "spend": "Spend"
+  },
+  "fees": {
+    "management": "Management",
+    "setup": "Setup",
+    "metasearchSetup": "Metasearch Setup",
+    "creative": "Creative",
+    "videoCreative": "Video Creative"
+  },
+  "summary": {
+    "spend": "Spend",
+    "margin": "Margin",
+    "marginPercent": "Margin (%)",
+    "contractMargin": "Contract Margin",
+    "contractMarginPercent": "Contract Margin (%)",
+    "contractBudget": "Contract Budget"
+  },
+  "download": {
+    "overview": "Media Plan Overview",
+    "mediaplanName": "Media Plan Name",
+    "hotelName": "Hotel Name",
+    "globalFeePercent": "Global Fee %",
+    "globalFeeAmount": "Global Fee Amount",
+    "totalContractBudget": "Total Contract Budget"
+  },
+  "stepper": {
+    "generalSettings": "General Settings",
+    "budgetDistribution": "Budget Distribution",
+    "mediaPlan": "Media Plan"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "title": "Centre de notifications",
+  "tableTitle": "Vue d'ensemble des notifications",
+  "drawerTitle": "Notifications",
+  "tabs": {
+    "performance": "Performance",
+    "management": "Gestion",
+    "contracts": "Contrats",
+    "others": "Autres"
+  },
+  "columns": {
+    "alertType": "Type d'alerte",
+    "advertiserBpid": "Nom de l'annonceur",
+    "advertiserBpidInternal": "Nom de l'annonceur (BPID)",
+    "module": "Module",
+    "category": "Catégorie",
+    "time": "Heure",
+    "message": "Message"
+  },
+  "filters": {
+    "advertiserBpid": "Annonceur",
+    "advertiserBpidInternal": "Annonceur (BPID)",
+    "modules": "Modules",
+    "category": "Catégorie",
+    "timePeriod": "Période",
+    "status": "Statut",
+    "myNotifications": "Mes notifications",
+    "allNotifications": "Toutes les notifications"
+  },
+  "searchPlaceholder": "Message",
+  "categories": {
+    "contract": "Contrat",
+    "management": "Gestion",
+    "performance": "Performance",
+    "others": "Autres"
+  },
+  "status": {
+    "read": "Lu",
+    "snoozed": "En pause",
+    "unread": "Non lu"
+  },
+  "module": {
+    "oba": "OBA"
+  },
+  "timePeriod": {
+    "24h": "Dernières 24 heures",
+    "3d": "3 derniers jours",
+    "7d": "7 derniers jours",
+    "30d": "30 derniers jours"
+  },
+  "alertLevel": {
+    "error": "Erreur",
+    "info": "Info / Avis",
+    "warning": "Avertissement"
+  },
+  "actions": {
+    "markAsRead": "Marquer comme lu",
+    "markAsUnread": "Marquer comme non lu",
+    "snooze": "Mettre en pause",
+    "unsnooze": "Annuler la mise en pause",
+    "moreDetails": "Plus de détails"
+  },
+  "toast": {
+    "markedRead": "La notification a été marquée comme lue",
+    "markedUnread": "La notification a été marquée comme non lue.",
+    "snoozed": "La notification a été mise en pause.",
+    "unsnoozed": "La mise en pause de la notification a été annulée"
+  },
+  "broadFilter": "Veuillez affiner votre sélection de filtres en choisissant un ou plusieurs annonceurs ou en réduisant la période pour afficher les notifications. L'affichage des notifications pour tous les annonceurs dépasse la capacité du tableau."
+}
