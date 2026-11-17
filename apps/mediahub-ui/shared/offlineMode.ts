@@ -14,7 +14,7 @@
  *  - `localStorage.setItem('mediahub.offline-mode', 'on')` in the console.
  *  - Skip sign-in: the login-page toggle, or `?login=off` (skip) / `?login=on` (show login again).
  */
-// Set to true by webpack.demo.config.ts: the standalone "ATAP demo" bundle starts with the backend off
+// Set to true by webpack.config.ts: the standalone "ATAP demo" bundle starts with the backend off
 // and sign-in skipped. A stored choice (toggle or ?offline= / ?login= URL param) still wins.
 declare const __ATAP_DEMO__: boolean | undefined
 const DEMO_DEFAULT = typeof __ATAP_DEMO__ !== 'undefined' && __ATAP_DEMO__ === true

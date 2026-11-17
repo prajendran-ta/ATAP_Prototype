@@ -7,26 +7,41 @@ the "Create campaigns with Max" flow, and the ad preview page).
 
 ## Quick run (no install)
 
-`prebuilt/` is a ready-made build with a tiny server. It needs only Node 14+.
+`app/` is the ready-made build and `serve.js` is a tiny static server. It needs only Node 14+.
 
 ```sh
-cd prebuilt && node serve.js      # http://localhost:8080  (macOS: double-click start.command)
+node serve.js      # http://localhost:8080  (PORT=3000 node serve.js; macOS: double-click start.command, Windows: start.bat)
 ```
 
-It reflects the code at the time of packaging; it does not update when you edit the source.
+`app/` reflects the last build; it does not update when you edit the source.
 
 ## Work on the source
 
-Needs Node 20+ (see `.nvmrc`) and Yarn 1 (`npm i -g yarn`). The first install needs internet.
+Needs Node 20+ (see `.nvmrc`). Run the tools from `node_modules/.bin` (`npx webpack`, `npx tsc`, `npx jest`).
+
+> Note: this repo's root `package.json` is only the small server wrapper used for deployment. The source
+> project's own `package.json` (dependencies and the `yarn start/build/test` scripts) is not in the repo yet,
+> so a fresh clone cannot install or build until it is restored.
 
 ```sh
-yarn install
-yarn start        # dev server with hot reload, http://localhost:8080
-yarn build        # production build into ./build
-yarn serve        # serve ./build on http://localhost:8080  (PORT=3000 yarn serve)
-yarn type-check   # tsc
-yarn test         # jest
+npx webpack serve                     # dev server with hot reload, http://localhost:8080
+npx webpack build                     # production build into ./build
+npx tsc --noEmit                      # type-check
+npx jest                              # tests
 ```
+
+## Deploy to Azure
+
+Pushing to `main` runs `.github/workflows/deploy-to-azure.yml`, which zips `app/`, `serve.js`, `package.json`,
+`package-lock.json` and `web.config` and deploys them to the App Service `amadeus-advertising-atap`
+(secret: `AZURE_PUBLISH_PROFILE`). The workflow does **not** build the source, so to ship a change:
+
+1. `npx webpack build` (writes to `build/`, not `app/`)
+2. Replace `app/` with the contents of `build/`, plus `Images/` and `creatives/` from `public/`
+3. Keep the `window.process` shim in `app/index.html`
+   (`<script>window.process=window.process||{env:{NODE_ENV:'production'}}</script>` before the main bundle);
+   without it the app shows a blank screen
+4. Commit and push, then check the Actions run
 
 Layout (same as the original monorepo):
 

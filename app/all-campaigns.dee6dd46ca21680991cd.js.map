@@ -1,1 +1,0 @@
-{"version":3,"file":"all-campaigns.dee6dd46ca21680991cd.js","mappings":";;;;;;;;;;;;;;AAAkE","sources":["webpack://atap-demo/./apps/mediahub-ui/pages/CampaignMapping/allCampaignsIndex.ts"],"sourcesContent":["export { AllCampaignsPage as default } from './UnmappedCampaigns';\n"],"names":[],"sourceRoot":""}

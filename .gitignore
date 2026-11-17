@@ -3,31 +3,25 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# Build outputs
+# Build outputs (the deployed build is committed in app/, see README)
 dist/
 build/
 *.zip
+*.map
 
 # Environment variables
 .env
 .env.local
 .env.*.local
 
-# IDE
+# IDE / OS
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 .DS_Store
-
-# OS
 Thumbs.db
-.DS_Store
-
-# Deployment
-atap-demo-deploy.zip
-*.zip
 
 # Logs
 logs/
