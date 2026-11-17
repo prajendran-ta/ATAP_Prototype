@@ -1,0 +1,64 @@
+═══════════════════════════════════════════════════════════════════
+   ATAP DEMO - AZURE DEPLOYMENT READY ✅
+═══════════════════════════════════════════════════════════════════
+
+Your ATAP Demo is ready to deploy to Azure! Here's what I've prepared:
+
+📁 FILES CREATED:
+─────────────────────────────────────────────────────────────────
+✅ package.json              - Node.js project metadata
+✅ web.config                - IIS configuration for Azure App Service
+✅ Dockerfile                - Docker container configuration
+✅ AZURE_DEPLOYMENT.md       - Detailed deployment guide
+✅ deploy-to-azure.sh        - Automated deployment script
+
+🚀 QUICK START - EASIEST METHOD:
+─────────────────────────────────────────────────────────────────
+1. Install Azure CLI if you don't have it:
+   https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+
+2. Run the deployment script:
+   cd /Users/aco_prajendran/Documents/ATAP\ Demo
+   ./deploy-to-azure.sh
+
+3. That's it! Your app will be live at:
+   https://atap-demo.azurewebsites.net
+
+📋 DEPLOYMENT OPTIONS:
+─────────────────────────────────────────────────────────────────
+1. App Service (Recommended)   - Use deploy-to-azure.sh
+2. Container Instances          - Use the Dockerfile
+3. Manual via Azure Portal      - See AZURE_DEPLOYMENT.md
+
+🔧 APP CONFIGURATION:
+─────────────────────────────────────────────────────────────────
+• Node.js Runtime:    18 LTS (minimum 14+)
+• Port:              8080
+• Entry Point:       serve.js
+• Dependencies:      None (pre-built app)
+• Region:            West Europe
+• Resource Group:    atap-demo-rg
+• App Name:          atap-demo
+
+💡 IMPORTANT NOTES:
+─────────────────────────────────────────────────────────────────
+✓ The app has been patched with a process polyfill
+✓ All front-end assets are pre-built (no build step needed)
+✓ No dependencies to install
+✓ Completely stateless (uses browser localStorage)
+✓ Works on Azure App Service with IIS
+
+📊 MONITORING:
+─────────────────────────────────────────────────────────────────
+View logs after deployment:
+  az webapp log tail --resource-group atap-demo-rg --name atap-demo
+
+Access Azure Portal:
+  https://portal.azure.com/#@amadeusgpegmail.onmicrosoft.com/
+
+🗑️  CLEANUP:
+─────────────────────────────────────────────────────────────────
+To delete all Azure resources created:
+  az group delete --name atap-demo-rg --yes
+
+═══════════════════════════════════════════════════════════════════

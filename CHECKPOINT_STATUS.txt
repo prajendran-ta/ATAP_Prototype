@@ -1,0 +1,163 @@
+================================================================================
+                    ATAP Demo - Deployment Checkpoint
+                         Session: 2026-11-17 15:04 UTC
+================================================================================
+
+✅ COMPLETED TASKS
+================================================================================
+
+1. ✅ Created New Azure App Service
+   • Name: amadeus-advertising-atap
+   • Status: PROVISIONING
+   • Resource Group: atap-demo-rg
+   • Region: West Europe
+   • Runtime: Node.js 24 LTS
+   • App Service Plan: ASP-atapdemorg-9740 (B1 - Basic)
+   • Creation Time: 2026-11-17 14:30 UTC
+
+2. ✅ Azure Portal Form Filled & Deployment Initiated
+   • Successfully navigated Azure Portal form
+   • Filled all required fields:
+     - Subscription: sbx-sdx-amadeusadvertising-atap
+     - Resource Group: atap-demo-rg (existing)
+     - App Name: amadeus-advertising-atap
+     - Publish: Code
+     - Runtime: Node.js 24 LTS
+     - Region: West Europe
+   • Clicked "Review + create" → "Create"
+   • Azure confirmed: "Your deployment is complete"
+
+3. ✅ Prepared Deployment Package
+   • Package: atap-demo-deploy.zip
+   • Size: 13.48 MB
+   • Status: Ready for deployment
+   • Location: /Users/aco_prajendran/Documents/ATAP Demo/
+
+4. ✅ Created Helper Files
+   • DEPLOYMENT_GUIDE.md - Complete deployment instructions
+   • deploy-quick.sh - Automated deployment script
+   • CHECKPOINT_STATUS.txt - This file
+
+
+⏳ IN-PROGRESS / PENDING TASKS
+================================================================================
+
+1. ⏳ App Service Infrastructure Provisioning
+   • Status: PROVISIONING (Expected: 5-10 minutes)
+   • DNS Propagation: PENDING
+   • When Ready: DNS names will resolve:
+     - https://amadeus-advertising-atap.azurewebsites.net/
+     - https://amadeus-advertising-atap.scm.azurewebsites.net/
+
+2. ⏳ Application Code Deployment
+   • Status: READY TO DEPLOY (waiting for infrastructure)
+   • Method 1: Azure Portal → Deployment Center (Recommended for UI)
+   • Method 2: CLI command (see DEPLOYMENT_GUIDE.md)
+   • Estimated Time: 1-2 minutes once infrastructure is ready
+
+
+🔧 TECHNICAL DETAILS
+================================================================================
+
+SUBSCRIPTION INFORMATION:
+• Subscription: sbx-sdx-amadeusadvertising-atap
+• Subscription ID: fbb1047e-cac0-424f-b8c6-ad0a9618dbe1
+• Directory: Default Directory (amadeusgpegmail.onmicrosoft.com)
+
+RESOURCE LOCATIONS:
+• Resource Group: atap-demo-rg (West Europe)
+• App Service Plan: ASP-atapdemorg-9740 (B1 Pricing Tier)
+• Deployment Package: /Users/aco_prajendran/Documents/ATAP Demo/atap-demo-deploy.zip
+
+NEW APP SERVICE:
+• Name: amadeus-advertising-atap
+• Type: App Service (Web App)
+• URL (once ready): https://amadeus-advertising-atap.azurewebsites.net/
+• Kudu URL (once ready): https://amadeus-advertising-atap.scm.azurewebsites.net/
+
+EXISTING APP SERVICE (for reference):
+• Name: atap-demo
+• URL: https://atap-demo-dcazbnhvhne7bpdg.westeurope-01.azurewebsites.net/
+• Status: Running
+• Note: Can be deleted after new service is verified
+
+
+📋 DEPLOYMENT READINESS CHECKLIST
+================================================================================
+
+□ Wait 5-10 minutes for DNS propagation
+  - Check: nslookup amadeus-advertising-atap.azurewebsites.net
+  - Expected: Should return IP address
+
+□ Deploy application code
+  - Option A: Use DEPLOYMENT_GUIDE.md for manual steps
+  - Option B: Run ./deploy-quick.sh script
+
+□ Verify deployment
+  - Open: https://amadeus-advertising-atap.azurewebsites.net/
+  - Check: Page loads without errors
+  - Test: Toggle feature on the main page
+
+□ Optional cleanup
+  - Delete old app service: atap-demo
+  - Remove old DNS records if applicable
+
+
+📞 SUPPORT INFORMATION
+================================================================================
+
+If you encounter issues:
+
+1. Check App Service Status:
+   python3 -m azure.cli webapp show -g atap-demo-rg -n amadeus-advertising-atap
+
+2. View Application Logs:
+   python3 -m azure.cli webapp log tail -g atap-demo-rg -n amadeus-advertising-atap
+
+3. Restart the App Service:
+   python3 -m azure.cli webapp restart -g atap-demo-rg -n amadeus-advertising-atap
+
+4. Azure Portal:
+   https://portal.azure.com
+   Search: amadeus-advertising-atap
+
+
+🎯 TIMELINE
+================================================================================
+
+14:30 - App Service created in Azure Portal
+        Deployment status: "Your deployment is complete"
+
+14:38 - Attempted automated deployment via Azure CLI
+        Status: Session authentication expired
+
+15:04 - Current time
+        DNS propagation: Still in progress (expected ready by 15:35-15:40)
+
+15:35 - Estimated time when DNS becomes fully available
+        Ready for code deployment
+
+15:37 - Estimated deployment completion
+
+
+✨ NEXT ACTION
+================================================================================
+
+WAIT approximately 5-10 minutes for DNS to propagate, then:
+
+1. Run the quick deployment script:
+   ./deploy-quick.sh
+
+   OR
+
+2. Use Azure Portal:
+   • Search for: amadeus-advertising-atap
+   • Open the app service
+   • Click: Deployment Center
+   • Upload: atap-demo-deploy.zip
+   • Click: Deploy
+
+Then verify by opening:
+https://amadeus-advertising-atap.azurewebsites.net/
+
+================================================================================
