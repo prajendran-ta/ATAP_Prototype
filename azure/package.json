@@ -1,0 +1,16 @@
+{
+  "name": "atap-demo",
+  "version": "1.0.0",
+  "description": "ATAP Demo - Amadeus Travel Advertising Platform",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js",
+    "dev": "PORT=3000 node serve.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": ["atap", "amadeus", "advertising", "travel"],
+  "author": "Amadeus",
+  "license": "UNLICENSED"
+}

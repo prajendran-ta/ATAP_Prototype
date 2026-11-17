@@ -5,13 +5,17 @@
  *   node serve.js            -> http://localhost:8080
  *   PORT=3000 node serve.js  -> http://localhost:3000
  *
- * Serves ./app and falls back to index.html for client-side routes (e.g. /advertisers, /oba/plans).
+ * Serves ./build (after `yarn build`) or, in the Azure package, ./app, and falls back to index.html for
+ * client-side routes (e.g. /advertisers, /oba/plans). Override the folder with ROOT_DIR=...
  */
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-const ROOT = path.join(__dirname, 'app')
+const ROOT = process.env.ROOT_DIR
+  ? path.resolve(process.env.ROOT_DIR)
+  : ['build', 'app'].map(dir => path.join(__dirname, dir)).find(dir => fs.existsSync(path.join(dir, 'index.html'))) ||
+    path.join(__dirname, 'build')
 const PORT = Number(process.env.PORT) || 8080
 
 const MIME = {

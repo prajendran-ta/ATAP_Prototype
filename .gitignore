@@ -3,7 +3,7 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# Build outputs (the deployed build is committed in app/, see README)
+# Build outputs (CI builds and deploys from source, see README)
 dist/
 build/
 *.zip
