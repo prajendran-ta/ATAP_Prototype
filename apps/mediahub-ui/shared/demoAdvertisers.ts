@@ -6,11 +6,10 @@
  * derives its rows from it so the story stays consistent per advertiser:
  *   Advertiser -> Platforms -> Media Plan -> OBA -> Campaign Setup -> Audience
  *
- * The 10 advertisers are ones the repo already names with BPIDs: 3 exist in the live Advertisers
- * list (11 Howard, 1 Hotel Brooklyn Bridge, 25 hours Dubai) and 7 come from the Campaign Setup
- * mocks. The Advertisers mock link injects any that the backend does not already return (matched
- * by BPID), so there are never duplicates. Everything is keyed by BPID wherever possible, because a
- * backend-owned advertiser keeps its real advertiserId.
+ * The 19 advertisers are the customer list the demo uses everywhere (home dashboard included). The Advertisers
+ * mock link injects any that the backend does not already return (matched by BPID), so there are never
+ * duplicates. Everything is keyed by BPID wherever possible, because a backend-owned advertiser keeps its real
+ * advertiserId.
  *
  * Prototype only. Money is whole units of the advertiser's own currency.
  */
@@ -58,6 +57,9 @@ export interface DemoAdvertiser {
   bpid: string
   name: string
   market: string
+  /** Destination market (ISO country of the hotel) and the origin markets its campaigns target (campaign names). */
+  destination: string
+  origins: string[]
   currency: string
   /** Total media plan / contract budget. */
   totalBudget: number
@@ -98,6 +100,8 @@ interface Seed {
   /** Short name used in campaign / plan names. */
   short: string
   market: string
+  destination: string
+  origins: string[]
   currency: string
   totalBudget: number
   followedByDefault: boolean
@@ -109,16 +113,25 @@ interface Seed {
 }
 
 const SEEDS: Seed[] = [
-  { key: 'howard', advertiserId: 920001, bpid: 'BP-9074305', name: '11 Howard New York a Member of Design Hotels', short: '11 Howard NY', market: 'New York', currency: 'USD', totalBudget: 360000, followedByDefault: true, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.35, 0.25, 0.25, 0.15], reporting: { custom1: 'Market', custom2: 'Campaign Objective', custom3: '' } },
-  { key: 'brooklyn', advertiserId: 920002, bpid: 'BP-9113259', name: '1 Hotel Brooklyn Bridge', short: '1 Hotel Brooklyn Bridge', market: 'New York', currency: 'USD', totalBudget: 420000, followedByDefault: false, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.4, 0.2, 0.2, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
-  { key: 'dubai', advertiserId: 920003, bpid: 'BP-9104332', name: '25 hours Hotel Dubai One Central', short: '25h Dubai One Central', market: 'Dubai', currency: 'USD', totalBudget: 300000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.3, 0.3, 0.25, 0.15], reporting: { custom1: 'Market', custom2: 'Booking Window', custom3: 'Fiscal Year' } },
-  { key: 'mulia', advertiserId: 920004, bpid: 'BP-64517', name: 'Mulia Resort', short: 'Mulia Resort', market: 'Bali', currency: 'USD', totalBudget: 540000, followedByDefault: true, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.35, 0.3, 0.2, 0.15], reporting: { custom1: 'Region', custom2: 'Campaign Objective', custom3: 'Fiscal Year' } },
-  { key: 'elpalace', advertiserId: 920005, bpid: 'BP-2850', name: 'El Palace Barcelona', short: 'El Palace Barcelona', market: 'Barcelona', currency: 'EUR', totalBudget: 380000, followedByDefault: true, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.45, 0.2, 0.15, 0.2], reporting: { custom1: 'Market', custom2: '', custom3: '' } },
-  { key: 'trumplv', advertiserId: 920006, bpid: 'BP-51546', name: 'Trump International Hotel Las Vegas', short: 'Trump Intl LV', market: 'Las Vegas', currency: 'USD', totalBudget: 600000, followedByDefault: true, startDate: '2026-10-01', endDate: '2027-09-30', obaStatus: 'Live', shares: [0.3, 0.25, 0.3, 0.15], reporting: { custom1: 'Market', custom2: 'Booking Window', custom3: '' } },
-  { key: 'copthorneakl', advertiserId: 920007, bpid: 'BP-33011', name: 'Copthorne Hotel Auckland HarbourCity', short: 'Copthorne Auckland', market: 'Auckland', currency: 'NZD', totalBudget: 260000, followedByDefault: true, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.5, 0.3, 0, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
-  { key: 'millqt', advertiserId: 920008, bpid: 'BP-33012', name: 'Millennium Hotel Queenstown', short: 'Millennium Queenstown', market: 'Queenstown', currency: 'NZD', totalBudget: 240000, followedByDefault: false, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.4, 0.3, 0.15, 0.15], reporting: { custom1: 'Region', custom2: 'Campaign Objective', custom3: '' } },
-  { key: 'copthornewlg', advertiserId: 920009, bpid: 'BP-33015', name: 'Copthorne Hotel Wellington Oriental Bay', short: 'Copthorne Wellington', market: 'Wellington', currency: 'NZD', totalBudget: 180000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.55, 0.25, 0, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
-  { key: 'millrot', advertiserId: 920010, bpid: 'BP-33016', name: 'Millennium Hotel Rotorua', short: 'Millennium Rotorua', market: 'Rotorua', currency: 'NZD', totalBudget: 150000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.6, 0.2, 0, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
+  { key: 'mhreurope', advertiserId: 920001, bpid: 'BP-720101', name: 'Millennium Hotels and Resorts Europe', short: 'Millennium Europe', market: 'Europe', destination: 'GB', origins: ['DE', 'FR', 'US'], currency: 'GBP', totalBudget: 640000, followedByDefault: true, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.4, 0.25, 0.2, 0.15], reporting: { custom1: 'Market', custom2: 'Campaign Objective', custom3: 'Fiscal Year' } },
+  { key: 'crown', advertiserId: 920002, bpid: 'BP-720102', name: 'Crown Limited', short: 'Crown Limited', market: 'Melbourne', destination: 'AU', origins: ['NZ', 'SG', 'GB'], currency: 'AUD', totalBudget: 720000, followedByDefault: true, startDate: '2026-10-01', endDate: '2027-09-30', obaStatus: 'Live', shares: [0.3, 0.3, 0.25, 0.15], reporting: { custom1: 'Market', custom2: 'Booking Window', custom3: '' } },
+  { key: 'soi', advertiserId: 920003, bpid: 'BP-720103', name: 'S O I Acquisition', short: 'SOI Acquisition', market: 'Miami', destination: 'US', origins: ['CA', 'GB', 'IE'], currency: 'USD', totalBudget: 280000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.5, 0.3, 0, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
+  { key: 'mhrna', advertiserId: 920004, bpid: 'BP-720104', name: 'Millennium Hotels and Resorts North America', short: 'Millennium North America', market: 'North America', destination: 'US', origins: ['CA', 'GB', 'DE'], currency: 'USD', totalBudget: 480000, followedByDefault: true, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.35, 0.25, 0.25, 0.15], reporting: { custom1: 'Market', custom2: 'Campaign Objective', custom3: '' } },
+  { key: 'cwresorts', advertiserId: 920005, bpid: 'BP-720105', name: 'Colonial Williamsburg Resorts', short: 'Colonial Williamsburg Resorts', market: 'Williamsburg', destination: 'US', origins: ['US', 'CA'], currency: 'USD', totalBudget: 420000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.4, 0.2, 0.2, 0.2], reporting: { custom1: 'Region', custom2: 'Campaign Objective', custom3: '' } },
+  { key: 'grove', advertiserId: 920006, bpid: 'BP-720106', name: 'The Grove Resort Orlando', short: 'The Grove Resort Orlando', market: 'Orlando', destination: 'US', origins: ['US', 'CA', 'GB'], currency: 'USD', totalBudget: 380000, followedByDefault: false, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.5, 0.3, 0, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
+  { key: 'cwfoundation', advertiserId: 920007, bpid: 'BP-720107', name: 'The Colonial Williamsburg Foundation', short: 'Colonial Williamsburg Foundation', market: 'Williamsburg', destination: 'US', origins: ['US', 'CA'], currency: 'USD', totalBudget: 300000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.4, 0.3, 0.15, 0.15], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
+  { key: 'mhrasia', advertiserId: 920008, bpid: 'BP-720108', name: 'Millennium Hotels and Resorts Asia', short: 'Millennium Asia', market: 'Asia', destination: 'SG', origins: ['AU', 'GB', 'IN'], currency: 'SGD', totalBudget: 520000, followedByDefault: true, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.35, 0.3, 0.2, 0.15], reporting: { custom1: 'Market', custom2: 'Campaign Objective', custom3: 'Fiscal Year' } },
+  { key: 'star', advertiserId: 920009, bpid: 'BP-720109', name: 'The Star Entertainment Group', short: 'The Star Entertainment', market: 'Sydney', destination: 'AU', origins: ['NZ', 'SG', 'US'], currency: 'AUD', totalBudget: 560000, followedByDefault: false, startDate: '2026-10-01', endDate: '2027-09-30', obaStatus: 'Live', shares: [0.3, 0.3, 0.25, 0.15], reporting: { custom1: 'Market', custom2: 'Booking Window', custom3: '' } },
+  { key: 'derby', advertiserId: 920010, bpid: 'BP-720110', name: 'Derby Hoteles', short: 'Derby Hoteles', market: 'Barcelona', destination: 'ES', origins: ['GB', 'FR', 'ES'], currency: 'EUR', totalBudget: 400000, followedByDefault: true, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.45, 0.2, 0.15, 0.2], reporting: { custom1: 'Market', custom2: '', custom3: '' } },
+  { key: 'thwaites', advertiserId: 920011, bpid: 'BP-720111', name: 'Thwaites', short: 'Thwaites', market: 'Blackburn', destination: 'GB', origins: ['GB', 'IE'], currency: 'GBP', totalBudget: 260000, followedByDefault: true, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.5, 0.3, 0, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
+  { key: 'southseas', advertiserId: 920012, bpid: 'BP-720112', name: 'South Seas', short: 'South Seas', market: 'Captiva Island', destination: 'US', origins: ['US', 'CA', 'DE'], currency: 'USD', totalBudget: 350000, followedByDefault: false, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.4, 0.25, 0.2, 0.15], reporting: { custom1: 'Region', custom2: 'Campaign Objective', custom3: '' } },
+  { key: 'crownparadise', advertiserId: 920013, bpid: 'BP-720113', name: 'Crown Paradise Club Cancun', short: 'Crown Paradise Cancun', market: 'Cancun', destination: 'MX', origins: ['US', 'CA', 'ES'], currency: 'USD', totalBudget: 450000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.35, 0.3, 0.2, 0.15], reporting: { custom1: 'Region', custom2: 'Campaign Objective', custom3: 'Fiscal Year' } },
+  { key: 'sensira', advertiserId: 920014, bpid: 'BP-720114', name: 'Sensira Resort And Spa Riviera Maya', short: 'Sensira Riviera Maya', market: 'Riviera Maya', destination: 'MX', origins: ['US', 'CA'], currency: 'USD', totalBudget: 330000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.45, 0.25, 0.15, 0.15], reporting: { custom1: 'Region', custom2: 'Property Cluster', custom3: '' } },
+  { key: 'seacontainers', advertiserId: 920015, bpid: 'BP-720115', name: 'Sea Containers London', short: 'Sea Containers London', market: 'London', destination: 'GB', origins: ['FR', 'DE', 'US'], currency: 'GBP', totalBudget: 410000, followedByDefault: true, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.4, 0.25, 0.2, 0.15], reporting: { custom1: 'Market', custom2: 'Campaign Objective', custom3: '' } },
+  { key: 'mhrmea', advertiserId: 920016, bpid: 'BP-720116', name: 'Millennium Hotels and Resorts Middle East and Africa', short: 'Millennium MEA', market: 'Dubai', destination: 'AE', origins: ['GB', 'DE', 'IN'], currency: 'USD', totalBudget: 390000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.3, 0.3, 0.25, 0.15], reporting: { custom1: 'Market', custom2: 'Booking Window', custom3: 'Fiscal Year' } },
+  { key: 'langham', advertiserId: 920017, bpid: 'BP-720117', name: 'Langham Hospitality Group', short: 'Langham Hospitality', market: 'Hong Kong', destination: 'HK', origins: ['AU', 'GB', 'SG'], currency: 'HKD', totalBudget: 2800000, followedByDefault: true, startDate: '2026-10-01', endDate: '2027-09-30', obaStatus: 'Live', shares: [0.35, 0.25, 0.25, 0.15], reporting: { custom1: 'Market', custom2: 'Campaign Objective', custom3: '' } },
+  { key: 'ark', advertiserId: 920018, bpid: 'BP-720118', name: 'ARK Canary Wharf', short: 'ARK Canary Wharf', market: 'Canary Wharf', destination: 'GB', origins: ['GB', 'IE'], currency: 'GBP', totalBudget: 220000, followedByDefault: false, startDate: '2027-01-01', endDate: '2027-12-31', obaStatus: 'Scheduled', shares: [0.55, 0.25, 0, 0.2], reporting: { custom1: 'Region', custom2: '', custom3: '' } },
+  { key: 'ascott', advertiserId: 920019, bpid: 'BP-720119', name: 'Ascott International Management', short: 'Ascott International', market: 'Singapore', destination: 'SG', origins: ['AU', 'GB', 'FR'], currency: 'SGD', totalBudget: 600000, followedByDefault: true, startDate: '2026-07-01', endDate: '2027-06-30', obaStatus: 'Live', shares: [0.35, 0.3, 0.2, 0.15], reporting: { custom1: 'Market', custom2: 'Campaign Objective', custom3: 'Fiscal Year' } },
 ]
 
 /** Split `total` by `shares` into 1,000-rounded budgets that sum EXACTLY to total (remainder to the biggest). */
@@ -153,6 +166,8 @@ const build = (seed: Seed): DemoAdvertiser => {
     bpid: seed.bpid,
     name: seed.name,
     market: seed.market,
+    destination: seed.destination,
+    origins: seed.origins,
     currency: seed.currency,
     totalBudget: seed.totalBudget,
     followedByDefault: seed.followedByDefault,
@@ -169,6 +184,8 @@ const build = (seed: Seed): DemoAdvertiser => {
       DV360: ext(3),
       DerbySoft: ext(4),
       WIHP: ext(5),
+      CM360: ext(6),
+      Meta: ext(7),
     },
     reporting: seed.reporting,
     bid: String(n),
@@ -180,7 +197,7 @@ const build = (seed: Seed): DemoAdvertiser => {
   }
 }
 
-/** The 10 demo advertisers, in display order (The Londoner Hotel is separate and always first). */
+/** The 19 demo advertisers, in display order (The Londoner Hotel is separate and always first). */
 export const DEMO_ADVERTISERS: DemoAdvertiser[] = SEEDS.map(build)
 
 /** Channels an advertiser actually runs (non-zero share), in display order. */
@@ -191,6 +208,34 @@ const norm = (value: string | number | undefined | null) => String(value ?? '').
 
 export const getDemoAdvertiserByBpid = (bpid: string | undefined | null): DemoAdvertiser | undefined =>
   DEMO_ADVERTISERS.find(a => norm(a.bpid) === norm(bpid))
+
+/**
+ * The hand-authored Campaign Setup / Campaigns rows were written for an earlier set of demo advertisers, which
+ * they still identify by these BPIDs. Each one now stands for one of the current advertisers (by key).
+ */
+const LEGACY_ADVERTISER_KEYS: Record<string, string> = {
+  'BP-64517': 'crownparadise',
+  'BP-64518': 'sensira',
+  'BP-2850': 'derby',
+  'BP-51546': 'star',
+  'BP-9074305': 'mhrna',
+  'BP-9113259': 'grove',
+  'BP-9104332': 'mhrmea',
+  'BP-33011': 'mhrasia',
+  'BP-33012': 'crown',
+  'BP-33015': 'ascott',
+  'BP-33016': 'langham',
+  'BP-99021': 'southseas',
+  'BP-99022': 'cwfoundation',
+  'BP-99023': 'cwresorts',
+  'BP-78630': 'thwaites',
+}
+
+/** The current demo advertiser for a BPID, resolving the BPIDs of the earlier advertisers (see above). */
+export const currentDemoAdvertiser = (bpid: string | undefined | null): DemoAdvertiser | undefined => {
+  const key = LEGACY_ADVERTISER_KEYS[bpid ?? '']
+  return key ? DEMO_ADVERTISERS.find(a => a.key === key) : getDemoAdvertiserByBpid(bpid)
+}
 
 export const getDemoAdvertiserById = (id: string | number | undefined | null): DemoAdvertiser | undefined =>
   DEMO_ADVERTISERS.find(a => String(a.advertiserId) === String(id ?? ''))
@@ -204,7 +249,7 @@ export const findDemoAdvertiser = (value: string | number | undefined | null): D
   )
 }
 
-/** Londoner or one of the 10 demo advertisers. */
+/** Londoner or one of the 19 demo advertisers. */
 export const isAnyDemoAdvertiser = (value: string | number | undefined | null): boolean =>
   !!findDemoAdvertiser(value) ||
   norm(value) === norm(LONDONER.bpid) ||

@@ -16,10 +16,10 @@ import {
   OBAButton,
 } from '@mediahub/mediahub-ui/components/Notifications/NotificationCard/NotificationCard.styled'
 import { showClosedWonPlanPromptSuggestions } from '@mediahub/mediahub-ui/components/CampaignFlow/campaignFlowStore'
+import { LONDONER, LONDONER_NAMES } from '@mediahub/mediahub-ui/shared/londonerHotel'
 import { useNavigate } from 'react-router'
 
-const mediaPlanName = 'Amadeus Hotels All year 2027 Rooms'
-const notificationMessage = `BID-1234 - Amadeus Hotels - Media plan '${mediaPlanName}' is closed-won.`
+const notificationMessage = `BID-${LONDONER.bid} - ${LONDONER.name} - Media plan '${LONDONER_NAMES.mediaPlan}' is closed-won.`
 
 const MediaPlannerPill = styled(OBAButton)`
   background-color: ${colors.violet_20};

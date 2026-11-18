@@ -10,7 +10,7 @@ import { isDemoFollowed, setDemoFollowed } from '@mediahub/mediahub-ui/shared/lo
  * Prototype-only mock layer for the Advertisers GraphQL client.
  *
  * The Advertisers list / details / option lookups read from a live backend, so demo advertisers
- * (The Londoner Hotel + the 10 in demoAdvertisers.ts) that only exist in the mock data would never
+ * (The Londoner Hotel + the 19 in demoAdvertisers.ts) that only exist in the mock data would never
  * appear. This link sits in front of the real HTTP link and:
  *  - adds the demo advertisers to advertiser LIST and OPTION results, respecting the filter the UI
  *    sent (ids / name search / status / following-only / followed-by / advertiser type). The
@@ -32,7 +32,7 @@ interface DemoRecord {
   name: string
 }
 
-/** The Londoner first (pinned to the top), then the 10 other demo advertisers. */
+/** The Londoner first (pinned to the top), then the 19 other demo advertisers. */
 const DEMO_RECORDS: DemoRecord[] = [
   { bpid: LONDONER.bpid, advertiserId: String(LONDONER.advertiserId), name: LONDONER.name },
   ...DEMO_ADVERTISERS.map(a => ({ bpid: a.bpid, advertiserId: String(a.advertiserId), name: a.name })),

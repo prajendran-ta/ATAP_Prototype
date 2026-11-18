@@ -87,7 +87,7 @@ function AudiencePage() {
   const followedAdvertisers = (advertiserData?.advertisers?.advertisers ?? [])
     .filter(advertiser => advertiser.isFollowing !== false)
   const isFollowedAdvertiser = (audience: AudienceRow) => {
-    // Demo advertisers (Londoner + the 10 in demoAdvertisers.ts): follow state is live (persisted
+    // Demo advertisers (Londoner + the 19 in demoAdvertisers.ts): follow state is live (persisted
     // store); the cached advertiser lookup can be stale.
     if (isLondonerAdvertiser(audience.advertiser) || findDemoAdvertiser(audience.advertiser)) {
       return isFollowedDemoAdvertiser(audience.advertiser)

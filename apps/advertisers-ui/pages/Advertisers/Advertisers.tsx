@@ -36,7 +36,7 @@ import { DEMO_ADVERTISERS, getDemoAdvertiserByBpid } from '@mediahub/mediahub-ui
 import { mappedCampaigns } from '@mediahub/mediahub-ui/pages/CampaignMapping/mockData/campaigns'
 import { unmappedCampaigns } from '@mediahub/mediahub-ui/pages/CampaignMapping/mockData/unmappedCampaigns'
 
-// Demo advertisers' (The Londoner Hotel + the 10 in demoAdvertisers.ts) summary, computed from the
+// Demo advertisers' (The Londoner Hotel + the 19 in demoAdvertisers.ts) summary, computed from the
 // same mock rows Campaign Setup shows, so the list agrees with the detail screens.
 //  - Campaigns: mapped campaigns / (mapped + still-to-map rows for this BPID)
 //  - OBA: only paid search, display and video are in the OBA plan (metasearch is billed outside it)
@@ -149,11 +149,9 @@ function renderMappedRing(mapped: number, total: number) {
 // Prototype-only: advertisers flagged as "New" (shown with a primary-blue chip next to the name).
 // Matched by advertiser name since there's no backend "new" flag yet.
 const NEW_ADVERTISERS = new Set<string>([
-  'Alila Ventana Big Sur',
-  'Catalina Island Company',
-  'Der Laerchenhof',
-  'Dragon Hill Lodge',
-  LONDONER.name,
+  'Sensira Resort And Spa Riviera Maya',
+  'S O I Acquisition',
+  'ARK Canary Wharf',
 ])
 
 function AdvertisersPage() {

@@ -13,6 +13,9 @@ export type SummaryField = { label: string; value: string }
 export type KeywordRow = { keyword: string; matchType: string }
 export type CopyRow = { field: string; english: string; french: string }
 export type SitelinkRow = { n: number; titleEn: string; descriptionEn: string; titleFr: string; descriptionFr: string }
+/** A video creative hosted on YouTube. */
+export type VideoAssetRow = { name: string; youtubeId: string; length: string; format: string }
+export type ImageAssetRow = { name: string; type: string; path: string }
 
 export type CampaignSettingsSummary = {
   platformName: string
@@ -22,17 +25,51 @@ export type CampaignSettingsSummary = {
   targeting: SummaryField[]
   /** Paid search only. */
   keywords?: { tactic: string; matchType: string; keywords: KeywordRow[]; negative: KeywordRow[] }
-  creatives: {
+  /** Absent for campaigns without creatives (metasearch). */
+  creatives?: {
     fields: SummaryField[]
     /** Search ads: headline / description in English and French. */
     copy?: CopyRow[]
     sitelinks?: SitelinkRow[]
     /** Display: the HTML5 banners. */
     banners?: DisplayBanner[]
+    /** Video: the video assets. */
+    videos?: VideoAssetRow[]
+    /** Search ads: image assets (logo and images). */
+    images?: ImageAssetRow[]
   }
 }
 
 const AMOUNT = (raw: string) => (raw.trim() ? `£${Number(raw).toFixed(2)}` : '—')
+
+// Keywords of the Google Ads Brand campaign (GA-LN-1001), with the match type of each row.
+const LONDONER_BRAND_KEYWORDS: KeywordRow[] = [
+  { keyword: 'hotel londoner leicester square', matchType: 'Broad' },
+  { keyword: 'hotel londoner london', matchType: 'Broad' },
+  { keyword: 'hotel londoner londres', matchType: 'Broad' },
+  { keyword: 'hotel the londoner', matchType: 'Broad' },
+  { keyword: 'hotel the londoner edwardian', matchType: 'Broad' },
+  { keyword: 'hotel the londoner leicester square', matchType: 'Broad' },
+  { keyword: 'londoner hotel leicester square', matchType: 'Broad' },
+  { keyword: 'londoner hotel leicester square', matchType: 'Exact' },
+  { keyword: 'londoner hotel london', matchType: 'Broad' },
+  { keyword: 'londoner hotel london', matchType: 'Exact' },
+  { keyword: 'the londoner', matchType: 'Broad' },
+  { keyword: 'the londoner', matchType: 'Exact' },
+  { keyword: 'the londoner edwardian', matchType: 'Broad' },
+  { keyword: 'the londoner edwardian', matchType: 'Exact' },
+  { keyword: 'the londoner edwardian hotel', matchType: 'Broad' },
+  { keyword: 'the londoner edwardian hotel', matchType: 'Exact' },
+  { keyword: 'the londoner hotel', matchType: 'Broad' },
+  { keyword: 'the londoner hotel', matchType: 'Exact' },
+  { keyword: 'the londoner hotel leicester square', matchType: 'Broad' },
+  { keyword: 'the londoner hotel leicester square', matchType: 'Exact' },
+  { keyword: 'the londoner hotel london', matchType: 'Broad' },
+  { keyword: 'the londoner hotel london', matchType: 'Exact' },
+  { keyword: 'the londoner leicester square', matchType: 'Broad' },
+  { keyword: 'the londoner london', matchType: 'Broad' },
+  { keyword: 'the londoner londres', matchType: 'Broad' },
+]
 
 export const buildLondonerCampaignSummary = ({ platformId, tactic }: MaxCampaignRef): CampaignSettingsSummary => {
   const data = buildAdvertiserFlowData(LONDONER.name, LONDONER.bpid)
@@ -92,7 +129,7 @@ export const buildLondonerCampaignSummary = ({ platformId, tactic }: MaxCampaign
       keywords: {
         tactic,
         matchType,
-        keywords: (isBrand ? data.keywords.brand : data.keywords.generic).map(keyword => ({ keyword, matchType })),
+        keywords: isBrand ? LONDONER_BRAND_KEYWORDS : data.keywords.generic.map(keyword => ({ keyword, matchType })),
         negative: data.keywords.negative.map(keyword => ({ keyword, matchType: negativeMatchType })),
       },
       creatives: {
@@ -105,6 +142,10 @@ export const buildLondonerCampaignSummary = ({ platformId, tactic }: MaxCampaign
         copy: [
           { field: 'Headline', english: platform.creative.headline, french: fr?.headline ?? '—' },
           { field: 'Description', english: platform.creative.description, french: fr?.description ?? '—' },
+        ],
+        images: [
+          ...(searchAd?.logo ? [{ name: `${searchAd.displayName} logo`, type: 'Logo', path: searchAd.logo }] : []),
+          ...(searchAd?.images ?? []).map(image => ({ ...image, type: 'Image' })),
         ],
         sitelinks: (searchAd?.sitelinks ?? []).map((link, index) => ({
           n: index + 1,

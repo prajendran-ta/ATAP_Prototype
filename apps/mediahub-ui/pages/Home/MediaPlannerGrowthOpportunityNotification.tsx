@@ -16,12 +16,13 @@ import {
   OBAButton,
 } from '@mediahub/mediahub-ui/components/Notifications/NotificationCard/NotificationCard.styled'
 import { showGrowthOpportunityPromptSuggestions } from '@mediahub/mediahub-ui/components/CampaignFlow/campaignFlowStore'
+import { GROWTH_FLOW_ADVERTISER } from '@mediahub/mediahub-ui/components/CampaignFlow/campaignFlowData'
 import { useNavigate } from 'react-router'
 
-// Performance growth-opportunity notification for Amadeus Hotels. Mirrors the Media Planner
+// Performance growth-opportunity notification for the growth flow's advertiser. Mirrors the Media Planner
 // closed-won notification (same View / Proceed with Max / more-actions options and Media Planner
 // pill), shown under the Performance group on the home notifications panel.
-const notificationMessage = 'BID-5678 - MockStay Hotels - Growth opportunity identified in the US market.'
+const notificationMessage = `BID-${GROWTH_FLOW_ADVERTISER.bid} - ${GROWTH_FLOW_ADVERTISER.name} - Growth opportunity identified in the US market.`
 
 const MediaPlannerPill = styled(OBAButton)`
   background-color: ${colors.cloud_20};

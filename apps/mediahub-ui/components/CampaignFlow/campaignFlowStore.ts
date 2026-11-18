@@ -24,6 +24,7 @@ import {
   type CampaignDraft,
   type MediaPlanYear,
 } from './campaignFlowLogic'
+import { LONDONER } from '../../shared/londonerHotel'
 
 // 'pause-review' is the final step (step 11): after all in-plan platforms are created, pause the
 // currently-live platforms that are NOT part of the new media plan, platform by platform.
@@ -231,7 +232,7 @@ const buildClosedWonDraft = (year: MediaPlanYear, usCurrentPlanEdit = false): Ca
     let usPushDraft: CampaignDraft = {
       ...draft,
       // US Push-specific campaign name (not the 2027 default).
-      campaignName: 'MockStay Hotels US Push (6-Month)',
+      campaignName: `${campaignFlowData.basicInfo.advertiser} US Push (6-Month)`,
       startDate: plan.startDate,
       endDate: plan.endDate,
       totalBudget: planTotal,
@@ -892,18 +893,19 @@ export const confirmUsPushCleanup = () => {
 }
 
 export const showClosedWonPlanPromptSuggestions = () => {
-  setActiveAdvertiser('amadeus')
+  // The closed-won notification is The Londoner's: run the Max flow with its brief.
+  setFlowAdvertiserName(LONDONER.name, LONDONER.bpid)
   clearFlowTimers()
   clearWorkspaceTimer()
-  const mediaPlanName = 'Amadeus Hotels All year 2027 Rooms'
-  const mediaPlanName2026 = 'Amadeus Hotels All year 2026 Rooms'
+  const mediaPlanName = resolveMediaPlan('2027').mediaPlanName
+  const mediaPlanName2026 = resolveMediaPlan('2026').mediaPlanName
   setState(current => ({
     ...initialState,
     flowId: current.flowId + 1,
     suggestedPrompts: [
       `View media plan ${mediaPlanName}`,
       `Create campaign for plan ${mediaPlanName}`,
-      'View existing campaign structure for Amadeus Hotels',
+      `View existing campaign structure for ${LONDONER.name}`,
       `View media plan ${mediaPlanName2026}`,
     ],
   }))

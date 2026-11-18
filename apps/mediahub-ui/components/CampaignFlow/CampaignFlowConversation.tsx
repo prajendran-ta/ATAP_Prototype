@@ -2789,7 +2789,7 @@ const FlowBlockView: React.FC<{ block: FlowBlock; isLatest: boolean; fullWidth: 
           <>
             {isClosedWonPlanView ? (
               <AssistantBodyText>
-                {`The closed-won media plan - ${block.userPrompt?.slice('View media plan '.length) ?? ''} for Amadeus Hotels is here.`}
+                {`The closed-won media plan - ${block.userPrompt?.slice('View media plan '.length) ?? ''} for ${campaignFlowData.basicInfo.advertiser} is here.`}
               </AssistantBodyText>
             ) : (
               <>
@@ -2852,7 +2852,7 @@ const FlowBlockView: React.FC<{ block: FlowBlock; isLatest: boolean; fullWidth: 
                   type='button'
                   $variant={activePlan.year === '2026' ? 'primary' : 'secondary'}
                   disabled={actionsDisabled}
-                  onClick={() => startCampaignStructureView('View existing campaign structure for Amadeus Hotels')}
+                  onClick={() => startCampaignStructureView(`View existing campaign structure for ${campaignFlowData.basicInfo.advertiser}`)}
                 >
                   View campaign setup
                 </AssistantReportButton>

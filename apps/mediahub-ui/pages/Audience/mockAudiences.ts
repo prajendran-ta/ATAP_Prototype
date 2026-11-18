@@ -30,15 +30,15 @@ export const DATA_TYPE_OPTIONS = [
 ]
 
 export const MOCK_PLATFORM_ADVERTISERS: MockPlatformAdvertiser[] = [
-  { id: 'platform-001', platform: 'CM360', advertiserName: 'Hotel Alpha CM360', advertiserId: '1111', connected: true },
-  { id: 'platform-002', platform: 'SA360', advertiserName: 'Hotel Alpha SA360', advertiserId: '2222', connected: true },
-  { id: 'platform-003', platform: 'Meta (Facebook)', advertiserName: 'Hotel Alpha Facebook', advertiserId: '3333', connected: false },
+  { id: 'platform-001', platform: 'CM360', advertiserName: 'Derby Hoteles CM360', advertiserId: '1111', connected: true },
+  { id: 'platform-002', platform: 'SA360', advertiserName: 'Derby Hoteles SA360', advertiserId: '2222', connected: true },
+  { id: 'platform-003', platform: 'Meta (Facebook)', advertiserName: 'Derby Hoteles Facebook', advertiserId: '3333', connected: false },
 ]
 
 const BASE_MOCK_AUDIENCES: MockAudience[] = [
-  { id: 'aud-001', advertiser: 'Hotel Alpha', audienceName: 'High-value hotel bookers', dataType: 'ADVERTISER', channels: 'Google Ads, Meta', audienceSize: 125000, lastUpload: '18 Sep 2026', nextUpload: '25 Sep 2026', platformAdvertisers: MOCK_PLATFORM_ADVERTISERS, audienceRuleIds: ['rule-001'] },
-  { id: 'aud-002', advertiser: 'Grand Aurora', audienceName: 'Weekend leisure travelers', dataType: 'DATAPARTNER', channels: 'DV360', audienceSize: 84500, lastUpload: '17 Sep 2026', nextUpload: '24 Sep 2026', platformAdvertisers: MOCK_PLATFORM_ADVERTISERS.slice(1), audienceRuleIds: ['rule-002'] },
-  { id: 'aud-003', advertiser: 'Harborlight Resort', audienceName: 'Luxury repeat guests', dataType: 'FILE', channels: 'CM360, Meta', audienceSize: 39200, lastUpload: '15 Sep 2026', nextUpload: '22 Sep 2026', platformAdvertisers: MOCK_PLATFORM_ADVERTISERS.slice(0, 1), audienceRuleIds: ['rule-004'] },
+  { id: 'aud-001', advertiser: 'Derby Hoteles', audienceName: 'High-value hotel bookers', dataType: 'ADVERTISER', channels: 'Google Ads, Meta', audienceSize: 125000, lastUpload: '18 Sep 2026', nextUpload: '25 Sep 2026', platformAdvertisers: MOCK_PLATFORM_ADVERTISERS, audienceRuleIds: ['rule-001'] },
+  { id: 'aud-002', advertiser: 'South Seas', audienceName: 'Weekend leisure travelers', dataType: 'DATAPARTNER', channels: 'DV360', audienceSize: 84500, lastUpload: '17 Sep 2026', nextUpload: '24 Sep 2026', platformAdvertisers: MOCK_PLATFORM_ADVERTISERS.slice(1), audienceRuleIds: ['rule-002'] },
+  { id: 'aud-003', advertiser: 'Thwaites', audienceName: 'Luxury repeat guests', dataType: 'FILE', channels: 'CM360, Meta', audienceSize: 39200, lastUpload: '15 Sep 2026', nextUpload: '22 Sep 2026', platformAdvertisers: MOCK_PLATFORM_ADVERTISERS.slice(0, 1), audienceRuleIds: ['rule-004'] },
 ]
 
 /**
@@ -94,7 +94,7 @@ const LONDONER_AUDIENCES: MockAudience[] = [
 ]
 
 /**
- * Demo advertiser audiences (the 10 in shared/demoAdvertisers.ts), generated deterministically.
+ * Demo advertiser audiences (the 19 in shared/demoAdvertisers.ts), generated deterministically.
  * Each advertiser gets 4-6 audiences (4 + index % 3) from the templates below, covering all three
  * data types. Only audience-enabled platforms are used (Google ADS, Amadeus DSP, Google DV360 when
  * the advertiser has video); `channels` is derived from the cloned platform records so the two never
@@ -154,6 +154,6 @@ const buildDemoAdvertiserAudiences = (adv: DemoAdvertiser, advIndex: number): Mo
 
 const DEMO_ADVERTISER_AUDIENCES: MockAudience[] = DEMO_ADVERTISERS.flatMap(buildDemoAdvertiserAudiences)
 
-export const MOCK_AUDIENCES: MockAudience[] = [...BASE_MOCK_AUDIENCES, ...LONDONER_AUDIENCES, ...DEMO_ADVERTISER_AUDIENCES]
+export const MOCK_AUDIENCES: MockAudience[] = [...LONDONER_AUDIENCES, ...BASE_MOCK_AUDIENCES, ...DEMO_ADVERTISER_AUDIENCES]
 
 export const DATA_TYPE_LABEL: Record<string, string> = Object.fromEntries(DATA_TYPE_OPTIONS.map(option => [option.value, option.label]))

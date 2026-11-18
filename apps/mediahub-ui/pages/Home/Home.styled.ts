@@ -124,8 +124,8 @@ export const MetricsTable = styled.table`
 export const MetricsTableHeadCell = styled.th`
   padding: 7px 10px;
   border-bottom: 1px solid ${colors.cloud_30};
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 700;
   color: ${colors.cloud_80};
   text-align: left;
@@ -136,15 +136,15 @@ export const MetricsTableHeadCell = styled.th`
   }
 
   &:first-of-type {
-    width: 132px;
+    width: 220px;
   }
 `
 
 export const MetricsTableCell = styled.td`
   padding: 7px 10px;
   border-bottom: 1px solid ${colors.cloud_20};
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 16px;
   color: ${colors.cloud_100};
   white-space: normal;
   overflow: hidden;
@@ -163,8 +163,8 @@ export const MetricsValueStack = styled.div`
 `
 
 export const MetricsPrimaryValue = styled.div`
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 16px;
   color: ${colors.cloud_100};
   font-weight: 600;
 `
@@ -177,8 +177,8 @@ export const MetricsTrend = styled('span', {
   gap: 4px;
   color: ${({ trendKind }) =>
     trendKind === 'positive' ? colors.forest_60 : trendKind === 'negative' ? colors.crimson_60 : colors.cloud_60};
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 500;
 `
 

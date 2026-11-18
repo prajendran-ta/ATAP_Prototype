@@ -88,14 +88,14 @@ export const MOCK_RULES: MockRule[] = [
       { id: 'rule-013-c3', type: 'NUMBER_OF_PASSENGERS', values: [], operator: 'GTE', numberValue: 2 },
     ],
   },
-  // Reusable hotel rules shared by the 10 demo advertisers (see generated audiences in
+  // Reusable hotel rules shared by the 19 demo advertisers (see generated audiences in
   // pages/Audience/mockAudiences.ts, ids aud-<key>-NN). usedInAudiences = number of those audiences
-  // that reference the rule (10 advertisers; 4/5/6 audiences each by index -> 10 / 6 / 3 per template).
+  // that reference the rule (19 advertisers; 4/5/6 audiences each by index -> 19 / 12 / 6 per template).
   {
     id: 'rule-014',
     ruleName: 'Resort & Spa Leisure Seekers',
     travelIntentCategory: 'HOTEL',
-    usedInAudiences: 10, // "<short> website visitors 30d" x10
+    usedInAudiences: 19, // "<short> website visitors 30d" x19
     criteriaRows: [
       { id: 'rule-014-c1', type: 'ENGAGEMENT_ACTIVITY', values: ['SEARCHED', 'VISITED'] },
       { id: 'rule-014-c2', type: 'DURATION_OF_STAY', values: [], operator: 'GTE', numberValue: 3 },
@@ -106,7 +106,7 @@ export const MOCK_RULES: MockRule[] = [
     id: 'rule-015',
     ruleName: 'Long-Haul Trans-Pacific Visitors',
     travelIntentCategory: 'ALL',
-    usedInAudiences: 10, // "Long-haul visitors to <market>" x10
+    usedInAudiences: 19, // "Long-haul visitors to <market>" x19
     criteriaRows: [
       { id: 'rule-015-c1', type: 'ORIGIN', values: ['AUSTRALIA', 'JAPAN', 'SOUTH_KOREA', 'SINGAPORE'] },
       { id: 'rule-015-c2', type: 'ORIGIN', values: ['CANADA', 'UNITED_STATES'] },
@@ -117,7 +117,7 @@ export const MOCK_RULES: MockRule[] = [
     id: 'rule-016',
     ruleName: 'City Break Weekenders',
     travelIntentCategory: 'DESTINATION',
-    usedInAudiences: 10, // "<market> weekend breakers" x10
+    usedInAudiences: 19, // "<market> weekend breakers" x19
     criteriaRows: [
       { id: 'rule-016-c1', type: 'ENGAGEMENT_ACTIVITY', values: ['SEARCHED'] },
       { id: 'rule-016-c2', type: 'DESTINATION', values: ['NEW_YORK', 'BARCELONA', 'SYDNEY', 'MELBOURNE'] },
@@ -128,7 +128,7 @@ export const MOCK_RULES: MockRule[] = [
     id: 'rule-017',
     ruleName: 'Business & Conference Travellers',
     travelIntentCategory: 'HOTEL',
-    usedInAudiences: 6, // "Business & conference travellers - <market>" on advertisers with 5+ audiences
+    usedInAudiences: 12, // "Business & conference travellers - <market>" on advertisers with 5+ audiences
     criteriaRows: [
       { id: 'rule-017-c1', type: 'ENGAGEMENT_ACTIVITY', values: ['SEARCHED', 'BOOKED'] },
       { id: 'rule-017-c2', type: 'NUMBER_OF_PASSENGERS', values: [], operator: 'EQ', numberValue: 1 },
@@ -139,7 +139,7 @@ export const MOCK_RULES: MockRule[] = [
     id: 'rule-018',
     ruleName: 'Family Holiday Planners',
     travelIntentCategory: 'PACKAGE',
-    usedInAudiences: 3, // "<short> family holiday planners" on advertisers with 6 audiences
+    usedInAudiences: 6, // "<short> family holiday planners" on advertisers with 6 audiences
     criteriaRows: [
       { id: 'rule-018-c1', type: 'ENGAGEMENT_ACTIVITY', values: ['SEARCHED', 'ABANDONED_CARTS'] },
       { id: 'rule-018-c2', type: 'NUMBER_OF_PASSENGERS', values: [], operator: 'GTE', numberValue: 3 },
@@ -150,7 +150,7 @@ export const MOCK_RULES: MockRule[] = [
     id: 'rule-019',
     ruleName: 'Last-Minute Deal Seekers',
     travelIntentCategory: 'ALL',
-    usedInAudiences: 3, // the same 3 "family holiday planners" audiences (they carry rule-018 + rule-019)
+    usedInAudiences: 6, // the same 6 "family holiday planners" audiences (they carry rule-018 + rule-019)
     criteriaRows: [
       { id: 'rule-019-c1', type: 'ENGAGEMENT_ACTIVITY', values: ['VISITED', 'ABANDONED_CARTS'] },
       { id: 'rule-019-c2', type: 'DURATION_OF_STAY', values: [], operator: 'LTE', numberValue: 2 },

@@ -6,6 +6,7 @@ import {
   type LocaleInfo,
 } from './campaignFlowData'
 import { defaultKeywordOptions, defaultLocationLevel } from './platformSetupOptions'
+import { campaignNameFromParts, channelForPlatform } from '../../shared/campaignNaming'
 import { matrixDefaultValue, matrixValues } from './platformFieldMatrix'
 
 export const ALL_PLATFORMS = 'all'
@@ -771,12 +772,25 @@ const namingPrefix = (data: CampaignFlowData = campaignFlowData): string => {
 }
 
 // Builds a realistic campaign name following {ADVERTISER}_{YEAR}_{PLATFORM}_{SEGMENTS},
-// e.g. "HOS_2027_BING_BRAND" or "HOS_2027_META_PROSPECTING_PARIS".
+// e.g. "HOS_2027_BING_BRAND" or "HOS_2027_META_PROSPECTING_PARIS". Advertisers with `nameParts` use the
+// Channel_Tactic_OriginMarket_DestinationMarket_Language convention instead, e.g. "PaidSearch_Brand_FR_GB_French".
 export const buildCampaignName = (
   platform: CampaignPlatform,
   segments: Array<string | null>,
   data: CampaignFlowData = campaignFlowData,
 ): string => {
+  const { nameParts } = data.basicInfo
+  const channel = channelForPlatform(platform.id)
+  if (nameParts && channel) {
+    const { origin, destination, language, languageByChannel } = nameParts
+    return campaignNameFromParts({
+      channel,
+      tactic: segments.find(Boolean) ?? platform.name,
+      origin,
+      destination,
+      language: languageByChannel?.[channel] ?? language,
+    })
+  }
   const parts = [
     namingPrefix(data),
     platformCode(platform),

@@ -18,9 +18,9 @@ import { DrawerActionButtons, DrawerActions, PlatformConnectionStatus, PlatformD
 const AUDIENCE_ENABLED_PLATFORMS = new Set(['google ads', 'google dv360', 'facebook', 'meta (facebook)', 'amadeus dsp'])
 const isAudienceEnabledPlatform = (platform: { platform: string }) => AUDIENCE_ENABLED_PLATFORMS.has(platform.platform.trim().toLowerCase())
 const AVAILABLE_FILES = [
-  { label: 'Hotel Alpha Customer List', value: 'hotel-alpha-customer-list' },
-  { label: 'Hotel Alpha Loyalty Members', value: 'hotel-alpha-loyalty-members' },
-  { label: 'Hotel Alpha Website Visitors', value: 'hotel-alpha-website-visitors' },
+  { label: 'Derby Hoteles Customer List', value: 'derby-hoteles-customer-list' },
+  { label: 'Derby Hoteles Loyalty Members', value: 'derby-hoteles-loyalty-members' },
+  { label: 'Derby Hoteles Website Visitors', value: 'derby-hoteles-website-visitors' },
   { label: 'Londoner Loyalty Members', value: 'londoner-loyalty-members' },
   { label: 'Londoner Past Guests (CRM)', value: 'londoner-past-guests-crm' },
   // One first-party loyalty file per demo advertiser (ids match the FILE audiences in mockAudiences.ts).

@@ -2,9 +2,16 @@
 // complete. Mirrors the Unmapped list structure but lists MAPPED campaigns with the internal
 // (ATAP) identity: internal Campaign Name + ATAP advertiser + tactic/sub-type/language.
 
-import { platformLabel } from './unmappedCampaigns'
-import { LONDONER, LONDONER_CHANNELS, londonerCampaignCustoms, londonerCampaignName } from '../../../shared/londonerHotel'
-import { DEMO_ADVERTISERS, DEMO_CHANNEL_INFO, activeChannels } from '../../../shared/demoAdvertisers'
+import { platformLabel, unmappedCampaigns } from './unmappedCampaigns'
+import { LONDONER, LONDONER_CHANNELS, londonerCampaignCustoms, londonerFirst } from '../../../shared/londonerHotel'
+import { conventionNamesFor } from '../../../shared/campaignNaming'
+import { maxCampaignName } from '../../../components/CampaignFlow/londonerMaxCampaigns'
+import {
+  DEMO_ADVERTISERS,
+  DEMO_CHANNEL_INFO,
+  activeChannels,
+  currentDemoAdvertiser,
+} from '../../../shared/demoAdvertisers'
 import type { DemoAdvertiser, DemoChannelKey } from '../../../shared/demoAdvertisers'
 
 export type MappingStatus = 'grey' | 'green' | 'red'
@@ -39,6 +46,8 @@ export interface MappedCampaign {
   custom1?: string
   custom2?: string
   custom3?: string
+  /** Name fixed by the campaign's settings; otherwise the name is derived by conventionNamesFor(). */
+  fixedName?: string
   /** Followed advertiser (My Campaigns scope). */
   isFollowed: boolean
 }
@@ -48,7 +57,7 @@ type LnChannel = 'paidSearch' | 'display' | 'video' | 'metasearch'
 const ln = (
   n: number, ch: LnChannel, subType: string, lang: string, campaignStatus: CampaignStatus,
   mappingStatus: MappingStatus, counts: [number, number, number] | null,
-  o: { platform?: string; reportingPlatform?: string; tactic?: string; label?: string } = {},
+  o: { platform?: string; reportingPlatform?: string; tactic?: string; fixedName?: string } = {},
 ): MappedCampaign => {
   const c = LONDONER_CHANNELS[ch]
   const tactic = o.tactic ?? c.tactic
@@ -57,13 +66,14 @@ const ln = (
     id: `cm-ln${String(n).padStart(3, '0')}`,
     platform: o.platform ?? c.mappingPlatform,
     reportingPlatform: o.reportingPlatform ?? c.reportingPlatform,
-    campaignName: londonerCampaignName(tactic, subType, lang, o.label),
+    campaignName: '', // set for every row by conventionNamesFor() at the bottom of this file
     advertiserName: LONDONER.name,
     advertiserBid: LONDONER.bpid,
     tactic,
     subType,
     language: lang,
-    // Custom 1/2/3 are part of the Naming Convention String above.
+    fixedName: o.fixedName,
+    // Custom 1/2/3 are separate reporting columns (Market / Campaign Objective / Fiscal Year).
     ...londonerCampaignCustoms(tactic, subType, lang),
     mappingStatus,
     campaignStatus,
@@ -73,7 +83,16 @@ const ln = (
   }
 }
 
-const baseMappedCampaigns: MappedCampaign[] = [
+/**
+ * The hand-authored rows below were written for an earlier set of demo advertisers, which they still identify by
+ * their old BPIDs (see currentDemoAdvertiser). Re-attributes a row to the current advertiser.
+ */
+const reattribute = (campaign: MappedCampaign): MappedCampaign => {
+  const advertiser = currentDemoAdvertiser(campaign.advertiserBid)
+  return advertiser ? { ...campaign, advertiserName: advertiser.name, advertiserBid: advertiser.bpid } : campaign
+}
+
+const legacyMappedCampaigns: MappedCampaign[] = [
   { id: 'cm-r001', platform: 'SA360', reportingPlatform: 'Google Ads', campaignName: 'El Palace Barcelona_Paid Search_Brand_EN', advertiserName: 'El Palace Barcelona', advertiserBid: 'BP-2850', tactic: 'Paid Search', subType: 'Brand', language: 'EN', mappingStatus: 'red', campaignStatus: 'live', offersMapping: 'unmapped', offerCounts: { green: 0, grey: 0, red: 0 }, isFollowed: true },
   { id: 'cm-r002', platform: 'Meta', reportingPlatform: 'Facebook', campaignName: 'Mulia Resort_Social_Retargeting_EN', advertiserName: 'Mulia Resort', advertiserBid: 'BP-64517', tactic: 'Social', subType: 'Retargeting', language: 'EN', mappingStatus: 'green', campaignStatus: 'pause', offersMapping: 'unmapped', offerCounts: { green: 0, grey: 0, red: 0 }, isFollowed: true },
   { id: 'cm-r003', platform: 'CM360', reportingPlatform: 'DV360', campaignName: 'Trump Intl LV_Display_Prospecting_EN', advertiserName: 'Trump International Hotel Las Vegas', advertiserBid: 'BP-51546', tactic: 'Display', subType: 'Prospecting', language: 'EN', mappingStatus: 'green', campaignStatus: 'live', offersMapping: 'unmapped', offerCounts: { green: 0, grey: 0, red: 0 }, isFollowed: true },
@@ -187,9 +206,17 @@ const baseMappedCampaigns: MappedCampaign[] = [
   { id: 'cm-hh060', platform: 'WIHP', reportingPlatform: '—', campaignName: '11 Howard NY_WIHP_Metasearch_EN_7', advertiserName: '11 Howard New York a Member of Design Hotels', advertiserBid: 'BP-9074305', tactic: 'Metasearch', subType: 'Metasearch', language: 'EN', mappingStatus: 'green', campaignStatus: 'live', offersMapping: 'unmapped', offerCounts: { green: 0, grey: 0, red: 0 }, isFollowed: false },
   { id: 'cm-hh061', platform: 'WIHP', reportingPlatform: '—', campaignName: '11 Howard NY_WIHP_Metasearch_EN_8', advertiserName: '11 Howard New York a Member of Design Hotels', advertiserBid: 'BP-9074305', tactic: 'Metasearch', subType: 'Metasearch', language: 'EN', mappingStatus: 'green', campaignStatus: 'pause', offersMapping: 'unmapped', offerCounts: { green: 0, grey: 0, red: 0 }, isFollowed: false },
   // ---- The Londoner Hotel (BP-910077): Paid Search (SA360), Display (Amadeus DSP), Video (DV360), Metasearch ----
-  ln(1, 'paidSearch', 'Brand', 'FR', 'live', 'green', [9, 1, 0]),
-  ln(2, 'paidSearch', 'Generic', 'FR', 'live', 'green', [7, 0, 0]),
-  ln(3, 'paidSearch', 'Generic', 'EN', 'live', 'green', [5, 2, 0], { label: 'Generic_PMax' }),
+  // Bing Ads copies of the Google Ads search campaigns: same targeting, so the same names
+  // (settings: components/CampaignFlow/londonerCampaignSettings.ts).
+  ln(1, 'paidSearch', 'Brand', 'FR', 'live', 'green', [9, 1, 0], {
+    reportingPlatform: 'Bing Ads',
+    fixedName: maxCampaignName({ platformId: 'google-ads', tactic: 'Brand' }),
+  }),
+  ln(2, 'paidSearch', 'Generic', 'FR', 'live', 'green', [7, 0, 0], {
+    reportingPlatform: 'Bing Ads',
+    fixedName: maxCampaignName({ platformId: 'google-ads', tactic: 'Generic' }),
+  }),
+  ln(3, 'paidSearch', 'Generic', 'EN', 'live', 'green', [5, 2, 0]),
   ln(4, 'paidSearch', 'Remarketing', 'EN', 'pause', 'green', null),
   ln(5, 'paidSearch', 'Brand', 'EN', 'live', 'green', null),
   ln(6, 'paidSearch', 'Non-Brand', 'DE', 'scheduled', 'grey', null),
@@ -202,12 +229,14 @@ const baseMappedCampaigns: MappedCampaign[] = [
   ln(13, 'video', 'Prospecting', 'EN', 'live', 'green', [6, 0, 0]),
   ln(14, 'video', 'Remarketing', 'EN', 'pause', 'red', null),
   ln(15, 'video', 'Prospecting', 'FR', 'unknown', 'green', null),
-  ln(16, 'metasearch', 'Revenue Tracking', 'EN', 'live', 'green', null, { reportingPlatform: 'Google Hotel Ads', label: 'RevTracking' }),
-  ln(17, 'metasearch', 'Revenue Tracking', 'EN', 'live', 'green', null, { reportingPlatform: 'Tripadvisor', label: 'RevTracking_Tripadvisor' }),
-  ln(18, 'metasearch', 'Metasearch', 'EN', 'live', 'green', null, { platform: 'WIHP', reportingPlatform: '—', label: 'Meta' }),
+  ln(16, 'metasearch', 'Revenue Tracking', 'EN', 'live', 'green', null, { reportingPlatform: 'Google Hotel Ads' }),
+  ln(17, 'metasearch', 'Revenue Tracking', 'EN', 'live', 'green', null, { reportingPlatform: 'Tripadvisor' }),
+  ln(18, 'metasearch', 'Metasearch', 'EN', 'live', 'green', null, { platform: 'WIHP', reportingPlatform: '—' }),
 ]
 
-// ---- Generated demo rows for the 10 demo advertisers (deterministic; ids 'cm-<key>-NNN') ----------
+const baseMappedCampaigns = legacyMappedCampaigns.map(reattribute)
+
+// ---- Generated demo rows for the 19 demo advertisers (deterministic; ids 'cm-<key>-NNN') ----------
 // Same builder idea as ln() above, generalized to a DemoAdvertiser. Channel slots are ordered so a
 // smaller budget simply keeps the first N (EN-first) slots.
 interface CmSlot {
@@ -215,7 +244,6 @@ interface CmSlot {
   lang: 'EN' | 'L2' | 'L3'
   platform?: string
   reportingPlatform?: string
-  label?: string
 }
 const CM_SLOTS: Record<DemoChannelKey, CmSlot[]> = {
   paidSearch: [
@@ -229,9 +257,9 @@ const CM_SLOTS: Record<DemoChannelKey, CmSlot[]> = {
   ],
   video: [{ subType: 'Prospecting', lang: 'EN' }, { subType: 'Remarketing', lang: 'EN' }, { subType: 'Prospecting', lang: 'L2' }],
   metasearch: [
-    { subType: 'Revenue Tracking', lang: 'EN', reportingPlatform: 'Google Hotel Ads', label: 'RevTracking' },
-    { subType: 'Revenue Tracking', lang: 'EN', reportingPlatform: 'Tripadvisor', label: 'RevTracking_Tripadvisor' },
-    { subType: 'Metasearch', lang: 'EN', platform: 'WIHP', reportingPlatform: '—', label: 'Meta' },
+    { subType: 'Revenue Tracking', lang: 'EN', reportingPlatform: 'Google Hotel Ads' },
+    { subType: 'Revenue Tracking', lang: 'EN', reportingPlatform: 'Tripadvisor' },
+    { subType: 'Metasearch', lang: 'EN', platform: 'WIHP', reportingPlatform: '—' },
   ],
 }
 // Platforms (mapping family) that already count as covering a channel in the hand-written rows.
@@ -241,9 +269,15 @@ const CM_COVERING_PLATFORMS: Record<DemoChannelKey, string[]> = {
   video: ['DV360'],
   metasearch: ['DerbySoft', 'WIHP'],
 }
+// Languages of the two non-English campaign sets per advertiser (default FR, DE).
 const EXTRA_LANGS: Record<string, [string, string]> = {
-  howard: ['ES', 'FR'], brooklyn: ['ES', 'FR'], dubai: ['FR', 'DE'], mulia: ['FR', 'DE'], elpalace: ['ES', 'FR'],
-  trumplv: ['ES', 'FR'], copthorneakl: ['FR', 'DE'], millqt: ['FR', 'DE'], copthornewlg: ['FR', 'DE'], millrot: ['FR', 'DE'],
+  derby: ['ES', 'FR'],
+  crownparadise: ['ES', 'FR'],
+  sensira: ['ES', 'FR'],
+  mhrna: ['ES', 'FR'],
+  cwresorts: ['ES', 'FR'],
+  mhreurope: ['DE', 'FR'],
+  seacontainers: ['FR', 'DE'],
 }
 
 const generateMappedFor = (adv: DemoAdvertiser, advIndex: number, existing: MappedCampaign[]): MappedCampaign[] => {
@@ -281,7 +315,7 @@ const generateMappedFor = (adv: DemoAdvertiser, advIndex: number, existing: Mapp
         id: `cm-${adv.key}-${String(i + 1).padStart(3, '0')}`,
         platform: slot.platform ?? info.mappingPlatform,
         reportingPlatform: slot.reportingPlatform ?? info.reportingPlatform,
-        campaignName: `${adv.campaignPrefix}_${tactic}_${slot.label ?? slot.subType}_${lang}`,
+        campaignName: '', // set for every row by conventionNamesFor() at the bottom of this file
         advertiserName: adv.name,
         advertiserBid: adv.bpid,
         tactic,
@@ -298,10 +332,28 @@ const generateMappedFor = (adv: DemoAdvertiser, advIndex: number, existing: Mapp
   return rows
 }
 
-export const mappedCampaigns: MappedCampaign[] = [
+// Every campaign is named Channel_Tactic_OriginMarket_DestinationMarket_Language (shared/campaignNaming.ts),
+// derived from the row's own tactic, sub-type and language. The `campaignName` written in the hand-authored
+// rows above is only a legacy label and is replaced here. Names already used in Campaign Setup are avoided, so
+// the combined All Campaigns list never shows one name on two rows, except for rows with a `fixedName`
+// (The Londoner's Bing Ads campaigns share the names of the Google Ads campaigns they mirror).
+const allMappedCampaigns: MappedCampaign[] = [
   ...baseMappedCampaigns,
   ...DEMO_ADVERTISERS.flatMap((adv, i) => generateMappedFor(adv, i, baseMappedCampaigns)),
 ]
+const namedByConvention = allMappedCampaigns.filter(c => !c.fixedName)
+const conventionNames = conventionNamesFor(
+  namedByConvention,
+  unmappedCampaigns
+    .filter(c => c.advertiserBid && c.externalCampaignName !== '-')
+    .map(c => ({ advertiserBid: c.advertiserBid, name: c.externalCampaignName })),
+)
+
+// The Londoner's rows come first, so every list and filter option derived from them starts with it.
+export const mappedCampaigns: MappedCampaign[] = londonerFirst(
+  allMappedCampaigns.map(c => ({ ...c, campaignName: c.fixedName ?? conventionNames[namedByConvention.indexOf(c)] })),
+  campaign => campaign.advertiserBid === LONDONER.bpid,
+)
 
 export const platformOptions = Array.from(new Set(mappedCampaigns.map(c => c.platform))).map(p => ({ label: platformLabel(p), value: p }))
 

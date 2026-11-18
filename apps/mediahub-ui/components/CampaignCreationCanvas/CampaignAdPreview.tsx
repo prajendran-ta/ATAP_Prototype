@@ -100,10 +100,17 @@ export const CampaignAdPreview: React.FC<CampaignAdPreviewProps> = ({
           </Styled.GoogleAdBrandText>
           <Icon name='ellipsisVertical' width={14} height={14} color={colors.cloud_70} />
         </Styled.GoogleAdBrandRow>
-        <Styled.GoogleAdHeadline>{headline}</Styled.GoogleAdHeadline>
-        <Styled.GoogleAdDescription>
-          {description} <a href={searchAd.displayUrl}>{labels.readMore} ›</a>
-        </Styled.GoogleAdDescription>
+        <Styled.GoogleAdBody>
+          <Styled.GoogleAdText>
+            <Styled.GoogleAdHeadline>{headline}</Styled.GoogleAdHeadline>
+            <Styled.GoogleAdDescription>
+              {description} <a href={searchAd.displayUrl}>{labels.readMore} ›</a>
+            </Styled.GoogleAdDescription>
+          </Styled.GoogleAdText>
+          {searchAd.images?.[0] ? (
+            <Styled.GoogleAdImage src={searchAd.images[0].path} alt={searchAd.images[0].name} />
+          ) : null}
+        </Styled.GoogleAdBody>
         <Styled.GoogleAdSitelinks>
           {links
             .filter(link => link.title || link.description)

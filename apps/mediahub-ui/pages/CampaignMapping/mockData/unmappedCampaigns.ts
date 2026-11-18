@@ -10,10 +10,11 @@
 //
 // This is a curated, hand-authored subset (not the full ~15k-row export).
 
-import { LONDONER, LONDONER_EXTERNAL_ADVERTISERS as LN_EXT } from '../../../shared/londonerHotel'
+import { LONDONER, LONDONER_EXTERNAL_ADVERTISERS as LN_EXT, londonerFirst } from '../../../shared/londonerHotel'
 import { isLondonerFollowed, isDemoFollowed } from '../../../shared/londonerFollowStore'
 import { maxCampaignName, type MaxCampaignRef } from '../../../components/CampaignFlow/londonerMaxCampaigns'
-import { DEMO_ADVERTISERS, activeChannels, getDemoAdvertiserByBpid } from '../../../shared/demoAdvertisers'
+import { campaignNameFor, type CampaignChannel } from '../../../shared/campaignNaming'
+import { DEMO_ADVERTISERS, activeChannels, currentDemoAdvertiser, getDemoAdvertiserByBpid } from '../../../shared/demoAdvertisers'
 import type { DemoAdvertiser } from '../../../shared/demoAdvertisers'
 
 export type MappingState = 'mapped' | 'unmapped'
@@ -93,16 +94,13 @@ export interface UnmappedCampaign {
   shipTo?: string
 }
 
-// BPIDs the current user "follows". Mapping an advertiser to one of these makes the row
-// show in BOTH My Campaigns and All Campaigns; any other mapped advertiser shows in All only.
-export const FOLLOWED_BPIDS = new Set<string>(['BP-64517', 'BP-64518', 'BP-2850', 'BP-51546'])
-
+// Mapping an advertiser the current user follows makes the row show in BOTH My Campaigns and All Campaigns; any
+// other mapped advertiser shows in All only. Follow state lives in the follow stores (Advertisers page).
 export function isFollowedBpid(bpid: string | undefined): boolean {
   // The Londoner follow state is user-controlled (Advertisers page) and persisted, not static.
   if (bpid === LONDONER.bpid) return isLondonerFollowed()
-  // Demo advertisers follow the persisted state (overrides the static set below).
-  if (bpid && getDemoAdvertiserByBpid(bpid)) return isDemoFollowed(bpid)
-  return !!bpid && FOLLOWED_BPIDS.has(bpid)
+  // Demo advertisers follow the persisted state.
+  return !!bpid && !!getDemoAdvertiserByBpid(bpid) && isDemoFollowed(bpid)
 }
 
 /** Row-level "followed" for the My scopes: the Londoner follows the live follow state, any other row
@@ -150,7 +148,29 @@ export function rollupMapping(
   return kids.every(k => k[key] === 'mapped') ? 'mapped' : 'unmapped'
 }
 
-const baseUnmappedCampaigns: UnmappedCampaign[] = [
+/**
+ * The hand-authored rows below were written for an earlier set of demo advertisers, which they still identify by
+ * their old BPIDs (see currentDemoAdvertiser). Re-attributes a row, its Facebook ad sets and its candidate
+ * advertisers to the current ones, including the platform-side advertiser account.
+ */
+const reattribute = (row: UnmappedCampaign): UnmappedCampaign => {
+  const adv = currentDemoAdvertiser(row.advertiserBid)
+  const children = row.children?.map(reattribute)
+  const candidateBpids = row.candidateBpids?.map(bpid => currentDemoAdvertiser(bpid)?.bpid ?? bpid)
+  if (!adv) return { ...row, children, candidateBpids }
+  const external = adv.externalAdvertisers[row.platform] ?? adv.externalAdvertisers.SA360
+  return {
+    ...row,
+    advertiserName: adv.name,
+    advertiserBid: adv.bpid,
+    externalAdvertiserName: external.name,
+    externalAdvertiserId: external.id,
+    children,
+    candidateBpids,
+  }
+}
+
+const legacyUnmappedCampaigns: UnmappedCampaign[] = [
   // --- Facebook (Meta) two-level hierarchy: Campaign parent + Ad Set children. ---
   // Campaign/Advertiser/Offers/Invoice roll up from the Ad Sets; OBA is at the campaign (parent).
   {
@@ -160,7 +180,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-64517',
     externalAdvertiserName: 'Mulia Resort Nusa Dua Bali',
     externalAdvertiserId: '786300985049481',
-    externalCampaignName: 'FB Social Prospecting Q2',
+    externalCampaignName: campaignNameFor('BP-64517', 'Social', 'Prospecting'),
     externalCampaignId: 'FB-CMP-5501',
     advertiserMapping: 'mapped',
     campaignMapping: 'mapped',
@@ -208,7 +228,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-2850',
     externalAdvertiserName: 'El Palace Barcelona',
     externalAdvertiserId: '178390022',
-    externalCampaignName: 'FB Awareness ES',
+    externalCampaignName: campaignNameFor('BP-2850', 'Social', 'Awareness', { origin: 'ES' }),
     externalCampaignId: 'FB-CMP-5502',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -263,7 +283,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-51546',
     externalAdvertiserName: 'Trump International Hotel Las Vegas',
     externalAdvertiserId: '51546',
-    externalCampaignName: 'FB Conversions US',
+    externalCampaignName: campaignNameFor('BP-51546', 'Social', 'Conversion'),
     externalCampaignId: 'FB-CMP-5503',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -309,9 +329,9 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     platform: 'CM360',
     advertiserName: '',
     advertiserBid: '',
-    externalAdvertiserName: 'Hyatt Regency (shared account)',
+    externalAdvertiserName: 'Millennium Hotels (shared account)',
     externalAdvertiserId: '550101',
-    externalCampaignName: 'Display Prospecting',
+    externalCampaignName: campaignNameFor(undefined, 'Display', 'Prospecting'),
     externalCampaignId: 'DV-90001',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -328,7 +348,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-64517',
     externalAdvertiserName: 'Mulia Resort Nusa Dua Bali',
     externalAdvertiserId: '442241',
-    externalCampaignName: 'Display Prospecting Q2',
+    externalCampaignName: campaignNameFor('BP-64517', 'Display', 'Prospecting', {}, 1),
     externalCampaignId: 'DV-88021',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -344,7 +364,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-64517',
     externalAdvertiserName: 'Mulia Resort Nusa Dua Bali',
     externalAdvertiserId: '442241',
-    externalCampaignName: 'Brand - Exact',
+    externalCampaignName: campaignNameFor('BP-64517', 'PaidSearch', 'Brand'),
     externalCampaignId: 'GA-33110',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -360,7 +380,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-2850',
     externalAdvertiserName: 'El Palace Barcelona',
     externalAdvertiserId: '178390022',
-    externalCampaignName: 'Retargeting - Spring',
+    externalCampaignName: campaignNameFor('BP-2850', 'Social', 'Retargeting'),
     externalCampaignId: 'FB-55012',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -392,7 +412,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-51546',
     externalAdvertiserName: 'Trump Intl Hotel Las Vegas',
     externalAdvertiserId: '51546',
-    externalCampaignName: 'Tripadvisor Meta',
+    externalCampaignName: campaignNameFor('BP-51546', 'Metasearch', 'RevenueTracking'),
     externalCampaignId: 'DS-77190',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -408,7 +428,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-33011',
     externalAdvertiserName: 'Copthorne Hotel Auckland HarbourCity',
     externalAdvertiserId: '178322115',
-    externalCampaignName: 'Business Listings',
+    externalCampaignName: campaignNameFor('BP-33011', 'Social', 'Awareness'),
     externalCampaignId: 'FB-55088',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -424,7 +444,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-33012',
     externalAdvertiserName: 'Millennium Hotel Queenstown',
     externalAdvertiserId: '178322116',
-    externalCampaignName: 'Non-Brand - Generic',
+    externalCampaignName: campaignNameFor('BP-33012', 'PaidSearch', 'Generic'),
     externalCampaignId: 'GA-33220',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -440,7 +460,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-33015',
     externalAdvertiserName: 'Copthorne Hotel Wellington Oriental Bay',
     externalAdvertiserId: 'sa-900113',
-    externalCampaignName: 'Non-Brand - Luxury',
+    externalCampaignName: campaignNameFor('BP-33015', 'PaidSearch', 'Generic'),
     externalCampaignId: 'BN-41002',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -472,7 +492,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-64518',
     externalAdvertiserName: 'Mulia Villa - Nusa Dua, Bali',
     externalAdvertiserId: '442242',
-    externalCampaignName: 'Display Remarketing',
+    externalCampaignName: campaignNameFor('BP-64518', 'Display', 'Retargeting'),
     externalCampaignId: 'DV-88110',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -488,7 +508,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-33016',
     externalAdvertiserName: 'Millennium Hotel Rotorua',
     externalAdvertiserId: '442350',
-    externalCampaignName: 'Tripadvisor Meta',
+    externalCampaignName: campaignNameFor('BP-33016', 'Metasearch', 'RevenueTracking'),
     externalCampaignId: 'DS-77220',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -504,7 +524,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-51546',
     externalAdvertiserName: 'Trump Intl Hotel Las Vegas',
     externalAdvertiserId: 'sa-900301',
-    externalCampaignName: 'Brand - Exact',
+    externalCampaignName: campaignNameFor('BP-51546', 'PaidSearch', 'Brand'),
     externalCampaignId: 'GA-33330',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -524,7 +544,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-9074305',
     externalAdvertiserName: '11 Howard NY (Design Hotels)',
     externalAdvertiserId: '774411',
-    externalCampaignName: 'Brand - Exact',
+    externalCampaignName: campaignNameFor('BP-9074305', 'PaidSearch', 'Brand'),
     externalCampaignId: 'SA-11001',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -540,7 +560,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: 'BP-9074305',
     externalAdvertiserName: '11 Howard NY (Design Hotels)',
     externalAdvertiserId: '774411',
-    externalCampaignName: 'Prospecting - Summer',
+    externalCampaignName: campaignNameFor('BP-9074305', 'Social', 'Prospecting'),
     externalCampaignId: 'FB-11002',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -558,9 +578,9 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     platform: 'DerbySoft',
     advertiserName: '',
     advertiserBid: '',
-    externalAdvertiserName: 'Marriott Group (shared account)',
+    externalAdvertiserName: 'Colonial Williamsburg (shared account)',
     externalAdvertiserId: '550102',
-    externalCampaignName: 'Tripadvisor Meta',
+    externalCampaignName: campaignNameFor(undefined, 'Metasearch', 'RevenueTracking'),
     externalCampaignId: 'DS-90002',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -579,9 +599,9 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     platform: 'SA360',
     advertiserName: '',
     advertiserBid: '',
-    externalAdvertiserName: 'Hilton Garden Inn Austin',
+    externalAdvertiserName: 'South Seas',
     externalAdvertiserId: '990221',
-    externalCampaignName: 'Brand - Exact',
+    externalCampaignName: campaignNameFor(undefined, 'PaidSearch', 'Brand'),
     externalCampaignId: 'SA-77010',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -595,9 +615,9 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     platform: 'Meta',
     advertiserName: '',
     advertiserBid: '',
-    externalAdvertiserName: 'The Langham Chicago',
+    externalAdvertiserName: 'The Colonial Williamsburg Foundation',
     externalAdvertiserId: '990222',
-    externalCampaignName: 'Prospecting - Summer',
+    externalCampaignName: campaignNameFor(undefined, 'Social', 'Prospecting'),
     externalCampaignId: 'FB-77011',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -611,9 +631,9 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     platform: 'CM360',
     advertiserName: '',
     advertiserBid: '',
-    externalAdvertiserName: 'Fairmont Banff Springs',
+    externalAdvertiserName: 'Colonial Williamsburg Resorts',
     externalAdvertiserId: '990223',
-    externalCampaignName: 'Display Remarketing',
+    externalCampaignName: campaignNameFor(undefined, 'Display', 'Retargeting'),
     externalCampaignId: 'DV-77012',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -627,9 +647,9 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     platform: 'CM360',
     advertiserName: '',
     advertiserBid: '',
-    externalAdvertiserName: 'Ace Hotel New York',
+    externalAdvertiserName: 'ARK Canary Wharf',
     externalAdvertiserId: '990224',
-    externalCampaignName: 'Display Prospecting',
+    externalCampaignName: campaignNameFor(undefined, 'Display', 'Prospecting', { origin: 'GB', destination: 'GB' }),
     externalCampaignId: 'CM-77013',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -723,12 +743,12 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: LONDONER.bpid,
     externalAdvertiserName: LN_EXT['DV360'].name,
     externalAdvertiserId: LN_EXT['DV360'].id,
-    externalCampaignName: 'YouTube Video - Afternoon Tea',
+    externalCampaignName: campaignNameFor(LONDONER.bpid, 'YouTube', 'Prospecting'),
     externalCampaignId: 'DV-LN-3001',
     advertiserMapping: 'mapped',
-    campaignMapping: 'unmapped',
-    invoiceMapping: 'unmapped',
-    offersMapping: 'unmapped',
+    campaignMapping: 'mapped',
+    invoiceMapping: 'mapped',
+    offersMapping: 'mapped',
     obaMapping: 'mapped',
     campaignStatus: 'live',
     isFollowed: true,
@@ -741,12 +761,12 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: LONDONER.bpid,
     externalAdvertiserName: LN_EXT['DV360'].name,
     externalAdvertiserId: LN_EXT['DV360'].id,
-    externalCampaignName: 'YouTube Skippable In-Stream - Brand',
+    externalCampaignName: campaignNameFor(LONDONER.bpid, 'YouTube', 'Retargeting'),
     externalCampaignId: 'DV-LN-3002',
     advertiserMapping: 'mapped',
-    campaignMapping: 'unmapped',
+    campaignMapping: 'mapped',
     invoiceMapping: 'mapped',
-    offersMapping: 'unmapped',
+    offersMapping: 'mapped',
     obaMapping: 'mapped',
     campaignStatus: 'unknown',
     isFollowed: true,
@@ -759,13 +779,13 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: LONDONER.bpid,
     externalAdvertiserName: LN_EXT['DerbySoft'].name,
     externalAdvertiserId: LN_EXT['DerbySoft'].id,
-    externalCampaignName: 'Tripadvisor Meta - London Stays',
+    externalCampaignName: campaignNameFor(LONDONER.bpid, 'Metasearch', 'RevenueTracking'),
     externalCampaignId: 'DS-LN-4001',
     advertiserMapping: 'mapped',
-    campaignMapping: 'unmapped',
-    invoiceMapping: 'unmapped',
-    offersMapping: 'unmapped',
-    obaMapping: 'unmapped',
+    campaignMapping: 'mapped',
+    invoiceMapping: 'mapped',
+    offersMapping: 'mapped',
+    obaMapping: 'mapped',
     campaignStatus: 'live',
     isFollowed: true,
     expandable: false,
@@ -777,7 +797,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: LONDONER.bpid,
     externalAdvertiserName: LN_EXT['WIHP'].name,
     externalAdvertiserId: LN_EXT['WIHP'].id,
-    externalCampaignName: 'WIHP Meta - Trivago',
+    externalCampaignName: campaignNameFor(LONDONER.bpid, 'Metasearch', 'CPC'),
     externalCampaignId: 'WIHP-LN-5001',
     advertiserMapping: 'mapped',
     campaignMapping: 'unmapped',
@@ -795,7 +815,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: '',
     externalAdvertiserName: `${LN_EXT.SA360.name} - Legacy`,
     externalAdvertiserId: '8100781',
-    externalCampaignName: 'Brand - Legacy Exact',
+    externalCampaignName: campaignNameFor(undefined, 'PaidSearch', 'Brand', { origin: 'GB', destination: 'GB' }),
     externalCampaignId: 'GA-LN-1901',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -813,7 +833,7 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
     advertiserBid: '',
     externalAdvertiserName: 'London Hotels Group (shared DSP seat)',
     externalAdvertiserId: '8100792',
-    externalCampaignName: 'Display Always-on - London',
+    externalCampaignName: campaignNameFor(undefined, 'Display', 'Prospecting', { origin: 'GB', destination: 'GB' }),
     externalCampaignId: 'DSP-LN-2901',
     advertiserMapping: 'unmapped',
     campaignMapping: 'unmapped',
@@ -826,18 +846,20 @@ const baseUnmappedCampaigns: UnmappedCampaign[] = [
   },
 ]
 
-// ---- Generated demo rows for the 10 demo advertisers (deterministic; ids 'um-<key>-NNN') ----------
-type UmSlot = { platform: string; name: string; id: string }
+const baseUnmappedCampaigns = legacyUnmappedCampaigns.map(reattribute)
+
+// ---- Generated demo rows for the 19 demo advertisers (deterministic; ids 'um-<key>-NNN') ----------
+type UmSlot = { platform: string; channel: CampaignChannel; tactic: string; id: string }
 const umSlotsFor = (adv: DemoAdvertiser): UmSlot[] => {
   const channels = activeChannels(adv)
   const slots: UmSlot[] = [
-    { platform: 'SA360', name: 'Brand - Exact', id: 'GA' },
-    { platform: 'Amadeus DSP', name: 'Display Prospecting', id: 'DSP' },
-    ...(channels.includes('video') ? [{ platform: 'DV360', name: 'YouTube Video - Brand', id: 'DV' }] : []),
-    { platform: 'DerbySoft', name: 'Tripadvisor Meta', id: 'DS' },
-    { platform: 'SA360', name: 'PMax - Suites & Spa', id: 'GA' },
-    { platform: 'Amadeus DSP', name: 'Display Remarketing', id: 'DSP' },
-    { platform: 'WIHP', name: 'WIHP Meta - Trivago', id: 'WIHP' },
+    { platform: 'SA360', channel: 'PaidSearch', tactic: 'Brand', id: 'GA' },
+    { platform: 'Amadeus DSP', channel: 'Display', tactic: 'Prospecting', id: 'DSP' },
+    ...(channels.includes('video') ? [{ platform: 'DV360', channel: 'Video' as const, tactic: 'Brand', id: 'DV' }] : []),
+    { platform: 'DerbySoft', channel: 'Metasearch', tactic: 'RevenueTracking', id: 'DS' },
+    { platform: 'SA360', channel: 'PaidSearch', tactic: 'Generic', id: 'GA' },
+    { platform: 'Amadeus DSP', channel: 'Display', tactic: 'Retargeting', id: 'DSP' },
+    { platform: 'WIHP', channel: 'Metasearch', tactic: 'CPC', id: 'WIHP' },
   ]
   return slots
 }
@@ -849,6 +871,16 @@ const generateUnmappedFor = (adv: DemoAdvertiser, advIndex: number, existing: Un
   const statuses: NonNullable<UnmappedCampaign['campaignStatus']>[] =
     adv.obaStatus === 'Live' ? ['live', 'live', 'pause', 'live', 'unknown'] : ['live', 'unknown', 'pause', 'live', 'unknown']
   const pick = (i: number): MappingState => ((i + advIndex) % 3 === 0 ? 'mapped' : 'unmapped')
+  // Campaign names must stay distinct per advertiser: take the next origin market when a name is already used.
+  const usedNames = new Set(existing.filter(c => c.advertiserBid === adv.bpid).map(c => c.externalCampaignName))
+  const nameFor = (slot: UmSlot, i: number) => {
+    let name = campaignNameFor(adv.bpid, slot.channel, slot.tactic, {}, i)
+    for (let shift = 1; usedNames.has(name) && shift <= 3; shift++) {
+      name = campaignNameFor(adv.bpid, slot.channel, slot.tactic, {}, i + shift)
+    }
+    usedNames.add(name)
+    return name
+  }
   return slots.map((slot, i) => {
     const ext = adv.externalAdvertisers[slot.platform]
     const meta = slot.platform === 'WIHP' || slot.platform === 'DerbySoft' // metasearch: not in OBA
@@ -859,7 +891,7 @@ const generateUnmappedFor = (adv: DemoAdvertiser, advIndex: number, existing: Un
       advertiserBid: adv.bpid,
       externalAdvertiserName: ext.name,
       externalAdvertiserId: ext.id,
-      externalCampaignName: slot.name,
+      externalCampaignName: nameFor(slot, i),
       externalCampaignId: `${slot.id}-${adv.key.toUpperCase()}-${1001 + i}`,
       advertiserMapping: 'mapped',
       campaignMapping: 'unmapped',
@@ -873,10 +905,14 @@ const generateUnmappedFor = (adv: DemoAdvertiser, advIndex: number, existing: Un
   })
 }
 
-export const unmappedCampaigns: UnmappedCampaign[] = [
-  ...baseUnmappedCampaigns,
-  ...DEMO_ADVERTISERS.flatMap((adv, i) => generateUnmappedFor(adv, i, baseUnmappedCampaigns)),
-]
+// The Londoner's rows (ids 'um-ln…') come first, so every list and filter option derived from them starts with it.
+export const unmappedCampaigns: UnmappedCampaign[] = londonerFirst(
+  [
+    ...baseUnmappedCampaigns,
+    ...DEMO_ADVERTISERS.flatMap((adv, i) => generateUnmappedFor(adv, i, baseUnmappedCampaigns)),
+  ],
+  campaign => campaign.id.startsWith('um-ln'),
+)
 
 /** User-facing display label for a platform value. The stored/internal value stays as-is (used as
  *  a logic key, e.g. 'Meta'); only the label shown to users differs — e.g. Meta -> 'Meta (Facebook)'. */
@@ -932,25 +968,15 @@ export const mappingStateOptions = [
 // ---- Mapping-drawer option lists (prototype stubs) ----
 
 /**
- * Advertiser (BPID) catalog shown in the mapping drawer's Advertiser (BPID) select.
- * Deliberately includes both FOLLOWED (BP-64517/64518/2850/51546) and NON-followed BPIDs so the
- * "map an unmapped advertiser" flow can demonstrate: mapping to a followed advertiser -> row shows
- * in My + All; mapping to a non-followed advertiser -> row shows in All only.
+ * Advertiser (BPID) catalog shown in the mapping drawer's Advertiser (BPID) select: The Londoner first, then the
+ * demo advertisers. It includes both followed and non-followed advertisers so the "map an unmapped advertiser"
+ * flow can demonstrate: mapping to a followed advertiser -> row shows in My + All; mapping to a non-followed
+ * advertiser -> row shows in All only.
  */
 export const bpidSelectOptions: { label: string; value: string }[] = [
-  { label: 'Mulia Resort (BP-64517)', value: 'BP-64517' },
-  { label: 'Mulia Villa - Nusa Dua, Bali (BP-64518)', value: 'BP-64518' },
-  { label: 'El Palace Barcelona (BP-2850)', value: 'BP-2850' },
-  { label: 'Trump International Hotel Las Vegas (BP-51546)', value: 'BP-51546' },
-  { label: 'Hilton Garden Inn Austin (BP-99021)', value: 'BP-99021' },
-  { label: 'The Langham Chicago (BP-99022)', value: 'BP-99022' },
-  { label: 'Fairmont Banff Springs (BP-99023)', value: 'BP-99023' },
   { label: LONDONER.label, value: LONDONER.bpid },
+  ...DEMO_ADVERTISERS.map(adv => ({ label: `${adv.name} (${adv.bpid})`, value: adv.bpid })),
 ]
-
-DEMO_ADVERTISERS.forEach(adv => {
-  if (!bpidSelectOptions.some(o => o.value === adv.bpid)) bpidSelectOptions.push({ label: `${adv.name} (${adv.bpid})`, value: adv.bpid })
-})
 
 /** Lookup advertiser name by BPID from the drawer catalog. */
 export function advertiserNameForBpid(bpid: string | undefined): string {
@@ -1057,13 +1083,8 @@ export function mappingUnitName(platform: string | undefined): string {
   }
 }
 
-/** External advertisers available to map under a chosen platform/BPID (prototype stub). */
-export const externalAdvertiserSelectOptions = [
-  { label: 'Mulia Resort Nusa Dua Bali (442241)', value: '442241' },
-  { label: 'El Palace Barcelona (178390022)', value: '178390022' },
-  { label: 'Trump Intl Hotel Las Vegas (51546)', value: '51546' },
-  { label: 'Copthorne Hotel Auckland HarbourCity (178322115)', value: '178322115' },
-  { label: 'Oregon Garden Resort (786300985049481)', value: '786300985049481' },
+/** External advertisers available to map under a chosen platform/BPID (prototype stub): The Londoner's first. */
+export const externalAdvertiserSelectOptions: { label: string; value: string }[] = [
   { label: `${LN_EXT['SA360'].name} (${LN_EXT['SA360'].id})`, value: LN_EXT['SA360'].id },
   { label: `${LN_EXT['Amadeus DSP'].name} (${LN_EXT['Amadeus DSP'].id})`, value: LN_EXT['Amadeus DSP'].id },
   { label: `${LN_EXT['DV360'].name} (${LN_EXT['DV360'].id})`, value: LN_EXT['DV360'].id },

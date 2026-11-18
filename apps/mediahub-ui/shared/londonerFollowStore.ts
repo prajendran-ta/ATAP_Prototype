@@ -2,7 +2,7 @@ import { LONDONER, isLondonerAdvertiser } from './londonerHotel'
 import { DEMO_ADVERTISERS, findDemoAdvertiser } from './demoAdvertisers'
 
 /**
- * Follow state for the demo advertisers (The Londoner Hotel + the 10 in demoAdvertisers.ts).
+ * Follow state for the demo advertisers (The Londoner Hotel + the 19 in demoAdvertisers.ts).
  *
  * The real follow state lives in the Advertisers backend, which doesn't know the mock advertisers,
  * so the Advertisers mock link keeps it here instead. Every "My ..." scope (My Campaigns, My Plans,

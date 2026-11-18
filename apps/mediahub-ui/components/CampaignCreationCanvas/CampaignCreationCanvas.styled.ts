@@ -1523,11 +1523,12 @@ export const GoogleAdLogo = styled.span`
   height: 28px;
   overflow: hidden;
   border-radius: 50%;
-  background: #1f1a14;
+  border: 1px solid ${colors.cloud_30};
+  background: ${colors.cloud_0};
   img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
 export const GoogleAdBrandText = styled.div`
@@ -1547,6 +1548,25 @@ export const GoogleAdBrandText = styled.div`
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+`
+export const GoogleAdBody = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+`
+export const GoogleAdText = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+`
+export const GoogleAdImage = styled.img`
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 8px;
 `
 export const GoogleAdHeadline = styled.span`
   color: #1a0dab;

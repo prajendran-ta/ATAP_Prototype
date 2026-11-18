@@ -61,6 +61,22 @@ function asArray(value: FilterValue | undefined): string[] {
   return []
 }
 
+// The Londoner's showcase campaigns (its unmapped rows + the two mapped Bing search campaigns) lead
+// the combined list, ordered by platform: SA360, Amadeus DSP, DV360, DerbySoft, WIHP.
+const LONDONER_FIRST_PAGE_MAPPED = new Set(['mapped-cm-ln001', 'mapped-cm-ln002'])
+const FIRST_PAGE_PLATFORM_ORDER = ['SA360', 'Amadeus DSP', 'DV360', 'DerbySoft', 'WIHP']
+
+function withLondonerFirstPage(rows: UnmappedCampaign[]): UnmappedCampaign[] {
+  const isShowcase = (c: UnmappedCampaign) =>
+    c.advertiserBid === LONDONER.bpid && (!c.id.startsWith('mapped-') || LONDONER_FIRST_PAGE_MAPPED.has(c.id))
+  const rank = (c: UnmappedCampaign) => {
+    const i = FIRST_PAGE_PLATFORM_ORDER.indexOf(c.platform)
+    return i === -1 ? FIRST_PAGE_PLATFORM_ORDER.length : i
+  }
+  const showcase = rows.filter(isShowcase).sort((a, b) => rank(a) - rank(b))
+  return [...showcase, ...rows.filter(c => !isShowcase(c))]
+}
+
 interface CampaignsListProps {
   /** 'unmapped' = the Unmapped Campaigns page (default). 'all' = the combined All Campaigns view
    *  (unmapped + mapped campaigns in one table; Campaign Mapping filter defaults to Unmapped). */
@@ -91,7 +107,7 @@ function UnmappedCampaignsPage({ mode = 'unmapped', advertiserBid }: CampaignsLi
   // this advertiser, OR a multi-advertiser candidate row that lists this BPID (shown as a
   // 'Multiple Advertisers' warning until resolved).
   const [rows, setRows] = useState<UnmappedCampaign[]>(() => {
-    const base = isAll ? [...unmappedCampaigns, ...mappedAsUnmappedRows()] : unmappedCampaigns
+    const base = isAll ? withLondonerFirstPage([...unmappedCampaigns, ...mappedAsUnmappedRows()]) : unmappedCampaigns
     if (!advertiserBid) return base
     return base.filter(
       c => c.advertiserBid === advertiserBid || (c.candidateBpids?.includes(advertiserBid) ?? false),

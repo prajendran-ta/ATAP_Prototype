@@ -76,7 +76,7 @@ export const AdvertiserDetailsContent = ({ advertiser, view = 'settings' }: Adve
     ? ['campaigns', 'audience', 'segmentation', 'media-plans', 'oba'].includes(requestedSection ?? '') ? requestedSection! : 'campaigns'
     : ['general-settings', 'platform-settings', 'reporting-settings'].includes(requestedSection ?? '') ? requestedSection! : 'general-settings'
   const activeTab = initialSummaryView ? 'summary' : 'settings'
-  // Demo advertisers (The Londoner Hotel + 10 others) are matched by BPID: a backend-owned one keeps its real id.
+  // Demo advertisers (The Londoner Hotel + 19 others) are matched by BPID: a backend-owned one keeps its real id.
   const isDemo = isDemoBpid(advertiser.bpid)
   // Seed the demo platform connections under this advertiser's id (idempotent; no-op for non-demo).
   seedDemoPlatformsFor(advertiser.advertiserId, advertiser.bpid)

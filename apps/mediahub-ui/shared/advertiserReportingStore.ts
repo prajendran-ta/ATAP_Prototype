@@ -35,20 +35,11 @@ export function getAdvertiserReporting(advertiserId?: string | number): Advertis
 // seeding you'd never see inherited labels in the mapping drawer. This seeds default Custom Label
 // 1/2/3 for the campaign-mock BPIDs so the inheritance is demonstrable. Values ARE the labels
 // (value-is-label); a blank custom falls back to the generic "Custom N" at render time.
-// Example (El Palace Barcelona, BP-2850): Custom 1 = "Market", 2/3 left blank -> show "Custom 2/3".
+// Example (Derby Hoteles): Custom 1 = "Market", 2/3 left blank -> show "Custom 2/3".
 const SEED: Record<string, AdvertiserReporting> = {
-  // All 10 demo advertisers from the registry first; the explicit entries below win where both exist.
+  // All demo advertisers from the registry; each carries its own reporting labels.
   ...Object.fromEntries(DEMO_ADVERTISERS.map(a => [a.bpid, { ...a.reporting }])),
-  'BP-2850': { custom1: 'Market', custom2: '', custom3: '' }, // El Palace Barcelona
-  'BP-64517': { custom1: 'Region', custom2: 'Campaign Objective', custom3: 'Fiscal Year' }, // Mulia Resort
-  'BP-64518': { custom1: 'Region', custom2: 'Property Cluster', custom3: '' }, // Mulia Villa
-  'BP-51546': { custom1: 'Market', custom2: 'Booking Window', custom3: '' }, // Trump Intl Hotel Las Vegas
-  // Real backend advertisers (BPIDs from the live Advertisers list) — same ones seeded with
-  // campaigns, so reporting labels + campaigns are consistent for the demo.
-  'BP-9074305': { custom1: 'Market', custom2: 'Campaign Objective', custom3: '' }, // 11 Howard New York
-  'BP-9113259': { custom1: 'Region', custom2: '', custom3: '' }, // 1 Hotel Brooklyn Bridge
   [LONDONER.bpid]: { ...LONDONER_REPORTING }, // The Londoner Hotel
-  'BP-9104332': { custom1: 'Market', custom2: 'Booking Window', custom3: 'Fiscal Year' }, // 25 hours Hotel Dubai
 }
 
 let seeded = false

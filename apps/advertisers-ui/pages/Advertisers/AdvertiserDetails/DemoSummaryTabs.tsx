@@ -43,7 +43,7 @@ const linkButton = (id: string, label: string, href: string) => (
   </Button>
 )
 
-/** True when the BPID is The Londoner Hotel or one of the 10 demo advertisers. */
+/** True when the BPID is The Londoner Hotel or one of the 19 demo advertisers. */
 export const isDemoBpid = (bpid: string | undefined): boolean =>
   !!bpid && (bpid === LONDONER.bpid || !!getDemoAdvertiserByBpid(bpid))
 

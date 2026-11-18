@@ -1,4 +1,5 @@
 import type { CampaignFlowData, DisplayBanner, RawCampaignPlatform, SearchAdConfig } from './campaignFlowData'
+import { LONDONER_MAX_LANGUAGES } from '../../shared/campaignNaming'
 
 /**
  * Flow profile for The Londoner Hotel ('Create campaigns with Max').
@@ -102,7 +103,11 @@ const SEARCH_FR = {
 const SEARCH_AD: SearchAdConfig = {
   displayName: 'The Londoner',
   displayUrl: 'https://www.thelondoner.com',
-  logo: '/creatives/londoner/300x250/logo.png',
+  logo: '/creatives/londoner/search/logo.jpg',
+  images: [
+    { name: 'Lobby', path: '/creatives/londoner/search/lobby.jpg' },
+    { name: 'Suite living room', path: '/creatives/londoner/search/suite.jpg' },
+  ],
   sitelinks: [
     {
       title: 'Official Website',
@@ -144,7 +149,8 @@ export const applyLondonerProfile = (data: CampaignFlowData): CampaignFlowData =
     campaignName: `${NAME} France 2027 Campaign`,
     mediaPlanName: `${NAME} — 2027`,
     // Market (France) is part of the fixed prefix: LON_2027_FR_<PLATFORM>_<TACTIC>.
-    namingConvention: 'LON_2027_FR_{platform}',
+    namingConvention: 'Channel_Tactic_OriginMarket_DestinationMarket_Language',
+    nameParts: { origin: 'FR', destination: 'GB', language: 'French', languageByChannel: LONDONER_MAX_LANGUAGES },
   }
   next.keywords = { ...next.keywords, brand: BRAND_KEYWORDS, generic: GENERIC_KEYWORDS }
 
@@ -155,7 +161,7 @@ export const applyLondonerProfile = (data: CampaignFlowData): CampaignFlowData =
 
   // Only the two platforms of the brief, in both selectable plans.
   next.conversation.mediaPlanTable = mediaPlanTable()
-  next.mediaPlan2026 = { ...next.mediaPlan2026, mediaPlanTable: mediaPlanTable() }
+  next.mediaPlan2026 = { ...next.mediaPlan2026, mediaPlanName: `${NAME} — 2026`, mediaPlanTable: mediaPlanTable() }
 
   next.platforms = next.platforms.map(platform => {
     if (platform.id === 'google-ads') {

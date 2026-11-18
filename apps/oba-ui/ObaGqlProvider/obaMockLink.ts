@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
- * Apollo link that serves The Londoner Hotel + the 10 demo advertisers' OBA data ("mock plans").
+ * Apollo link that serves The Londoner Hotel + the 19 demo advertisers' OBA data ("mock plans").
  *
  *  - Londoner-specific operations (single plan / group plan / group & campaign lookups for a Londoner
  *    plan, and every mutation on a Londoner plan) are answered ENTIRELY from the mock (no network).

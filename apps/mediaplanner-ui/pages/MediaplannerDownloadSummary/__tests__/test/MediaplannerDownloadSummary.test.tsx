@@ -133,7 +133,7 @@ describe('MediaplannerDownloadSummary — Overview rows', () => {
 
   test('shows the advertiser name without the BPID in the document eyebrow', () => {
     const { container } = renderPage()
-    expect(container.querySelector('#mediaplan_summary-doc_advertiser-txt')).toHaveTextContent('The Estate Yountville')
+    expect(container.querySelector('#mediaplan_summary-doc_advertiser-txt')).toHaveTextContent('Colonial Williamsburg Resorts')
     expect(container.querySelector('#mediaplan_summary-doc_advertiser-txt')).not.toHaveTextContent('ALPHA001')
   })
 

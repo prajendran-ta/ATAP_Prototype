@@ -123,17 +123,12 @@ export const formatMediaPlanUsers = (users: SharedQL.User[]): SelectOption[] => 
  * flow (Step 1) the Plan Name field becomes a dropdown of the selected advertiser's Closed Won
  * plans. Replace with a real query (status = CLOSED_WON for the advertiser) when wired to backend.
  */
-const CLOSED_WON_PLANS_BY_ADVERTISER: Record<string, string[]> = {
-  'The Estate Yountville': [
-    'The Estate Yountville — 2026 (Closed Won)',
-    'The Estate Yountville — Q4 2026 Push (Closed Won)',
-  ],
-  '1 Hotel Brooklyn Bridge': [
-    '1 Hotel Brooklyn Bridge — 2026 (Closed Won)',
-    '1 Hotel Brooklyn Bridge — Summer 2026 (Closed Won)',
-  ],
-  'Grand Harbor Hotel': ['Grand Harbor Hotel — 2026 (Closed Won)'],
-}
+const CLOSED_WON_PLANS_BY_ADVERTISER: Record<string, string[]> = Object.fromEntries(
+  DEMO_ADVERTISERS.map(adv => [
+    adv.name,
+    [`${adv.name} — 2026 (Closed Won)`, `${adv.name} — Summer 2026 (Closed Won)`],
+  ]),
+)
 
 const DEFAULT_CLOSED_WON_PLANS = ['2026 Annual Plan (Closed Won)', '2026 H2 Campaign (Closed Won)']
 
@@ -182,13 +177,10 @@ export function buildPlanNameOptionsQueryFn(
 
 /**
  * Prototype-only seeded overview rows, all in NEW status (as if just arrived from Salesforce):
- * 1 Londoner demo plan + 10 demo-advertiser plans (alternating New / Renewal) + the 10 original
- * prototype rows (4 New, 4 Renewal, 2 Amendment) = 21 rows. Prepended to the live backend results
- * in the overview table so the different plan types / the NEW status chip can be demoed. The
- * Londoner and demo-advertiser rows use id 'sf-plan-<key>' so each opens its own mocked Salesforce
- * plan (see mockSalesforcePlans.ts). The original seed-new-3 / seed-new-6 rows (11 Howard, 1 Hotel
- * Brooklyn Bridge, BP-900003 / BP-900006) predate the demo registry and are intentionally kept as
- * they are. Remove when the real Salesforce intake seeds the list.
+ * 1 Londoner demo plan + 19 demo-advertiser plans (alternating New / Renewal) + 2 Amendments = 22 rows.
+ * Prepended to the live backend results in the overview table so the different plan types / the NEW status chip
+ * can be demoed. The Londoner and demo-advertiser rows use id 'sf-plan-<key>' so each opens its own mocked
+ * Salesforce plan (see mockSalesforcePlans.ts). Remove when the real Salesforce intake seeds the list.
  */
 const seededNewPlan = (
   index: number,
@@ -236,7 +228,7 @@ export const SEEDED_NEW_PLANS: MediaplannerQL.MediaPlan[] = [
       endDate: LONDONER.endDateDisplay,
     },
   ),
-  // The 10 demo advertisers (shared/demoAdvertisers.ts), each opening its own mocked Salesforce plan
+  // The 19 demo advertisers (shared/demoAdvertisers.ts), each opening its own mocked Salesforce plan
   // (sf-plan-<key>). Plan type alternates New / Renewal by index.
   ...DEMO_ADVERTISERS.map((adv, index) =>
     seededNewPlan(
@@ -254,60 +246,21 @@ export const SEEDED_NEW_PLANS: MediaplannerQL.MediaPlan[] = [
       },
     ),
   ),
-  // 4 New
-  seededNewPlan(1, 'The Estate Yountville — 2027', 'The Estate Yountville', 'BP-900001', PlanTypeEnum.New, 500000),
-  seededNewPlan(2, 'Grand Harbor Hotel — 2027', 'Grand Harbor Hotel', 'BP-900002', PlanTypeEnum.New, 350000),
-  seededNewPlan(
-    3,
-    '11 Howard New York — 2027',
-    '11 Howard New York a Member of Design Hotels',
-    'BP-900003',
-    PlanTypeEnum.New,
-    420000,
-  ),
-  seededNewPlan(4, 'Alila Ventana Big Sur — 2027', 'Alila Ventana Big Sur', 'BP-900004', PlanTypeEnum.New, 610000),
-  // 4 Renewal
-  seededNewPlan(
-    5,
-    '1926 Heritage Hotel Penang — 2027',
-    '1926 Heritage Hotel Penang by The Unlimited Collection',
-    'BP-900005',
-    PlanTypeEnum.Renewal,
-    280000,
-  ),
-  seededNewPlan(
-    6,
-    '1 Hotel Brooklyn Bridge — 2027',
-    '1 Hotel Brooklyn Bridge',
-    'BP-900006',
-    PlanTypeEnum.Renewal,
-    540000,
-  ),
-  seededNewPlan(7, 'Hotel Nova — 2027', 'Hotel Nova', 'BP-900007', PlanTypeEnum.Renewal, 190000),
-  seededNewPlan(
-    8,
-    'The Hoxton Downtown LA — 2027',
-    'The Hoxton Downtown LA',
-    'BP-900008',
-    PlanTypeEnum.Renewal,
-    460000,
-  ),
-  // 2 Amendment
-  seededNewPlan(
-    9,
-    'The Estate Yountville — 2027 (Amendment)',
-    'The Estate Yountville',
-    'BP-900001',
-    'AMENDMENT',
-    525000,
-  ),
-  seededNewPlan(
-    10,
-    '1 Hotel Brooklyn Bridge — 2027 (Amendment)',
-    '1 Hotel Brooklyn Bridge',
-    'BP-900006',
-    'AMENDMENT',
-    560000,
+  // 2 Amendments of existing plans (the amendment flow offers these advertisers' Closed Won plans)
+  ...DEMO_ADVERTISERS.filter(adv => ['cwresorts', 'southseas'].includes(adv.key)).map((adv, index) =>
+    seededNewPlan(
+      index + 1,
+      `${adv.mediaPlanName} (Amendment)`,
+      adv.name,
+      adv.bpid,
+      'AMENDMENT',
+      Math.round((adv.totalBudget * 1.05) / 1000) * 1000,
+      {
+        currency: adv.currency,
+        startDate: isoToDisplayDate(adv.startDate),
+        endDate: isoToDisplayDate(adv.endDate),
+      },
+    ),
   ),
 ]
 

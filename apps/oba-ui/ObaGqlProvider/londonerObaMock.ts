@@ -898,8 +898,11 @@ export const GBP_CURRENCY = { [TS]: 'Currency', code: 'GBP', name: 'British Poun
 /** GBP (Londoner) plus the demo advertisers' currencies. */
 export const MOCK_CURRENCIES = [
   GBP_CURRENCY,
+  { [TS]: 'Currency', code: 'AUD', name: 'Australian Dollar', symbol: '$' },
   { [TS]: 'Currency', code: 'EUR', name: 'Euro', symbol: '€' },
+  { [TS]: 'Currency', code: 'HKD', name: 'Hong Kong Dollar', symbol: '$' },
   { [TS]: 'Currency', code: 'NZD', name: 'New Zealand Dollar', symbol: '$' },
+  { [TS]: 'Currency', code: 'SGD', name: 'Singapore Dollar', symbol: '$' },
   { [TS]: 'Currency', code: 'USD', name: 'US Dollar', symbol: '$' },
 ]
 

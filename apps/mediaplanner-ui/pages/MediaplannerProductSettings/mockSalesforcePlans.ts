@@ -170,7 +170,7 @@ export const BASE_PRODUCT_TYPE_LABEL: Record<BaseProductType, string> = {
 export const MOCK_SF_PLAN_ONE: MockSalesforcePlan = {
   id: 'sf-plan-001',
   planName: 'SF Plan One — Agency (Mgmt Fee on Consumption)',
-  advertiserName: 'The Estate Yountville',
+  advertiserName: 'Colonial Williamsburg Resorts',
   advertiserType: 'HOTEL',
   planType: 'NEW',
   currency: 'USD',
@@ -331,7 +331,7 @@ export const MOCK_SF_PLAN_ONE: MockSalesforcePlan = {
 export const MOCK_SF_PLAN_TWO: MockSalesforcePlan = {
   id: 'sf-plan-002',
   planName: 'SF Plan Two — Agency (no contract budget)',
-  advertiserName: 'Grand Harbor Hotel',
+  advertiserName: 'The Grove Resort Orlando',
   advertiserType: 'HOTEL',
   planType: 'NEW',
   currency: 'USD',
@@ -558,7 +558,7 @@ export const MOCK_SF_PLAN_LONDONER: MockSalesforcePlan = {
 }
 
 /* -------------------------------------------------------------------------------------------------
- * Demo advertiser plans (the 10 advertisers in shared/demoAdvertisers.ts)
+ * Demo advertiser plans (the 19 advertisers in shared/demoAdvertisers.ts)
  *
  * Generated deterministically from the registry so the plan matches the advertiser everywhere:
  * name / budget / currency / BID / opportunity / proposal / period. Each channel's monthly row is
@@ -611,14 +611,26 @@ const spreadByPct = (total: number, pct: number[]): number[] => {
   return monthly
 }
 
-const CURRENCY_SYMBOL: Record<string, string> = { USD: '$', EUR: '€', NZD: 'NZ$', GBP: '£' }
+const CURRENCY_SYMBOL: Record<string, string> = {
+  USD: '$',
+  EUR: '€',
+  NZD: 'NZ$',
+  GBP: '£',
+  AUD: 'A$',
+  SGD: 'S$',
+  HKD: 'HK$',
+}
 const formatMoney = (currency: string, amount: number): string =>
   `${CURRENCY_SYMBOL[currency] ?? `${currency} `}${amount.toLocaleString('en-US')}`
 
 const DEMO_BILL_TO: Record<string, string> = {
   USD: 'Amadeus Hospitality Americas, Inc.',
   EUR: 'Amadeus Hospitality Iberia S.L.',
+  GBP: 'Amadeus Hospitality UK Ltd',
   NZD: 'Amadeus Hospitality ANZ Pty Ltd',
+  AUD: 'Amadeus Hospitality ANZ Pty Ltd',
+  SGD: 'Amadeus Hospitality APAC Pte Ltd',
+  HKD: 'Amadeus Hospitality APAC Pte Ltd',
 }
 const MGMT_FEE_PCT = [15, 14, 16, 15, 13, 15, 14, 16, 15, 14]
 const METASEARCH_FEE_PCT = [10, 9, 10, 11, 8, 10, 9, 10, 11, 9]
@@ -812,8 +824,8 @@ export type SalesforceScenarioId = 'SINGLE_SINGLE' | 'SINGLE_MULTI' | 'MULTI_MUL
 export const MOCK_SF_SCENARIO_SINGLE_SINGLE: MockSalesforcePlan = {
   ...MOCK_SF_PLAN_TWO,
   id: 'sf-scenario-single-single',
-  planName: 'Grand Harbor Hotel — 2027 Media Plan',
-  advertiserName: 'Grand Harbor Hotel',
+  planName: 'The Grove Resort Orlando — 2027 Media Plan',
+  advertiserName: 'The Grove Resort Orlando',
   contractBudgetTarget: 500000,
   opportunityId: 'OPP-900001',
   proposalId: 'PROP-900001',
@@ -831,8 +843,8 @@ export const MOCK_SF_SCENARIO_SINGLE_SINGLE: MockSalesforcePlan = {
 export const MOCK_SF_SCENARIO_SINGLE_MULTI: MockSalesforcePlan = {
   ...MOCK_SF_PLAN_TWO,
   id: 'sf-scenario-single-multi',
-  planName: 'Grand Harbor Collection — 2027 Media Plan',
-  advertiserName: 'Grand Harbor Hotel',
+  planName: 'The Grove Resort Orlando Collection — 2027 Media Plan',
+  advertiserName: 'The Grove Resort Orlando',
   contractBudgetTarget: 500000,
   opportunityId: 'OPP-900002',
   proposalId: 'PROP-900002',
@@ -850,7 +862,7 @@ export const MOCK_SF_SCENARIO_SINGLE_MULTI: MockSalesforcePlan = {
 export const MOCK_SF_SCENARIO_MULTI_MULTI: MockSalesforcePlan = {
   ...MOCK_SF_PLAN_ONE,
   id: 'sf-scenario-multi-multi',
-  planName: 'The Estate Yountville — 2027 Media Plan',
+  planName: 'Colonial Williamsburg Resorts — 2027 Media Plan',
   opportunityId: 'OPP-900003',
   proposalId: 'PROP-900003',
   products: [

@@ -133,6 +133,12 @@ export const LONDONER_EXTERNAL_ADVERTISERS = {
 /** Advertiser-level reporting labels (Custom 1/2/3) for Campaign Setup. */
 export const LONDONER_REPORTING = { custom1: 'Market', custom2: 'Campaign Objective', custom3: 'Fiscal Year' } as const
 
+/** `items` with The Londoner's entries first (the order is otherwise unchanged): it is always on top. */
+export const londonerFirst = <T>(items: T[], isLondoner: (item: T) => boolean): T[] => [
+  ...items.filter(isLondoner),
+  ...items.filter(item => !isLondoner(item)),
+]
+
 /** True when an advertiser name / BPID / id string refers to The Londoner Hotel. */
 export function isLondonerAdvertiser(value: string | number | undefined | null): boolean {
   if (value === undefined || value === null) return false
@@ -146,10 +152,8 @@ export function isLondonerAdvertiser(value: string | number | undefined | null):
 }
 
 /**
- * Naming Convention String for the Londoner's mapped campaigns (UX-5.4):
- *   <advertiser name>_<Tactic>_<Sub-Type>_<Language>_<Custom1>_<Custom2>_<Custom3>
- * (underscore-joined, empty tokens omitted). Custom 1/2/3 follow the advertiser's Reporting
- * labels (LONDONER_REPORTING): Market / Campaign Objective / Fiscal Year.
+ * Custom 1/2/3 values (Market / Campaign Objective / Fiscal Year) for the Londoner's mapped campaigns, following
+ * the advertiser's Reporting labels (LONDONER_REPORTING).
  */
 export function londonerCampaignCustoms(
   tactic: string,
@@ -165,10 +169,4 @@ export function londonerCampaignCustoms(
         ? 'Awareness'
         : 'Conversion'
   return { custom1: market, custom2: objective, custom3: 'FY27' }
-}
-
-/** `label` is the name token for the sub-type (defaults to the sub-type itself). */
-export function londonerCampaignName(tactic: string, subType: string, language: string, label?: string): string {
-  const { custom1, custom2, custom3 } = londonerCampaignCustoms(tactic, subType, language)
-  return [LONDONER.name, tactic, label ?? subType, language, custom1, custom2, custom3].filter(Boolean).join('_')
 }

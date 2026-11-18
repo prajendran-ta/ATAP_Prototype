@@ -2,6 +2,7 @@ import rawData from './data/campaign-data.json'
 import rawDataMockstay from './data/campaign-data-mockstay.json'
 import { applyLondonerProfile } from './campaignFlowProfiles'
 import { LONDONER } from '../../shared/londonerHotel'
+import { DEMO_ADVERTISERS } from '../../shared/demoAdvertisers'
 
 export type ChannelGroup = 'Paid search' | 'Display Advertising' | 'Social' | 'Metasearch' | 'Other'
 
@@ -30,6 +31,8 @@ export type SearchAdConfig = {
   displayUrl: string
   /** Logo shown in the round avatar (served from public/). */
   logo?: string
+  /** Image assets shown beside the ad text (served from public/); the first one is previewed. */
+  images?: { name: string; path: string }[]
   sitelinks: SearchAdSitelink[]
   /** Sitelinks per language code (falls back to `sitelinks`). */
   localizedSitelinks?: Record<string, SearchAdSitelink[]>
@@ -175,6 +178,14 @@ export type CampaignFlowData = {
     startDate: string
     endDate: string
     namingConvention: string
+    /** Set when names follow Channel_Tactic_OriginMarket_DestinationMarket_Language instead of the prefix convention. */
+    nameParts?: {
+      origin: string
+      destination: string
+      language: string
+      /** Language per channel (e.g. { PaidSearch: 'English-French' }); `language` for the other channels. */
+      languageByChannel?: Partial<Record<string, string>>
+    }
     totalBudget: number
     manageBudgetByOba: boolean
   }
@@ -271,9 +282,20 @@ export type CampaignFlowData = {
 // (Amadeus Hotels = Contract/closed-won flow; MockStay Hotels = Performance growth-opportunity flow).
 export type FlowAdvertiserKey = 'amadeus' | 'mockstay'
 
+/**
+ * The advertiser of the growth-opportunity (US push) flow. Its dataset is authored for a fictional "MockStay"
+ * hotel group; the name (and the "MockStay <place>" property names) is replaced when the dataset is loaded.
+ */
+export const GROWTH_FLOW_ADVERTISER = DEMO_ADVERTISERS.find(advertiser => advertiser.key === 'mhreurope')!
+
+const withGrowthFlowAdvertiser = (data: unknown): CampaignFlowData => {
+  const name = JSON.stringify(GROWTH_FLOW_ADVERTISER.name).slice(1, -1)
+  return JSON.parse(JSON.stringify(data).split('MockStay Hotels').join(name).split('MockStay').join('Millennium'))
+}
+
 const DATASETS: Record<FlowAdvertiserKey, CampaignFlowData> = {
   amadeus: rawData as unknown as CampaignFlowData,
-  mockstay: rawDataMockstay as unknown as CampaignFlowData,
+  mockstay: withGrowthFlowAdvertiser(rawDataMockstay),
 }
 
 let activeAdvertiser: FlowAdvertiserKey = 'amadeus'
