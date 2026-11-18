@@ -20,7 +20,6 @@ import {
   reportingPlatformForPlatform,
   type UnmappedCampaign,
 } from './mockData/unmappedCampaigns'
-import CampaignPerformanceCard from './CampaignPerformanceCard'
 import * as Styled from './CampaignSummaryDrawer.styled'
 
 type CampaignSummaryDrawerProps = {
@@ -135,12 +134,6 @@ export const CampaignSummaryDrawer: React.FC<CampaignSummaryDrawerProps> = ({ ca
   const renderBasic = (current: UnmappedCampaign) => {
     return (
       <Styled.Panel>
-        <CampaignPerformanceCard
-          campaignId={current.externalCampaignId}
-          platform={current.platform}
-          status={campaignStatusOf(current)}
-          budget={summary?.basicInfo.find(field => field.label === 'Budget')?.value}
-        />
         <Styled.Card>
           <KeyValueTable
             id='campaign-summary-basic'
